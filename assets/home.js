@@ -15,8 +15,7 @@
     /* SCENE 01 — hero window opens into the first world */
     var win = $('.hero__window'), winImg = $('.hero__window img');
     var small = function () {
-      var w = mobile() ? 30 : 41, h = mobile() ? 38 : 41;
-      return 'inset(' + h + '% ' + (mobile() ? 22 : 43) + '% ' + h + '% ' + (mobile() ? 22 : 43) + '% round 14px)';
+      return mobile() ? 'inset(46% 30% 38% 30% round 12px)' : 'inset(41% 43% 41% 43% round 14px)';
     };
     gsap.fromTo(win, { clipPath: 'inset(50% 50% 50% 50% round 14px)' }, { clipPath: small, duration: 1.6, delay: 0.45, ease: 'expo.out' });
 
@@ -159,7 +158,11 @@
       sio.observe(stage);
     } else load();
     layout();
-    if ('ResizeObserver' in window) new ResizeObserver(layout).observe(stage); else window.addEventListener('resize', layout);
+    if ('ResizeObserver' in window) new ResizeObserver(layout).observe(stage);
+    window.addEventListener('resize', layout);
+    window.addEventListener('load', layout);
+    setTimeout(layout, 1200);
+    document.addEventListener('er:lang', function () { setTimeout(layout, 50); });
 
     var tabs = $$('.studio__projects button');
     tabs.forEach(function (b, i) {
