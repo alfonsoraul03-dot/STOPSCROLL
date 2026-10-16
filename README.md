@@ -25,7 +25,7 @@ Todas las demos muestran una etiqueta "Concepto de diseño · marca ficticia" y 
 
 ## Publicar con GitHub Pages
 
-Settings → Pages → Deploy from a branch → `main` / root. URL: `https://alfonsoraul03-dot.github.io/STOPSCROLL/`
+Settings → Pages → Deploy from a branch → `main` / root. URL: `https://erstudioweb.com` (antes `https://alfonsoraul03-dot.github.io/STOPSCROLL/`)
 
 ## Dominio propio
 
