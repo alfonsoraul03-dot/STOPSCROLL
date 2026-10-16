@@ -274,7 +274,7 @@
 .studio__screen { position: relative; flex: 1; overflow: hidden; background: #fff; border-radius: 0 0 10px 10px; }
 .studio__stage[data-device="tablet"] .studio__screen { border-radius: 16px; }
 .studio__stage[data-device="mobile"] .studio__screen { border-radius: 28px; }
-.studio__screen iframe { position: absolute; left: 0; top: 0; border: 0; transform-origin: 0 0; background: #fff; transition: opacity .4s; }
+.studio__screen iframe { position: absolute; left: 0; top: 0; border: 0; max-width: none; transform-origin: 0 0; background: #fff; transition: opacity .4s; }
 .studio__screen.is-loading iframe { opacity: .2; }
 .studio__device:fullscreen { width: 100% !important; height: 100% !important; border-radius: 0; padding: 0 !important; }
 .studio__device:fullscreen .studio__screen iframe { width: 100% !important; height: 100% !important; transform: none !important; }
