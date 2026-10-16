@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ironline Builders · A demo by ER Studio</title>
+  <meta name="description" content="Demo website by ER Studio: a custom home builder." />
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500;75..100,800&family=Archivo+Narrow:wght@500&display=swap" />
+  <style>
+    :root { --steel: #16191D; --plate: #22262C; --concrete: #D8D4CC; --safety: #F2B705; --white: #F5F3EF; --grey: #9AA0A8; }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--steel); color: var(--white); font-family: "Archivo", system-ui, sans-serif; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+    img { display: block; max-width: 100%; }
+    h1, h2, h3, p { margin: 0; }
+    a { color: inherit; }
+    .cond { font-stretch: 75%; font-weight: 800; text-transform: uppercase; letter-spacing: -0.01em; line-height: 0.9; }
+    .tag { font-family: "Archivo Narrow", sans-serif; font-size: 0.8rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--safety); }
+
+    .demo-bar { position: fixed; z-index: 100; left: 50%; bottom: 1rem; transform: translateX(-50%); display: flex; gap: 0.8rem; align-items: center; padding: 0.55rem 0.65rem 0.55rem 1rem; border-radius: 999px; background: rgba(255,255,255,0.95); color: #0E1525; font: 500 0.82rem/1 system-ui, sans-serif; box-shadow: 0 10px 30px rgba(0,0,0,0.35); white-space: nowrap; }
+    .demo-bar a { background: #0E1525; color: #fff; text-decoration: none; padding: 0.5rem 0.85rem; border-radius: 999px; }
+
+    header { position: absolute; inset: 0 0 auto 0; z-index: 10; display: flex; align-items: center; gap: 2rem; padding: 1.3rem clamp(1.2rem, 5vw, 4rem); }
+    .logo { text-decoration: none; font-size: 1.6rem; display: flex; align-items: center; gap: 0.6rem; }
+    .logo i { width: 14px; height: 30px; background: var(--safety); display: inline-block; transform: skewX(-12deg); }
+    nav { margin-left: auto; display: flex; gap: 2rem; font-family: "Archivo Narrow", sans-serif; text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.85rem; }
+    nav a { text-decoration: none; }
+    .quote { background: var(--safety); color: var(--steel); text-decoration: none; padding: 0.85rem 1.3rem; font-weight: 800; font-stretch: 85%; text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.85rem; clip-path: polygon(0 0, 100% 0, 92% 100%, 0 100%); padding-right: 1.8rem; transition: transform .25s; }
+    .quote:hover { transform: translateX(4px); }
+
+    .hero { position: relative; min-height: 100svh; display: grid; align-items: end; overflow: hidden; }
+    .hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to right, rgba(22,25,29,0.92) 0%, rgba(22,25,29,0.55) 45%, rgba(22,25,29,0.1) 100%); }
+    .hero__copy { position: relative; z-index: 2; padding: 0 clamp(1.2rem, 5vw, 4rem) clamp(4rem, 12vh, 8rem); display: grid; gap: 1.4rem; max-width: 56rem; }
+    .hero h1 { font-size: clamp(3.4rem, 10vw, 8.5rem); }
+    .hero h1 span { color: var(--safety); }
+    .hero p { max-width: 30rem; color: var(--concrete); font-size: 1.1rem; }
+
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); background: var(--safety); color: var(--steel); }
+    .stats div { padding: 2rem clamp(1rem, 3vw, 2.5rem); border-right: 2px solid rgba(22,25,29,0.15); }
+    .stats strong { display: block; font-size: clamp(2.4rem, 5vw, 4rem); font-stretch: 75%; font-weight: 800; line-height: 1; }
+    .stats span { font-family: "Archivo Narrow", sans-serif; text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.8rem; }
+
+    .build { display: grid; grid-template-columns: 1fr 1.1fr; gap: clamp(2rem, 6vw, 5rem); padding: clamp(4rem, 10vw, 8rem) clamp(1.2rem, 5vw, 4rem); align-items: center; }
+    .build img { aspect-ratio: 4/5; object-fit: cover; filter: contrast(1.05); }
+    .build h2 { font-size: clamp(2.6rem, 6vw, 5rem); margin: 1rem 0 1.4rem; }
+    .build p { color: var(--grey); font-size: 1.05rem; }
+    .steps { margin-top: 2.4rem; display: grid; gap: 0; }
+    .steps div { display: grid; grid-template-columns: 4rem 1fr; padding: 1.2rem 0; border-top: 1px solid rgba(245,243,239,0.14); }
+    .steps b { font-stretch: 75%; font-weight: 800; font-size: 1.6rem; color: var(--safety); }
+    .steps h3 { font-size: 1.15rem; font-weight: 800; font-stretch: 85%; text-transform: uppercase; }
+    .steps p { font-size: 0.95rem; margin-top: 0.2rem; }
+
+    .project { position: relative; min-height: 85vh; display: grid; align-items: end; overflow: hidden; }
+    .project img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .project::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(22,25,29,0.95), rgba(22,25,29,0) 60%); }
+    .project div { position: relative; z-index: 2; padding: clamp(2rem, 6vw, 4rem); display: grid; gap: 0.8rem; }
+    .project h2 { font-size: clamp(2.4rem, 6vw, 4.8rem); }
+    .project p { color: var(--concrete); max-width: 34rem; }
+
+    .contact { padding: clamp(4rem, 10vw, 8rem) clamp(1.2rem, 5vw, 4rem); display: grid; grid-template-columns: 1.2fr 1fr; gap: 3rem; align-items: center; background: var(--plate); }
+    .contact h2 { font-size: clamp(2.6rem, 6vw, 5rem); }
+    .contact p { color: var(--grey); margin-top: 1rem; }
+    .contact ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 1rem; font-size: 1.1rem; }
+    .contact li { border-left: 4px solid var(--safety); padding-left: 1rem; }
+    footer { padding: 2rem clamp(1.2rem, 5vw, 4rem) 6rem; color: var(--grey); font-size: 0.85rem; }
+
+    @media (max-width: 820px) {
+      nav { display: none; }
+      header .quote { margin-left: auto; }
+      .stats { grid-template-columns: 1fr 1fr; }
+      .build, .contact { grid-template-columns: 1fr; }
+      .hero::after { background: linear-gradient(to top, rgba(22,25,29,0.95) 15%, rgba(22,25,29,0.3) 100%); }
+    }
+  </style>
+</head>
+<body>
+  <div class="demo-bar">Demo website · ER Studio <a href="../../">Back</a></div>
+
+  <header>
+    <a class="logo cond" href="#"><i></i>Ironline</a>
+    <nav><a href="#process">Process</a><a href="#work">Work</a><a href="#contact">Contact</a></nav>
+    <a class="quote" href="#contact">Free estimate</a>
+  </header>
+
+  <section class="hero">
+    <img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3JkTYSIMBFwy3FWXWC6OIINtfRW/032a1a45-ba70-4b28-86dd-761ab0427b75.webp" alt="Modern home frame under construction at sunset" />
+    <div class="hero__copy">
+      <p class="tag">Custom homes · Licensed &amp; insured</p>
+      <h1 class="cond">Built right.<br /><span>Built once.</span></h1>
+      <p>Custom homes and major renovations delivered on schedule, on budget, with one crew from foundation to final walkthrough.</p>
+    </div>
+  </section>
+
+  <section class="stats">
+    <div><strong>240+</strong><span>Homes delivered</span></div>
+    <div><strong>18 yrs</strong><span>In business</span></div>
+    <div><strong>96%</strong><span>On-time handover</span></div>
+    <div><strong>10 yr</strong><span>Structural warranty</span></div>
+  </section>
+
+  <section class="build" id="process">
+    <img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3JkTYSIMBFwy3FWXWC6OIINtfRW/a5024675-2b8f-4cb2-8fc7-fe50733e036b.webp" alt="Foreman holding blueprints on site" loading="lazy" />
+    <div>
+      <p class="tag">How we build</p>
+      <h2 class="cond">No surprises. Ever.</h2>
+      <p>You get a fixed price, a written schedule and a weekly photo update. If something changes, you hear it from us first.</p>
+      <div class="steps">
+        <div><b>01</b><div><h3>Site visit &amp; estimate</h3><p>Free, detailed, within 72 hours.</p></div></div>
+        <div><b>02</b><div><h3>Design &amp; permits</h3><p>Our architects handle drawings and approvals.</p></div></div>
+        <div><b>03</b><div><h3>Build</h3><p>One dedicated crew and a project manager you can call.</p></div></div>
+        <div><b>04</b><div><h3>Handover</h3><p>Final walkthrough, keys and a 10-year warranty.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="project" id="work">
+    <img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3JkTYSIMBFwy3FWXWC6OIINtfRW/6068950c-5e06-4893-b3d0-3cb20aa16391.webp" alt="Finished modern home at dusk" loading="lazy" />
+    <div>
+      <p class="tag">Recent project</p>
+      <h2 class="cond">The Ridge House</h2>
+      <p>4,200 sq ft, steel and timber frame, delivered two weeks ahead of schedule.</p>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div>
+      <h2 class="cond">Let's talk about your build.</h2>
+      <p>Tell us about your lot and your plans. A project manager will call you within one business day.</p>
+    </div>
+    <ul>
+      <li>(000) 000-0000</li>
+      <li>build@ironline.example</li>
+      <li>Mon–Sat · 7am–6pm</li>
+    </ul>
+  </section>
+
+  <footer>Ironline Builders is a fictional company created by ER Studio as a website design example.</footer>
+</body>
+</html>

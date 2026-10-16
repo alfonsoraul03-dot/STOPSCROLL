@@ -1,20 +1,22 @@
-# ScrollStop Studio
+# ER Studio
 
-Web de la agencia ScrollStop Studio: anuncios en video con IA para marcas de e-commerce.
+Web de la agencia ER Studio: páginas web para cualquier negocio, de sencillas a cinematográficas.
+
+Incluye tres webs de ejemplo navegables en `demos/` (restaurante Brasa, clínica Northshore Dental y constructora Ironline Builders).
 
 Es una web estática (HTML, CSS y JavaScript), sin dependencias ni proceso de compilación:
 
 - `index.html`: el contenido de la página.
 - `styles.css`: colores, tipografías y diseño.
-- `main.js`: la película que avanza al hacer scroll y los botones de "Free ad", que abren un email a growthwithraul@gmail.com.
+- `main.js`: cambio de idioma inglés/español, la película que avanza con el scroll, los ejemplos en vivo y los botones de "boceto gratis", que abren un email a growthwithraul@gmail.com.
 
 ## Publicarla gratis con GitHub Pages
 
 1. En este repositorio, entra en **Settings → Pages**.
 2. En **Source**, elige **Deploy from a branch**, rama **main** y carpeta **/ (root)**. Guarda.
-3. En un par de minutos estará en `https://alfonsoraul03-dot.github.io/stopscroll/`.
+3. En un par de minutos estará en `https://alfonsoraul03-dot.github.io/STOPSCROLL/`.
 
-## Conectar tu dominio (por ejemplo scrollstopstudio.net)
+## Conectar tu dominio (por ejemplo erstudio.com o similar)
 
 1. Compra el dominio en tu registrador.
 2. En **Settings → Pages → Custom domain**, escribe el dominio y guarda.

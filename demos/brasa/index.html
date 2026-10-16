@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Brasa | Cocina de fuego · Ejemplo de ER Studio</title>
+  <meta name="description" content="Web de ejemplo creada por ER Studio: un restaurante de cocina a la brasa." />
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600&display=swap" />
+  <style>
+    :root { --coal: #0F0C0A; --char: #1B1612; --ember: #E3612A; --gold: #D9A55B; --bone: #F2EADF; --ash: #A89C8E; }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--coal); color: var(--bone); font-family: "Manrope", system-ui, sans-serif; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    img { display: block; max-width: 100%; }
+    h1, h2, h3, p { margin: 0; }
+    a { color: inherit; }
+    .serif { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 500; letter-spacing: -0.01em; }
+    .eyebrow { font-size: 0.75rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); }
+
+    .demo-bar { position: fixed; z-index: 100; left: 50%; bottom: 1rem; transform: translateX(-50%); display: flex; gap: 0.8rem; align-items: center; padding: 0.55rem 0.65rem 0.55rem 1rem; border-radius: 999px; background: rgba(255,255,255,0.95); color: #0E1525; font: 500 0.82rem/1 system-ui, sans-serif; box-shadow: 0 10px 30px rgba(0,0,0,0.35); white-space: nowrap; }
+    .demo-bar a { background: #0E1525; color: #fff; text-decoration: none; padding: 0.5rem 0.85rem; border-radius: 999px; }
+
+    header { position: absolute; inset: 0 0 auto 0; z-index: 10; display: flex; align-items: center; justify-content: space-between; padding: 1.4rem clamp(1.2rem, 5vw, 4rem); }
+    .logo { font-size: 1.9rem; letter-spacing: 0.04em; text-decoration: none; }
+    .logo span { color: var(--ember); }
+    nav { display: flex; gap: 2rem; font-size: 0.85rem; letter-spacing: 0.12em; text-transform: uppercase; }
+    nav a { text-decoration: none; opacity: 0.85; }
+    .book { border: 1px solid var(--gold); color: var(--gold); padding: 0.7rem 1.2rem; text-decoration: none; font-size: 0.8rem; letter-spacing: 0.16em; text-transform: uppercase; transition: background .3s, color .3s; }
+    .book:hover { background: var(--gold); color: var(--coal); }
+
+    .hero { position: relative; min-height: 100svh; display: grid; align-items: end; overflow: hidden; }
+    .hero__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transform: scale(1.08); animation: slowzoom 18s ease-out forwards; }
+    .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, var(--coal) 0%, rgba(15,12,10,0.55) 40%, rgba(15,12,10,0.15) 100%); }
+    .hero__copy { position: relative; z-index: 2; padding: 0 clamp(1.2rem, 5vw, 4rem) clamp(4rem, 10vh, 7rem); max-width: 60rem; display: grid; gap: 1.4rem; }
+    .hero h1 { font-size: clamp(3.2rem, 9vw, 7.5rem); line-height: 0.92; }
+    .hero h1 em { color: var(--ember); }
+    .hero p { max-width: 32rem; color: var(--ash); font-size: 1.1rem; }
+    @keyframes slowzoom { to { transform: scale(1); } }
+
+    .intro { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 6vw, 6rem); align-items: center; padding: clamp(5rem, 12vw, 9rem) clamp(1.2rem, 5vw, 4rem); }
+    .intro h2 { font-size: clamp(2.4rem, 5vw, 4rem); line-height: 1; }
+    .intro p { color: var(--ash); margin-top: 1.4rem; font-size: 1.05rem; }
+    .intro img { border-radius: 4px; aspect-ratio: 4/5; object-fit: cover; }
+
+    .menu { padding: clamp(4rem, 10vw, 8rem) clamp(1.2rem, 5vw, 4rem); background: var(--char); }
+    .menu__head { display: flex; justify-content: space-between; align-items: end; gap: 2rem; flex-wrap: wrap; }
+    .menu h2 { font-size: clamp(2.4rem, 5vw, 4rem); }
+    .menu__list { margin-top: 3rem; display: grid; grid-template-columns: 1fr 1fr; gap: 0 4rem; }
+    .dish { display: grid; grid-template-columns: 1fr auto; gap: 0.3rem 1rem; padding: 1.4rem 0; border-bottom: 1px solid rgba(242,234,223,0.12); }
+    .dish h3 { font-family: "Cormorant Garamond", serif; font-size: 1.6rem; font-weight: 600; }
+    .dish span { font-family: "Cormorant Garamond", serif; font-size: 1.5rem; color: var(--gold); }
+    .dish p { grid-column: 1 / -1; color: var(--ash); font-size: 0.95rem; }
+
+    .room { position: relative; min-height: 80vh; display: grid; place-items: center; text-align: center; overflow: hidden; }
+    .room img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .room::after { content: ""; position: absolute; inset: 0; background: rgba(15,12,10,0.6); }
+    .room div { position: relative; z-index: 2; display: grid; gap: 1.2rem; padding: 2rem; justify-items: center; }
+    .room h2 { font-size: clamp(2.6rem, 6vw, 5rem); line-height: 1; max-width: 18ch; }
+
+    .visit { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; padding: clamp(4rem, 9vw, 7rem) clamp(1.2rem, 5vw, 4rem); }
+    .visit h3 { font-family: "Cormorant Garamond", serif; font-size: 1.6rem; margin-bottom: 0.6rem; color: var(--gold); }
+    .visit p { color: var(--ash); }
+    footer { padding: 2rem clamp(1.2rem, 5vw, 4rem) 6rem; border-top: 1px solid rgba(242,234,223,0.1); color: var(--ash); font-size: 0.85rem; }
+
+    @media (max-width: 760px) {
+      nav { display: none; }
+      .intro, .menu__list, .visit { grid-template-columns: 1fr; }
+      .intro img { order: -1; }
+    }
+    @media (prefers-reduced-motion: reduce) { .hero__img { animation: none; transform: none; } }
+  </style>
+</head>
+<body>
+  <div class="demo-bar">Web de ejemplo · ER Studio <a href="../../">Volver</a></div>
+
+  <header>
+    <a class="logo serif" href="#">Brasa<span>.</span></a>
+    <nav><a href="#carta">Carta</a><a href="#sala">La sala</a><a href="#visita">Visítanos</a></nav>
+    <a class="book" href="#visita">Reservar</a>
+  </header>
+
+  <section class="hero">
+    <img class="hero__img" src="https://d2ol7oe51mr4n9.cloudfront.net/user_3JkTYSIMBFwy3FWXWC6OIINtfRW/33b46ee7-29b4-48b0-ba65-9cb38a14cd14.webp" alt="Chuletón sobre las brasas de leña" />
+    <div class="hero__copy">
+      <p class="eyebrow">Cocina de fuego · Desde 2012</p>
+      <h1 class="serif">Todo lo que hacemos pasa por <em>el fuego.</em></h1>
+      <p>Carnes maduradas, pescado del día y verduras de temporada cocinados sobre leña de encina. Sin prisa, sin atajos.</p>
+    </div>
+  </section>
+
+  <section class="intro">
+    <div>
+      <p class="eyebrow">Nuestra cocina</p>
+      <h2 class="serif" style="margin-top:1rem">El humo es un ingrediente más.</h2>
+      <p>Encendemos la parrilla cada mañana a las diez. A la hora de la comida, las brasas están en su punto: suficiente calor para sellar, suficiente calma para que cada pieza tenga su tiempo.</p>
+    </div>
+    <img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3JkTYSIMBFwy3FWXWC6OIINtfRW/2fd93ac2-0ff8-4577-91dd-a2ea0b1614d3.webp" alt="Pulpo a la brasa con chimichurri" loading="lazy" />
+  </section>
+
+  <section class="menu" id="carta">
+    <div class="menu__head">
+      <h2 class="serif">La carta</h2>
+      <p class="eyebrow">Cambia con la temporada</p>
+    </div>
+    <div class="menu__list">
+      <div class="dish"><h3>Chuletón madurado 45 días</h3><span>$62</span><p>1 kg, sal en escamas, pimientos asados.</p></div>
+      <div class="dish"><h3>Pulpo a la brasa</h3><span>$28</span><p>Chimichurri, limón quemado, aceite de pimentón ahumado.</p></div>
+      <div class="dish"><h3>Provoleta</h3><span>$14</span><p>Orégano fresco, miel de caña, pan de masa madre.</p></div>
+      <div class="dish"><h3>Pescado del día</h3><span>$34</span><p>Entero, a la sal, con mantequilla de hierbas.</p></div>
+      <div class="dish"><h3>Verduras de huerta</h3><span>$16</span><p>Puerros, calabaza y cebolletas sobre ceniza.</p></div>
+      <div class="dish"><h3>Flan de dulce de leche</h3><span>$11</span><p>Caramelo tostado al fuego, nata montada.</p></div>
+    </div>
+  </section>
+
+  <section class="room" id="sala">
+    <img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3JkTYSIMBFwy3FWXWC6OIINtfRW/224f17e5-e8e5-48ae-9aaa-2d21c1757e31.webp" alt="Sala del restaurante a la luz de las velas" loading="lazy" />
+    <div>
+      <p class="eyebrow">La sala</p>
+      <h2 class="serif">Cuarenta cubiertos y una cocina a la vista.</h2>
+      <a class="book" href="#visita">Reservar mesa</a>
+    </div>
+  </section>
+
+  <section class="visit" id="visita">
+    <div><h3>Horario</h3><p>Martes a sábado<br />13:00 – 16:00 · 20:00 – 23:30<br />Domingo, solo mediodía</p></div>
+    <div><h3>Dónde</h3><p>Calle del Fuego 12<br />Centro histórico</p></div>
+    <div><h3>Reservas</h3><p>+1 000 000 0000<br />reservas@brasa.example</p></div>
+  </section>
+
+  <footer>Brasa es un restaurante ficticio creado por ER Studio como ejemplo de diseño web.</footer>
+</body>
+</html>

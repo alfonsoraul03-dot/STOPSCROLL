@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Northshore Dental · A demo by ER Studio</title>
+  <meta name="description" content="Demo website by ER Studio: a calm, modern dental clinic." />
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=DM+Sans:wght@400;500;600&display=swap" />
+  <style>
+    :root { --cream: #FAF8F4; --sage: #7E9B88; --sage-d: #4F6B5A; --mist: #E8EEE9; --ink: #1E2A24; --muted: #66746B; }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--cream); color: var(--ink); font-family: "DM Sans", system-ui, sans-serif; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    img { display: block; max-width: 100%; }
+    h1, h2, h3, p, ul { margin: 0; }
+    a { color: inherit; }
+    .serif { font-family: "Fraunces", Georgia, serif; font-weight: 400; letter-spacing: -0.02em; }
+    .pill { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.4rem 0.85rem; border-radius: 999px; background: var(--mist); color: var(--sage-d); font-size: 0.82rem; font-weight: 500; }
+
+    .demo-bar { position: fixed; z-index: 100; left: 50%; bottom: 1rem; transform: translateX(-50%); display: flex; gap: 0.8rem; align-items: center; padding: 0.55rem 0.65rem 0.55rem 1rem; border-radius: 999px; background: #0E1525; color: #fff; font: 500 0.82rem/1 system-ui, sans-serif; box-shadow: 0 10px 30px rgba(0,0,0,0.25); white-space: nowrap; }
+    .demo-bar a { background: #fff; color: #0E1525; text-decoration: none; padding: 0.5rem 0.85rem; border-radius: 999px; }
+
+    header { display: flex; align-items: center; gap: 2rem; padding: 1.2rem clamp(1.2rem, 5vw, 4rem); }
+    .logo { font-size: 1.45rem; text-decoration: none; display: flex; align-items: center; gap: 0.55rem; }
+    .logo i { width: 26px; height: 26px; border-radius: 50%; background: var(--sage); display: inline-block; box-shadow: inset -6px -6px 0 rgba(255,255,255,0.35); }
+    nav { display: flex; gap: 1.8rem; margin-left: auto; font-size: 0.95rem; color: var(--muted); }
+    nav a { text-decoration: none; }
+    .cta { background: var(--sage-d); color: #fff; text-decoration: none; padding: 0.8rem 1.3rem; border-radius: 999px; font-weight: 500; font-size: 0.95rem; transition: background .25s, transform .25s; }
+    .cta:hover { background: var(--ink); transform: translateY(-1px); }
+
+    .hero { display: grid; grid-template-columns: 1.05fr 1fr; gap: clamp(2rem, 5vw, 4rem); align-items: center; padding: clamp(2rem, 5vw, 4rem) clamp(1.2rem, 5vw, 4rem) clamp(4rem, 8vw, 6rem); }
+    .hero h1 { font-size: clamp(2.8rem, 6vw, 5rem); line-height: 1.02; margin: 1.2rem 0 1.2rem; }
+    .hero p { color: var(--muted); font-size: 1.12rem; max-width: 31rem; }
+    .hero__actions { display: flex; gap: 1rem; align-items: center; margin-top: 2rem; flex-wrap: wrap; }
+    .hero__actions span { color: var(--muted); font-size: 0.92rem; }
+    .hero__img { position: relative; }
+    .hero__img img { border-radius: 28px; aspect-ratio: 4/3.4; object-fit: cover; width: 100%; }
+    .rating { position: absolute; left: -1.5rem; bottom: 1.5rem; background: #fff; border-radius: 18px; padding: 1rem 1.2rem; box-shadow: 0 20px 40px rgba(30,42,36,0.12); display: grid; gap: 0.15rem; }
+    .rating strong { font-size: 1.5rem; }
+    .rating span { color: var(--muted); font-size: 0.85rem; }
+
+    .services { padding: clamp(4rem, 9vw, 7rem) clamp(1.2rem, 5vw, 4rem); background: #fff; }
+    .services h2 { font-size: clamp(2.2rem, 4.5vw, 3.4rem); max-width: 20ch; }
+    .grid { margin-top: 3rem; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+    .card { background: var(--cream); border-radius: 22px; padding: 1.6rem; display: grid; gap: 0.6rem; align-content: start; transition: transform .3s, box-shadow .3s; }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 16px 36px rgba(30,42,36,0.08); }
+    .card b { width: 42px; height: 42px; border-radius: 12px; background: var(--mist); display: grid; place-items: center; color: var(--sage-d); font-weight: 600; }
+    .card h3 { font-size: 1.15rem; font-weight: 600; margin-top: 0.4rem; }
+    .card p { color: var(--muted); font-size: 0.95rem; }
+
+    .care { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 6vw, 5rem); align-items: center; padding: clamp(4rem, 9vw, 7rem) clamp(1.2rem, 5vw, 4rem); }
+    .care img { border-radius: 28px; aspect-ratio: 4/5; object-fit: cover; }
+    .care h2 { font-size: clamp(2.2rem, 4.5vw, 3.4rem); line-height: 1.05; }
+    .care ul { list-style: none; padding: 0; margin-top: 2rem; display: grid; gap: 1rem; }
+    .care li { display: grid; grid-template-columns: auto 1fr; gap: 0.9rem; align-items: start; }
+    .care li::before { content: ""; width: 22px; height: 22px; border-radius: 50%; background: var(--mist) radial-gradient(circle, var(--sage) 35%, transparent 37%); margin-top: 0.15rem; }
+
+    .book { margin: 0 clamp(1.2rem, 5vw, 4rem) clamp(4rem, 8vw, 6rem); border-radius: 32px; background: var(--sage-d); color: #fff; padding: clamp(2.5rem, 6vw, 4.5rem); display: grid; grid-template-columns: 1.3fr 1fr; gap: 2rem; align-items: center; }
+    .book h2 { font-size: clamp(2.2rem, 4.5vw, 3.4rem); line-height: 1.05; }
+    .book p { opacity: 0.85; margin-top: 1rem; }
+    .book .cta { background: #fff; color: var(--sage-d); justify-self: start; }
+    .slots { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.6rem; }
+    .slots span { background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25); border-radius: 12px; padding: 0.7rem; text-align: center; font-size: 0.9rem; }
+    footer { padding: 2rem clamp(1.2rem, 5vw, 4rem) 6rem; color: var(--muted); font-size: 0.85rem; border-top: 1px solid var(--mist); }
+
+    @media (max-width: 860px) {
+      nav { display: none; }
+      header .cta { margin-left: auto; }
+      .hero, .care, .book { grid-template-columns: 1fr; }
+      .grid { grid-template-columns: 1fr 1fr; }
+      .rating { left: 1rem; }
+    }
+    @media (max-width: 520px) { .grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="demo-bar">Demo website · ER Studio <a href="../../">Back</a></div>
+
+  <header>
+    <a class="logo serif" href="#"><i></i>Northshore Dental</a>
+    <nav><a href="#services">Services</a><a href="#care">Our care</a><a href="#book">Visit</a></nav>
+    <a class="cta" href="#book">Book a visit</a>
+  </header>
+
+  <section class="hero">
+    <div>
+      <span class="pill">New patients welcome this week</span>
+      <h1 class="serif">Calm, gentle dentistry for the whole family.</h1>
+      <p>Modern care without the anxiety. Same-week appointments, clear prices before any treatment, and a team that takes time to explain.</p>
+      <div class="hero__actions"><a class="cta" href="#book">Book your first visit</a><span>Most insurance accepted</span></div>
+    </div>
+    <div class="hero__img">
+      <img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3JkTYSIMBFwy3FWXWC6OIINtfRW/9031911b-2b2e-47a8-8e30-b0f39ff9a882.webp" alt="Bright, calm clinic reception" />
+      <div class="rating"><strong>4.9 ★</strong><span>from 600+ patient reviews</span></div>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <h2 class="serif">Everything your smile needs, under one roof.</h2>
+    <div class="grid">
+      <div class="card"><b>01</b><h3>Check-ups &amp; cleaning</h3><p>Thorough, gentle and on time. Digital X-rays with minimal radiation.</p></div>
+      <div class="card"><b>02</b><h3>Invisible aligners</h3><p>Straighter teeth without metal braces, with a 3D preview of your result.</p></div>
+      <div class="card"><b>03</b><h3>Whitening</h3><p>Professional whitening in one visit, or at home with custom trays.</p></div>
+      <div class="card"><b>04</b><h3>Implants</h3><p>Permanent, natural-looking replacements planned with 3D imaging.</p></div>
+    </div>
+  </section>
+
+  <section class="care" id="care">
+    <img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3JkTYSIMBFwy3FWXWC6OIINtfRW/526db147-55b5-49a4-b13e-4626ea08c53b.webp" alt="Smiling patient" loading="lazy" />
+    <div>
+      <span class="pill">Why patients stay</span>
+      <h2 class="serif" style="margin-top:1rem">We explain first. You decide.</h2>
+      <ul>
+        <li><span>Clear written estimate before any treatment, with no surprises on the bill.</span></li>
+        <li><span>Sedation options and quiet rooms for nervous patients.</span></li>
+        <li><span>Evening and Saturday appointments for busy schedules.</span></li>
+        <li><span>Emergency visits the same day whenever possible.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="book" id="book">
+    <div>
+      <h2 class="serif">Book in under a minute.</h2>
+      <p>Pick a time that suits you. We'll confirm by text and send a reminder the day before.</p>
+      <div style="margin-top:1.6rem"><a class="cta" href="#book">See all times</a></div>
+    </div>
+    <div class="slots"><span>Mon 9:00</span><span>Mon 14:30</span><span>Tue 8:30</span><span>Wed 17:00</span><span>Thu 11:00</span><span>Sat 10:00</span></div>
+  </section>
+
+  <footer>Northshore Dental is a fictional clinic created by ER Studio as a website design example.</footer>
+</body>
+</html>

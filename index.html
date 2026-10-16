@@ -1,47 +1,61 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ScrollStop Studio | AI video ads that stop the scroll</title>
-  <meta name="description" content="Short video ads for e-commerce brands, made with AI and built to stop the thumb on Meta, TikTok and Reels. Your first ad is free." />
-  <meta name="author" content="ScrollStop Studio" />
-  <meta property="og:title" content="ScrollStop Studio | AI video ads that stop the scroll" />
-  <meta property="og:description" content="Short video ads for e-commerce brands, made with AI and built to stop the thumb. Your first ad is free." />
+  <title>ER Studio | Websites people stop to look at</title>
+  <meta name="description" content="ER Studio designs and builds fast, beautiful websites for any business, from simple one-page sites to cinematic experiences. Get a free homepage draft." />
+  <meta name="author" content="ER Studio" />
+  <meta name="theme-color" content="#F6F4EF" />
+  <meta property="og:title" content="ER Studio | Websites people stop to look at" />
+  <meta property="og:description" content="Fast, beautiful websites for any business, from simple to cinematic. Get a free homepage draft." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://d2ol7oe51mr4n9.cloudfront.net/user_3JkTYSIMBFwy3FWXWC6OIINtfRW/d2781cd9-2923-4057-81a4-963ab92cbddb.jpg" />
+  <meta property="og:image" content="https://d2ol7oe51mr4n9.cloudfront.net/user_3JkTYSIMBFwy3FWXWC6OIINtfRW/c51ae46c-7f2a-42ac-b9a1-89bf3886273a.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:image" content="https://d2ol7oe51mr4n9.cloudfront.net/user_3JkTYSIMBFwy3FWXWC6OIINtfRW/d2781cd9-2923-4057-81a4-963ab92cbddb.jpg" />
-  <link rel="icon" href="https://d2ol7oe51mr4n9.cloudfront.net/user_3JkTYSIMBFwy3FWXWC6OIINtfRW/45f7abe6-b6bc-4808-a8f7-6cd3f4311690.png" />
+  <link rel="icon" href="https://d2ol7oe51mr4n9.cloudfront.net/user_3JkTYSIMBFwy3FWXWC6OIINtfRW/7390f360-105d-474e-9850-03afff139843.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=IBM+Plex+Mono:wght@400;500&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" />
   <link rel="stylesheet" href="styles.css" />
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem("er-lang");
+        var lang = saved || ((navigator.language || "en").toLowerCase().indexOf("es") === 0 ? "es" : "en");
+        document.documentElement.setAttribute("data-lang", lang);
+        document.documentElement.setAttribute("lang", lang);
+      } catch (e) {}
+    })();
+  </script>
 </head>
 <body>
   <header class="nav">
-    <a class="nav__brand" href="#top" aria-label="ScrollStop Studio home">
-      <img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3JkTYSIMBFwy3FWXWC6OIINtfRW/e899caa5-2507-406c-b129-34e29c07ace0.png" alt="" width="36" height="36" />
-      <span>ScrollStop</span>
+    <a class="nav__brand" href="#top" aria-label="ER Studio">
+      <img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3JkTYSIMBFwy3FWXWC6OIINtfRW/f26ba73e-d674-4f52-b04d-b4a043ef0a9c.png" alt="" width="34" height="34" />
+      <span>ER Studio</span>
     </a>
     <nav class="nav__links" aria-label="Sections">
-      <a href="#work">Work</a>
-      <a href="#process">Process</a>
-      <a href="#pricing">Pricing</a>
+      <a href="#work"><span class="en">Work</span><span class="es">Trabajos</span></a>
+      <a href="#services"><span class="en">Services</span><span class="es">Servicios</span></a>
+      <a href="#pricing"><span class="en">Pricing</span><span class="es">Precios</span></a>
+      <a href="#faq">FAQ</a>
     </nav>
-    <a class="tab js-free-ad" href="#">Free ad</a>
+    <button class="lang" type="button" aria-label="Change language"><span class="en">ES</span><span class="es">EN</span></button>
+    <a class="tab js-draft" href="#"><span class="en">Free draft</span><span class="es">Boceto gratis</span></a>
   </header>
 
   <main id="top">
-    <h1 class="sr">ScrollStop Studio: AI video ads for e-commerce brands</h1>
+    <h1 class="sr">ER Studio: websites for any business, from simple to cinematic</h1>
 
-    <!-- Scroll-driven film: the visitor's scroll plays the movie forward and back -->
-    <section class="journey" aria-label="How we stop the scroll">
+    <section class="journey" aria-label="Why your website matters">
       <div class="stage" aria-hidden="true">
-        <img class="stage__poster" src="https://d2ol7oe51mr4n9.cloudfront.net/user_3JkTYSIMBFwy3FWXWC6OIINtfRW/3ae53980-7f83-4981-8920-6935ece46e7f.jpg" alt="" />
+        <picture>
+          <source media="(max-width: 680px)" srcset="https://d2ol7oe51mr4n9.cloudfront.net/user_3JkTYSIMBFwy3FWXWC6OIINtfRW/ef105129-a06f-4b97-a8d6-140d1483fa33.jpg" />
+          <img class="stage__poster" src="https://d2ol7oe51mr4n9.cloudfront.net/user_3JkTYSIMBFwy3FWXWC6OIINtfRW/c51ae46c-7f2a-42ac-b9a1-89bf3886273a.jpg" alt="" />
+        </picture>
         <video class="stage__video" muted playsinline preload="auto"
-          data-desktop="https://d2ol7oe51mr4n9.cloudfront.net/user_3JkTYSIMBFwy3FWXWC6OIINtfRW/105ac87e-4d65-41ba-9c96-1ad8ba690e31.mp4"
-          data-mobile="https://d2ol7oe51mr4n9.cloudfront.net/user_3JkTYSIMBFwy3FWXWC6OIINtfRW/4120117f-aca0-4f7a-a6f2-cda5dfd9b87d.mp4"></video>
+          data-desktop="https://d2ol7oe51mr4n9.cloudfront.net/user_3JkTYSIMBFwy3FWXWC6OIINtfRW/76b7bf4e-f203-4fb5-9686-8a4c66ff9ff2.mp4"
+          data-mobile="https://d2ol7oe51mr4n9.cloudfront.net/user_3JkTYSIMBFwy3FWXWC6OIINtfRW/cd7480bd-544b-4735-8f11-62c07fd0dc0b.mp4"></video>
         <div class="stage__shade"></div>
         <div class="stage__meter"><span class="stage__meter-fill"></span></div>
       </div>
@@ -49,34 +63,33 @@
       <div class="chapters">
         <article class="chapter">
           <div class="chapter__card">
-            <p class="kicker">01 / The feed</p>
-            <h2>Your ad gets one second.</h2>
-            <p>Every day your buyers flick past hundreds of ads without a second look. That is the room you are competing in.</p>
-            <ul class="tags"><li>Meta</li><li>TikTok</li><li>Reels</li></ul>
+            <p class="kicker">01 / <span class="en">First impression</span><span class="es">Primera impresión</span></p>
+            <h2><span class="en">Your website gets three seconds.</span><span class="es">Tu web tiene tres segundos.</span></h2>
+            <p><span class="en">That is how long a new customer takes to decide whether to stay or go back to Google and call someone else.</span><span class="es">Es lo que tarda un cliente nuevo en decidir si se queda o vuelve a Google y llama a otro.</span></p>
           </div>
-          <span class="hint">Scroll</span>
+          <span class="hint"><span class="en">Scroll</span><span class="es">Desliza</span></span>
         </article>
         <article class="chapter chapter--right">
           <div class="chapter__card">
-            <p class="kicker">02 / The slowdown</p>
-            <h2>Most ads never earn the pause.</h2>
-            <p>Slow intros, stock footage and the same tired hooks blend into the feed. Thumbs keep moving and budgets keep burning.</p>
+            <p class="kicker">02 / <span class="en">The problem</span><span class="es">El problema</span></p>
+            <h2><span class="en">Most business sites lose people before the first word.</span><span class="es">La mayoría de webs pierde a la gente antes de la primera palabra.</span></h2>
+            <p><span class="en">Slow pages, broken layouts on phones and templates that look like everyone else.</span><span class="es">Páginas lentas, diseños rotos en el móvil y plantillas iguales a las de todos.</span></p>
           </div>
         </article>
         <article class="chapter">
           <div class="chapter__card">
-            <p class="kicker">03 / The stop</p>
-            <h2>Ours are built to stop the thumb.</h2>
-            <p>We script, generate and edit short video ads around the one moment your product wins: the reveal, the before and after, the demo.</p>
-            <ul class="tags"><li>UGC style</li><li>Product demo</li><li>Hook testing</li></ul>
+            <p class="kicker">03 / <span class="en">What we do</span><span class="es">Lo que hacemos</span></p>
+            <h2><span class="en">We build websites people stop to look at.</span><span class="es">Hacemos webs que la gente se para a mirar.</span></h2>
+            <p><span class="en">Designed for your business, written to sell, fast on every phone.</span><span class="es">Diseñadas para tu negocio, escritas para vender y rápidas en cualquier móvil.</span></p>
+            <ul class="tags"><li><span class="en">Simple</span><span class="es">Sencillas</span></li><li><span class="en">Bold</span><span class="es">Atrevidas</span></li><li><span class="en">Cinematic</span><span class="es">Cinematográficas</span></li></ul>
           </div>
         </article>
         <article class="chapter chapter--right">
           <div class="chapter__card">
-            <p class="kicker">04 / The payoff</p>
-            <h2>Your first ad is on us.</h2>
-            <p>Send us your product page. Within a few days you get a finished video ad, ready to run. If it performs, we keep going together.</p>
-            <a class="chapter__cta js-free-ad" href="#">Get my free ad</a>
+            <p class="kicker">04 / <span class="en">Your turn</span><span class="es">Tu turno</span></p>
+            <h2><span class="en">See your new homepage before you pay a thing.</span><span class="es">Mira tu nueva web antes de pagar nada.</span></h2>
+            <p><span class="en">Send us your business name. We design a free draft of your new homepage.</span><span class="es">Envíanos el nombre de tu negocio y te diseñamos gratis un boceto de tu nueva página de inicio.</span></p>
+            <a class="chapter__cta" href="#work"><span class="en">See live examples</span><span class="es">Ver ejemplos en vivo</span></a>
           </div>
         </article>
       </div>
@@ -84,90 +97,129 @@
 
     <section class="work" id="work" aria-labelledby="work-title">
       <div class="work__head">
-        <p class="mono">Concept work</p>
-        <h2 id="work-title" class="display">Three products. Three seconds each. Zero stock footage.</h2>
-        <p class="fine">Concept ads made in-house to show our range. The products are invented for demonstration.</p>
+        <p class="mono"><span class="en">Live examples</span><span class="es">Ejemplos en vivo</span></p>
+        <h2 id="work-title" class="display"><span class="en">Three businesses. Three completely different websites.</span><span class="es">Tres negocios. Tres webs completamente distintas.</span></h2>
+        <p class="fine"><span class="en">These are real, working websites you can open and scroll. The businesses are fictional, built to show our range.</span><span class="es">Son webs reales y navegables que puedes abrir. Los negocios son ficticios, creados para mostrar lo que hacemos.</span></p>
       </div>
-      <div class="work__rail">
-        <figure class="phone">
-          <div class="phone__screen">
-            <img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3JkTYSIMBFwy3FWXWC6OIINtfRW/f1457686-85f3-4a76-bf8b-d64ad872eaa8.webp" alt="Morning pour, a UGC style concept ad" loading="lazy" />
-            <span class="phone__chip">UGC style</span>
+
+      <div class="showcase">
+        <a class="frame frame--wide" href="demos/brasa/">
+          <div class="frame__bar"><i></i><i></i><i></i><span>brasa.restaurant</span></div>
+          <div class="frame__view"><iframe src="demos/brasa/" title="Brasa demo website" loading="lazy" tabindex="-1" aria-hidden="true"></iframe></div>
+          <div class="frame__info">
+            <div><strong>Brasa</strong><span class="en">Cinematic restaurant · Spanish</span><span class="es">Restaurante cinematográfico · Español</span></div>
+            <span class="frame__open"><span class="en">Open live site</span><span class="es">Abrir web</span></span>
           </div>
-          <figcaption><strong>Morning pour</strong><span>A creator-shot ritual for a ceramic kettle brand. Hook in the first second: steam and sound.</span></figcaption>
-        </figure>
-        <figure class="phone phone--2">
-          <div class="phone__screen">
-            <img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3JkTYSIMBFwy3FWXWC6OIINtfRW/521de97d-ca50-42b7-ba7e-2635e1911bc9.webp" alt="One swipe, a product demo concept ad" loading="lazy" />
-            <span class="phone__chip">Product demo</span>
+        </a>
+        <a class="frame" href="demos/northshore/">
+          <div class="frame__bar"><i></i><i></i><i></i><span>northshoredental.com</span></div>
+          <div class="frame__view"><iframe src="demos/northshore/" title="Northshore Dental demo website" loading="lazy" tabindex="-1" aria-hidden="true"></iframe></div>
+          <div class="frame__info">
+            <div><strong>Northshore Dental</strong><span class="en">Calm healthcare · English</span><span class="es">Clínica serena · Inglés</span></div>
+            <span class="frame__open"><span class="en">Open live site</span><span class="es">Abrir web</span></span>
           </div>
-          <figcaption><strong>One swipe</strong><span>A clean demo for a mineral sunscreen stick. The product does the talking in under five seconds.</span></figcaption>
-        </figure>
-        <figure class="phone phone--3">
-          <div class="phone__screen">
-            <img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3JkTYSIMBFwy3FWXWC6OIINtfRW/07d15b2a-f1bc-46b5-b6c3-0ece44719530.webp" alt="Golden hour run, a lifestyle concept ad" loading="lazy" />
-            <span class="phone__chip">Lifestyle</span>
+        </a>
+        <a class="frame" href="demos/ironline/">
+          <div class="frame__bar"><i></i><i></i><i></i><span>ironlinebuilders.com</span></div>
+          <div class="frame__view"><iframe src="demos/ironline/" title="Ironline Builders demo website" loading="lazy" tabindex="-1" aria-hidden="true"></iframe></div>
+          <div class="frame__info">
+            <div><strong>Ironline Builders</strong><span class="en">Bold construction · English</span><span class="es">Constructora potente · Inglés</span></div>
+            <span class="frame__open"><span class="en">Open live site</span><span class="es">Abrir web</span></span>
           </div>
-          <figcaption><strong>Golden hour run</strong><span>Pure energy for a dog harness brand. Built for autumn and holiday gifting season.</span></figcaption>
-        </figure>
+        </a>
+      </div>
+    </section>
+
+    <section class="services" id="services" aria-labelledby="services-title">
+      <h2 id="services-title" class="display"><span class="en">Any business. Any style.</span><span class="es">Cualquier negocio. Cualquier estilo.</span></h2>
+      <div class="services__grid">
+        <article class="svc"><span class="svc__n">01</span><h3><span class="en">One-page sites</span><span class="es">Webs de una página</span></h3><p><span class="en">Everything a customer needs on one fast page: who you are, what you do, reviews and a big button to call or book.</span><span class="es">Todo lo que un cliente necesita en una página rápida: quién eres, qué haces, reseñas y un gran botón para llamar o reservar.</span></p></article>
+        <article class="svc"><span class="svc__n">02</span><h3><span class="en">Business websites</span><span class="es">Webs de empresa</span></h3><p><span class="en">Multi-page sites with services, team, gallery, prices and contact, written to rank on Google.</span><span class="es">Webs de varias páginas con servicios, equipo, galería, precios y contacto, pensadas para salir en Google.</span></p></article>
+        <article class="svc svc--dark"><span class="svc__n">03</span><h3><span class="en">Cinematic websites</span><span class="es">Webs cinematográficas</span></h3><p><span class="en">Scroll-driven film, motion and art direction for brands that want to be remembered. Like the one you are on now.</span><span class="es">Película que avanza con el scroll, movimiento y dirección de arte para marcas que quieren ser recordadas. Como esta.</span></p></article>
+        <article class="svc"><span class="svc__n">04</span><h3><span class="en">Menus, bookings &amp; shops</span><span class="es">Cartas, reservas y tiendas</span></h3><p><span class="en">Digital menus, appointment booking, WhatsApp buttons and small online stores, connected to the tools you already use.</span><span class="es">Cartas digitales, reservas de citas, botones de WhatsApp y pequeñas tiendas online, conectadas a lo que ya usas.</span></p></article>
       </div>
     </section>
 
     <section class="process" id="process" aria-labelledby="process-title">
-      <h2 id="process-title" class="display process__title">From link to live ad in three moves.</h2>
+      <h2 id="process-title" class="display process__title"><span class="en">From first email to live website.</span><span class="es">Del primer email a tu web publicada.</span></h2>
       <ol class="process__list">
-        <li><span class="process__code">00:01</span><div><h3>Send your product page</h3><p>One link is enough. We study your product, your reviews and the ads your category already runs.</p></div></li>
-        <li><span class="process__code">00:02</span><div><h3>We make the ads</h3><p>We script the hooks and produce short vertical video ads with AI, edited for Meta, TikTok and Reels.</p></div></li>
-        <li><span class="process__code">00:03</span><div><h3>You test, we iterate</h3><p>You run them. We read the results with you and make the next batch around what stopped the scroll.</p></div></li>
+        <li><span class="process__code">01</span><div><h3><span class="en">Free homepage draft</span><span class="es">Boceto gratis de tu página de inicio</span></h3><p><span class="en">Tell us about your business. In about 48 hours you see what your new homepage could look like. No cost, no commitment.</span><span class="es">Cuéntanos de tu negocio. En unas 48 horas ves cómo podría ser tu nueva página de inicio. Sin coste ni compromiso.</span></p></div></li>
+        <li><span class="process__code">02</span><div><h3><span class="en">We build it</span><span class="es">La construimos</span></h3><p><span class="en">Design, copy, photos and mobile version. Most websites are ready in 7 to 14 days, with your feedback at every step.</span><span class="es">Diseño, textos, imágenes y versión móvil. La mayoría de webs están listas en 7 a 14 días, con tu opinión en cada paso.</span></p></div></li>
+        <li><span class="process__code">03</span><div><h3><span class="en">Launch &amp; care</span><span class="es">Lanzamiento y cuidado</span></h3><p><span class="en">We connect your domain, publish and keep it updated. The website is yours.</span><span class="es">Conectamos tu dominio, la publicamos y la mantenemos al día. La web es tuya.</span></p></div></li>
       </ol>
     </section>
 
     <section class="pricing" id="pricing" aria-labelledby="pricing-title">
       <div class="pricing__head">
-        <p class="mono">Monthly plans</p>
-        <h2 id="pricing-title" class="display">Pay for ads, not for hours.</h2>
-        <p class="pricing__sub">Month to month. Start with one free ad before you pay anything.</p>
+        <p class="mono"><span class="en">Clear prices</span><span class="es">Precios claros</span></p>
+        <h2 id="pricing-title" class="display"><span class="en">One payment. A website that works for years.</span><span class="es">Un pago. Una web que trabaja para ti durante años.</span></h2>
+        <p class="pricing__sub"><span class="en">Every project starts with a free homepage draft. You only pay if you love it.</span><span class="es">Todos los proyectos empiezan con un boceto gratis. Solo pagas si te encanta.</span></p>
       </div>
       <div class="pricing__grid">
-        <span class="pricing__line" aria-hidden="true"></span>
         <article class="plan">
-          <h3>Test</h3>
-          <p class="plan__price">$500<span>/month</span></p>
-          <ul><li>8 video ads a month</li><li>2 ad formats</li><li>1 round of revisions</li><li>Delivered in vertical and square</li></ul>
-          <a class="plan__link js-free-ad" href="#">Start with Test<span class="plan__arrow" aria-hidden="true"></span></a>
+          <h3>Launch</h3>
+          <p class="plan__price"><small><span class="en">from</span><span class="es">desde</span></small> $800</p>
+          <ul>
+            <li><span class="en">One-page website</span><span class="es">Web de una página</span></li>
+            <li><span class="en">Mobile-first design</span><span class="es">Diseño pensado para móvil</span></li>
+            <li><span class="en">Call, WhatsApp &amp; map buttons</span><span class="es">Botones de llamada, WhatsApp y mapa</span></li>
+            <li><span class="en">Ready in about 7 days</span><span class="es">Lista en unos 7 días</span></li>
+          </ul>
+          <a class="plan__link js-draft" href="#"><span class="en">Start with a free draft</span><span class="es">Empezar con un boceto gratis</span><span class="plan__arrow" aria-hidden="true"></span></a>
         </article>
         <article class="plan plan--featured">
-          <span class="plan__flag">Most picked</span>
-          <h3>Growth</h3>
-          <p class="plan__price">$750<span>/month</span></p>
-          <ul><li>12 video ads a month</li><li>3 hook variations per concept</li><li>Monthly results review</li><li>Seasonal and holiday cuts</li></ul>
-          <a class="plan__link js-free-ad" href="#">Start with Growth<span class="plan__arrow" aria-hidden="true"></span></a>
+          <span class="plan__flag"><span class="en">Most picked</span><span class="es">La más elegida</span></span>
+          <h3>Business</h3>
+          <p class="plan__price"><small><span class="en">from</span><span class="es">desde</span></small> $1,500</p>
+          <ul>
+            <li><span class="en">Up to 6 pages</span><span class="es">Hasta 6 páginas</span></li>
+            <li><span class="en">Copywriting included</span><span class="es">Textos incluidos</span></li>
+            <li><span class="en">Google basics: SEO, maps, reviews</span><span class="es">Google: SEO, mapa y reseñas</span></li>
+            <li><span class="en">Booking or contact forms</span><span class="es">Reservas o formularios de contacto</span></li>
+          </ul>
+          <a class="plan__link js-draft" href="#"><span class="en">Start with a free draft</span><span class="es">Empezar con un boceto gratis</span><span class="plan__arrow" aria-hidden="true"></span></a>
         </article>
         <article class="plan">
-          <h3>Scale</h3>
-          <p class="plan__price">$1,000<span>/month</span></p>
-          <ul><li>20 video ads a month</li><li>Multiple audiences and angles</li><li>Weekly creative refresh</li><li>Priority turnaround</li></ul>
-          <a class="plan__link js-free-ad" href="#">Start with Scale<span class="plan__arrow" aria-hidden="true"></span></a>
+          <h3>Cinematic</h3>
+          <p class="plan__price"><small><span class="en">from</span><span class="es">desde</span></small> $3,000</p>
+          <ul>
+            <li><span class="en">Scroll-driven film or motion hero</span><span class="es">Película o animación con el scroll</span></li>
+            <li><span class="en">Custom art direction</span><span class="es">Dirección de arte a medida</span></li>
+            <li><span class="en">Everything in Business</span><span class="es">Todo lo de Business</span></li>
+            <li><span class="en">Built to be remembered</span><span class="es">Hecha para ser recordada</span></li>
+          </ul>
+          <a class="plan__link js-draft" href="#"><span class="en">Start with a free draft</span><span class="es">Empezar con un boceto gratis</span><span class="plan__arrow" aria-hidden="true"></span></a>
         </article>
+      </div>
+      <p class="pricing__care"><strong>Care plan</strong> · <span class="en">from $50/month: hosting, updates and small changes whenever you need them.</span><span class="es">desde $50/mes: alojamiento, actualizaciones y pequeños cambios cuando los necesites.</span></p>
+    </section>
+
+    <section class="faq" id="faq" aria-labelledby="faq-title">
+      <h2 id="faq-title" class="display"><span class="en">Questions</span><span class="es">Preguntas</span></h2>
+      <div class="faq__list">
+        <details><summary><span class="en">Is the draft really free?</span><span class="es">¿El boceto es gratis de verdad?</span></summary><p><span class="en">Yes. You see your homepage design first and decide afterwards. No card, no contract.</span><span class="es">Sí. Ves el diseño de tu página primero y decides después. Sin tarjeta ni contrato.</span></p></details>
+        <details><summary><span class="en">Who owns the website?</span><span class="es">¿De quién es la web?</span></summary><p><span class="en">You do. The design, the text and the domain are yours.</span><span class="es">Tuya. El diseño, los textos y el dominio son tuyos.</span></p></details>
+        <details><summary><span class="en">Can you use my current domain?</span><span class="es">¿Podéis usar mi dominio actual?</span></summary><p><span class="en">Yes. We connect your existing domain, or help you buy one.</span><span class="es">Sí. Conectamos tu dominio actual o te ayudamos a comprar uno.</span></p></details>
+        <details><summary><span class="en">Do you work outside the US?</span><span class="es">¿Trabajáis fuera de EE. UU.?</span></summary><p><span class="en">Yes. We work remotely with businesses anywhere, in English or Spanish.</span><span class="es">Sí. Trabajamos en remoto con negocios de cualquier país, en inglés o español.</span></p></details>
       </div>
     </section>
 
     <section class="close" aria-labelledby="close-title">
       <span class="close__stop" aria-hidden="true"></span>
-      <h2 id="close-title" class="close__title">Stop scrolling.<br />Start testing.</h2>
-      <p>Send us one product link. We send back a free, finished video ad. No call, no contract.</p>
-      <a class="pill js-free-ad" href="#"><span>Request your free ad</span></a>
+      <h2 id="close-title" class="close__title"><span class="en">Let's make yours<br />impossible to ignore.</span><span class="es">Hagamos que la tuya<br />sea imposible de ignorar.</span></h2>
+      <p><span class="en">Send us your business name and city. We'll send back a free draft of your new homepage.</span><span class="es">Envíanos el nombre de tu negocio y tu ciudad. Te devolvemos un boceto gratis de tu nueva página de inicio.</span></p>
+      <a class="pill js-draft" href="#"><span class="en">Get my free draft</span><span class="es">Quiero mi boceto gratis</span></a>
     </section>
   </main>
 
   <footer class="foot">
     <div class="foot__brand">
-      <img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3JkTYSIMBFwy3FWXWC6OIINtfRW/e899caa5-2507-406c-b129-34e29c07ace0.png" alt="" width="28" height="28" />
-      <span>ScrollStop Studio</span>
+      <img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3JkTYSIMBFwy3FWXWC6OIINtfRW/f26ba73e-d674-4f52-b04d-b4a043ef0a9c.png" alt="" width="28" height="28" />
+      <span>ER Studio</span>
     </div>
     <a href="mailto:growthwithraul@gmail.com">growthwithraul@gmail.com</a>
-    <span>Miami, Florida</span>
-    <span>© 2026 ScrollStop Studio</span>
+    <span>Miami, Florida · <span class="en">Working worldwide</span><span class="es">Trabajamos en todo el mundo</span></span>
+    <span>© 2026 ER Studio</span>
   </footer>
 
   <script src="main.js"></script>
