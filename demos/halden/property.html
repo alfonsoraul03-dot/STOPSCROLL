@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Residence | Halden &amp; Vale · Design concept by ER Studio</title>
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Italiana&family=Jost:wght@300;400;500&display=swap" />
+  <link rel="stylesheet" href="halden.css" />
+</head>
+<body data-property>
+  <header class="hdr">
+    <a class="logo" href="./">Halden <em>&amp;</em> Vale</a>
+    <nav aria-label="Main"><a href="./#residences">Residences</a><a href="./#destinations">Destinations</a><a href="./#office">Private office</a></nav>
+    <a class="line-btn" href="#viewing"><span>Arrange a viewing</span></a>
+  </header>
+
+  <main>
+    <section class="p-hero">
+      <img data-f="img" src="https://d2ol7oe51mr4n9.cloudfront.net/user_3JkTYSIMBFwy3FWXWC6OIINtfRW/132e6fe0-46b2-4035-8532-2b4669c6e7c2.webp" alt="" />
+      <div class="p-hero__copy">
+        <div><p class="eyebrow" style="color:rgba(255,255,255,.85)" data-f="place">Mallorca, Spain</p><h1 data-f="name">Villa Calaterra</h1></div>
+        <p class="p-hero__price" data-f="price">€14,800,000</p>
+      </div>
+    </section>
+
+    <div class="facts">
+      <div><b data-f="beds">6</b><span>Bedrooms</span></div>
+      <div><b data-f="baths">7</b><span>Bathrooms</span></div>
+      <div><b data-f="size">1,240 m²</b><span>Interior</span></div>
+      <div><b data-f="plot">1.2 ha</b><span>Plot</span></div>
+      <div><b data-f="year">2023</b><span>Built</span></div>
+    </div>
+
+    <section class="p-body">
+      <div class="rv">
+        <p class="eyebrow">The residence</p>
+        <h2 style="margin-top:1rem" data-f="lede"></h2>
+        <div data-f="text"></div>
+      </div>
+      <div class="rv">
+        <p class="eyebrow" style="margin-bottom:1rem">Highlights</p>
+        <ul class="features" data-f="features"></ul>
+        <a class="line-btn" href="#viewing" style="margin-top:2rem">Arrange a private viewing</a>
+      </div>
+    </section>
+
+    <section aria-label="Gallery"><div class="gallery"></div></section>
+
+    <section class="enquire" id="viewing">
+      <div class="rv">
+        <p class="eyebrow">Private viewing</p>
+        <h2 style="margin-top:1rem">See it in person.</h2>
+        <p>Viewings are arranged by appointment only, in person or by private video tour.</p>
+      </div>
+      <form class="form rv" data-concept novalidate>
+        <div class="field"><label for="n">Full name</label><input id="n" autocomplete="name" required /></div>
+        <div class="field"><label for="e">Email</label><input id="e" type="email" autocomplete="email" required /></div>
+        <div class="field"><label for="interest">Residence</label><input id="interest" readonly /></div>
+        <div class="field"><label for="v">Viewing type</label><select id="v"><option>In person</option><option>Private video tour</option></select></div>
+        <div class="field field--full"><label for="m">Preferred dates</label><textarea id="m" placeholder="Dates and any questions"></textarea></div>
+        <div class="form__foot"><button class="line-btn" type="submit">Request viewing</button><p class="form__note">Design concept: this form is a demonstration and is not connected to an inbox.</p></div>
+        <p class="form__msg" tabindex="-1" role="status">Thank you. In a live website, this request would reach an advisor immediately. This concept form does not send any data.</p>
+      </form>
+    </section>
+
+    <a class="next-prop" href="property.html">
+      <img data-f="next-img" src="https://d2ol7oe51mr4n9.cloudfront.net/user_3JkTYSIMBFwy3FWXWC6OIINtfRW/90b648bb-9f04-4c48-906c-7f0e0fb057c1.webp" alt="" loading="lazy" />
+      <div><p class="eyebrow" style="color:rgba(255,255,255,.8)">Next residence</p><h2 data-f="next-name">Casa Marea</h2></div>
+    </a>
+  </main>
+
+  <div class="lightbox" role="dialog" aria-modal="true" aria-label="Gallery">
+    <button class="lb-close" type="button" aria-label="Close">✕</button>
+    <button class="lb-prev" type="button" aria-label="Previous image">←</button>
+    <img src="" alt="" />
+    <button class="lb-next" type="button" aria-label="Next image">→</button>
+    <span class="lb-count"></span>
+  </div>
+
+  <footer class="ftr">
+    <div><span class="logo">Halden <em>&amp;</em> Vale</span><p>Exceptional residences, represented with discretion. A fictional brand designed by ER Studio.</p></div>
+    <div><h4>Offices</h4><ul><li>London</li><li>Palma</li><li>Milan</li><li>New York</li><li>Los Angeles</li></ul></div>
+    <div><h4>Explore</h4><ul><li><a href="./#residences">Residences</a></li><li><a href="./#destinations">Destinations</a></li></ul></div>
+    <div><h4>Contact</h4><ul><li>private@halden-vale.example</li></ul></div>
+  </footer>
+
+  <script src="halden.js"></script>
+  <script src="../concept-bar.js"></script>
+</body>
+</html>

@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ashford &amp; Lane | Strategy partners · Design concept by ER Studio</title>
+  <meta name="description" content="Design concept by ER Studio: a website for a fictional strategy consultancy." />
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Libre+Caslon+Text:ital@0;1&family=Public+Sans:wght@400;500;600&display=swap" />
+  <style>
+    :root { --cream: #F4F1EA; --paper: #FBFAF6; --navy: #1B2333; --navy2: #252F44; --brick: #9C3D2B; --soft: #5B6273; --line: rgba(27, 35, 51, .14); --disp: "Libre Caslon Display", Georgia, serif; --text: "Libre Caslon Text", Georgia, serif; --sans: "Public Sans", system-ui, sans-serif; --ease: cubic-bezier(.2, .7, .1, 1); }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--cream); color: var(--navy); font-family: var(--sans); line-height: 1.65; -webkit-font-smoothing: antialiased; }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button, input, select, textarea { font: inherit; color: inherit; }
+    button { cursor: pointer; border: 0; background: none; padding: 0; }
+    h1, h2, h3, p, ul, blockquote { margin: 0; } ul { padding: 0; list-style: none; }
+    :focus-visible { outline: 2px solid var(--brick); outline-offset: 3px; }
+    .pad { padding-left: clamp(1.2rem, 5vw, 5rem); padding-right: clamp(1.2rem, 5vw, 5rem); }
+    .sm { font-size: .74rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--brick); }
+    .disp { font-family: var(--disp); font-weight: 400; letter-spacing: -0.01em; }
+    .btn { display: inline-flex; align-items: center; gap: .7rem; padding: 1rem 1.5rem; background: var(--navy); color: var(--cream); font-weight: 500; font-size: .95rem; transition: background .3s; }
+    .btn:hover { background: var(--brick); }
+    .btn--line { background: transparent; color: var(--navy); box-shadow: inset 0 0 0 1px var(--navy); }
+    .btn--line:hover { background: var(--navy); color: var(--cream); }
+    .ul { background: linear-gradient(var(--brick), var(--brick)) 0 100% / 0 2px no-repeat; transition: background-size .6s var(--ease); }
+    .ul:hover { background-size: 100% 2px; }
+
+    .hdr { position: sticky; top: 0; z-index: 30; display: flex; align-items: center; gap: 2rem; padding: 1.1rem clamp(1.2rem, 5vw, 5rem); background: rgba(244, 241, 234, .92); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+    .logo { font-family: var(--disp); font-size: 1.5rem; }
+    .logo em { font-family: var(--text); font-style: italic; color: var(--brick); }
+    .hdr nav { margin-left: auto; display: flex; gap: 2rem; font-size: .92rem; }
+    .hdr .btn { padding: .65rem 1.1rem; font-size: .88rem; }
+
+    .hero { padding-top: clamp(4rem, 10vw, 8rem); padding-bottom: clamp(4rem, 8vw, 6rem); display: grid; grid-template-columns: 1.6fr 1fr; gap: clamp(2rem, 5vw, 5rem); align-items: end; border-bottom: 1px solid var(--line); }
+    .hero h1 { font-family: var(--disp); font-weight: 400; font-size: clamp(3.2rem, 8vw, 8rem); line-height: .96; letter-spacing: -0.02em; }
+    .hero h1 em { font-family: var(--text); font-style: italic; color: var(--brick); position: relative; }
+    .hero h1 em::after { content: ""; position: absolute; left: 0; right: 0; bottom: .06em; height: .06em; background: var(--brick); transform-origin: left; animation: line 1.4s .6s var(--ease) both; }
+    @keyframes line { from { transform: scaleX(0); } }
+    .hero__side { display: grid; gap: 1.6rem; }
+    .hero__side p { color: var(--soft); font-size: 1.1rem; }
+    .hero__side div { display: flex; gap: .8rem; flex-wrap: wrap; }
+    .facts { display: grid; grid-template-columns: repeat(4, 1fr); border-bottom: 1px solid var(--line); }
+    .facts div { padding: 2rem clamp(1rem, 2vw, 2rem) 2rem 0; border-right: 1px solid var(--line); margin-left: clamp(1rem, 2vw, 2rem); }
+    .facts div:first-child { margin-left: 0; }
+    .facts div:last-child { border-right: 0; }
+    .facts b { display: block; font-family: var(--disp); font-weight: 400; font-size: clamp(2.2rem, 4vw, 3.4rem); line-height: 1; }
+    .facts span { font-size: .88rem; color: var(--soft); }
+
+    .practices { padding-top: clamp(5rem, 10vw, 8rem); padding-bottom: clamp(5rem, 10vw, 8rem); display: grid; grid-template-columns: 1fr 1.6fr; gap: clamp(2rem, 6vw, 6rem); }
+    .practices h2 { font-family: var(--disp); font-weight: 400; font-size: clamp(2.4rem, 4.6vw, 4.2rem); line-height: 1.02; margin-top: 1rem; position: sticky; top: 7rem; }
+    .acc li { border-top: 1px solid var(--line); }
+    .acc li:last-child { border-bottom: 1px solid var(--line); }
+    .acc button { width: 100%; display: grid; grid-template-columns: 3rem 1fr auto; gap: 1rem; align-items: baseline; padding: 1.6rem 0; text-align: left; }
+    .acc button b { font-family: var(--text); font-style: italic; color: var(--brick); font-weight: 400; }
+    .acc button span { font-family: var(--disp); font-size: clamp(1.6rem, 3vw, 2.4rem); line-height: 1.1; }
+    .acc button i { font-style: normal; font-size: 1.6rem; transition: transform .4s var(--ease); }
+    .acc .is-open button i { transform: rotate(45deg); }
+    .acc__body { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .6s var(--ease); }
+    .acc__body > div { overflow: hidden; padding-left: 4rem; }
+    .acc .is-open .acc__body { grid-template-rows: 1fr; }
+    .acc__body p { color: var(--soft); max-width: 38rem; }
+    .acc__body ul { display: flex; flex-wrap: wrap; gap: .5rem; margin: 1rem 0 1.8rem; }
+    .acc__body li { border: 1px solid var(--line); padding: .35rem .8rem; font-size: .85rem; }
+
+    .approach { background: var(--navy); color: var(--cream); padding-top: clamp(5rem, 10vw, 8rem); padding-bottom: clamp(5rem, 10vw, 8rem); }
+    .approach .sm { color: #E59A84; }
+    .approach h2 { font-family: var(--disp); font-weight: 400; font-size: clamp(2.4rem, 5vw, 4.6rem); line-height: 1.02; margin: 1rem 0 3.4rem; max-width: 18ch; }
+    .timeline { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; position: relative; }
+    .timeline::before { content: ""; position: absolute; left: 0; right: 0; top: 1.1rem; height: 1px; background: rgba(244, 241, 234, .25); }
+    .timeline .bar { position: absolute; left: 0; top: 1.1rem; height: 2px; background: #E59A84; width: 0; transition: width 2.4s var(--ease); }
+    .timeline.is-in .bar { width: 100%; }
+    .tl { position: relative; padding-right: 2rem; display: grid; gap: .8rem; }
+    .tl i { width: 2.2rem; height: 2.2rem; border-radius: 50%; background: var(--navy); border: 1px solid #E59A84; display: grid; place-items: center; font-style: normal; font-family: var(--text); font-size: .9rem; position: relative; }
+    .tl small { font-size: .74rem; letter-spacing: .16em; text-transform: uppercase; color: rgba(244, 241, 234, .55); margin-top: .6rem; }
+    .tl h3 { font-family: var(--disp); font-weight: 400; font-size: 1.6rem; }
+    .tl p { color: rgba(244, 241, 234, .7); font-size: .95rem; }
+
+    .cases { padding-top: clamp(5rem, 10vw, 8rem); padding-bottom: clamp(5rem, 10vw, 8rem); }
+    .cases__head { display: flex; justify-content: space-between; align-items: end; gap: 2rem; flex-wrap: wrap; margin-bottom: 2.4rem; }
+    .cases__head h2 { font-family: var(--disp); font-weight: 400; font-size: clamp(2.4rem, 4.6vw, 4.2rem); line-height: 1; margin-top: 1rem; }
+    .cgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .case { background: var(--paper); border: 1px solid var(--line); padding: 2rem; display: grid; gap: 1.2rem; align-content: space-between; min-height: 22rem; transition: transform .5s var(--ease), box-shadow .5s; }
+    .case:hover { transform: translateY(-6px); box-shadow: 0 30px 60px rgba(27, 35, 51, .1); }
+    .case h3 { font-family: var(--disp); font-weight: 400; font-size: 1.7rem; line-height: 1.15; }
+    .case p { color: var(--soft); font-size: .95rem; }
+    .case b { display: block; font-family: var(--disp); font-weight: 400; font-size: 3rem; line-height: 1; color: var(--brick); }
+    .case small { color: var(--soft); }
+
+    .partner { display: grid; grid-template-columns: 1fr 1.3fr; background: var(--paper); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .partner img { width: 100%; height: 100%; object-fit: cover; min-height: 60vh; }
+    .partner div { padding: clamp(3rem, 7vw, 6rem) clamp(1.2rem, 5vw, 5rem); display: grid; align-content: center; gap: 1.6rem; }
+    .partner blockquote { font-family: var(--text); font-style: italic; font-size: clamp(1.6rem, 2.8vw, 2.5rem); line-height: 1.3; }
+    .partner blockquote::before { content: "“"; display: block; font-family: var(--disp); font-style: normal; font-size: 5rem; line-height: .5; color: var(--brick); margin-bottom: .6rem; }
+    .partner p { color: var(--soft); }
+
+    .office { position: relative; height: 60vh; overflow: hidden; }
+    .office img { width: 100%; height: 100%; object-fit: cover; }
+
+    .insights { padding-top: clamp(5rem, 10vw, 8rem); padding-bottom: clamp(5rem, 10vw, 8rem); }
+    .insights h2 { font-family: var(--disp); font-weight: 400; font-size: clamp(2.2rem, 4vw, 3.6rem); margin: 1rem 0 2rem; }
+    .ilist a { display: grid; grid-template-columns: 8rem 1fr auto; gap: 1.4rem; align-items: baseline; padding: 1.5rem 0; border-top: 1px solid var(--line); }
+    .ilist li:last-child a { border-bottom: 1px solid var(--line); }
+    .ilist small { color: var(--soft); font-size: .85rem; }
+    .ilist h3 { font-family: var(--disp); font-weight: 400; font-size: clamp(1.3rem, 2.4vw, 1.9rem); line-height: 1.2; }
+    .ilist span { color: var(--brick); transition: transform .4s var(--ease); }
+    .ilist a:hover span { transform: translateX(6px); }
+
+    .contact { background: var(--navy); color: var(--cream); padding-top: clamp(5rem, 10vw, 8rem); padding-bottom: clamp(5rem, 10vw, 8rem); display: grid; grid-template-columns: 1fr 1.1fr; gap: clamp(2rem, 6vw, 6rem); }
+    .contact .sm { color: #E59A84; }
+    .contact h2 { font-family: var(--disp); font-weight: 400; font-size: clamp(2.4rem, 5vw, 4.6rem); line-height: 1.02; margin-top: 1rem; }
+    .contact > div > p { color: rgba(244, 241, 234, .7); margin-top: 1.2rem; max-width: 26rem; }
+    .form { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem 1.6rem; }
+    .form label { display: grid; gap: .3rem; font-size: .8rem; color: rgba(244, 241, 234, .65); }
+    .form .full { grid-column: 1 / -1; }
+    .form input, .form select, .form textarea { background: transparent; border: 0; border-bottom: 1px solid rgba(244, 241, 234, .3); padding: .7rem 0; color: var(--cream); outline: none; font-size: 1.05rem; border-radius: 0; color-scheme: dark; }
+    .form select option { background: var(--navy); }
+    .form input:focus, .form select:focus, .form textarea:focus { border-color: #E59A84; }
+    .form .btn { background: var(--cream); color: var(--navy); justify-self: start; }
+    .form .btn:hover { background: #E59A84; }
+    .msg { grid-column: 1 / -1; display: none; padding: 1rem 1.2rem; border-left: 2px solid #E59A84; background: rgba(244, 241, 234, .06); }
+    .msg.is-on { display: block; }
+    .ftr { background: var(--navy2); color: rgba(244, 241, 234, .6); padding: 2rem clamp(1.2rem, 5vw, 5rem) 5rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; font-size: .86rem; }
+
+    .rv { opacity: 0; transform: translateY(24px); transition: opacity 1s var(--ease), transform 1.1s var(--ease); }
+    .rv.is-in { opacity: 1; transform: none; }
+    @media (max-width: 960px) {
+      .hdr nav { display: none; } .hdr .btn { margin-left: auto; }
+      .hero, .practices, .partner, .contact { grid-template-columns: 1fr; }
+      .practices h2 { position: static; }
+      .facts { grid-template-columns: 1fr 1fr; }
+      .facts div:nth-child(2) { border-right: 0; }
+      .facts div:nth-child(3) { margin-left: 0; }
+      .timeline { grid-template-columns: 1fr 1fr; gap: 2.4rem 0; }
+      .timeline::before, .timeline .bar { display: none; }
+      .cgrid { grid-template-columns: 1fr; }
+      .case { min-height: 0; }
+      .ilist a { grid-template-columns: 1fr auto; } .ilist small { grid-column: 1 / -1; }
+    }
+    @media (max-width: 560px) { .form { grid-template-columns: 1fr; } .acc__body > div { padding-left: 0; } .timeline { grid-template-columns: 1fr; } }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; } .rv { opacity: 1; transform: none; } }
+  </style>
+</head>
+<body>
+  <header class="hdr">
+    <a class="logo" href="./">Ashford <em>&amp;</em> Lane</a>
+    <nav aria-label="Main"><a class="ul" href="#practices">Practices</a><a class="ul" href="#approach">Approach</a><a class="ul" href="#work">Work</a><a class="ul" href="#insights">Insights</a></nav>
+    <a class="btn" href="#contact">Start a conversation</a>
+  </header>
+
+  <main>
+    <section class="hero pad">
+      <h1>Clear strategy<br />for <em>hard</em> decisions.</h1>
+      <div class="hero__side">
+        <p>We help founders and leadership teams make the few decisions that shape the next five years, and then we stay to make sure they happen.</p>
+        <div><a class="btn" href="#contact">Book an intro call →</a><a class="btn btn--line" href="#work">See our work</a></div>
+      </div>
+    </section>
+    <div class="facts pad">
+      <div class="rv"><b>17</b><span>years advising mid-market firms</span></div>
+      <div class="rv"><b>210+</b><span>engagements completed</span></div>
+      <div class="rv"><b>4</b><span>senior partners on every project</span></div>
+      <div class="rv"><b>91%</b><span>of clients return within two years</span></div>
+    </div>
+
+    <section class="practices pad" id="practices">
+      <div><p class="sm">Practices</p><h2>Three things, done properly.</h2></div>
+      <ol class="acc">
+        <li class="is-open"><button type="button" aria-expanded="true"><b>i.</b><span>Strategy &amp; growth</span><i aria-hidden="true">+</i></button><div class="acc__body"><div><p>Where to play and how to win. Market entry, pricing, portfolio decisions and growth plans grounded in numbers, not slides.</p><ul><li>Market entry</li><li>Pricing</li><li>M&amp;A screening</li><li>Board strategy days</li></ul></div></div></li>
+        <li><button type="button" aria-expanded="false"><b>ii.</b><span>Operations &amp; performance</span><i aria-hidden="true">+</i></button><div class="acc__body"><div><p>Make the business run the way the strategy needs it to: leaner processes, clearer roles and the metrics that matter.</p><ul><li>Operating model</li><li>Cost transformation</li><li>KPI design</li></ul></div></div></li>
+        <li><button type="button" aria-expanded="false"><b>iii.</b><span>Leadership &amp; change</span><i aria-hidden="true">+</i></button><div class="acc__body"><div><p>Strategy fails in the hallway. We align leadership teams, design the change and coach the people carrying it.</p><ul><li>Executive alignment</li><li>Change programmes</li><li>Founder succession</li></ul></div></div></li>
+      </ol>
+    </section>
+
+    <section class="approach pad" id="approach">
+      <p class="sm">Our approach</p>
+      <h2>Answers in weeks, not quarters.</h2>
+      <div class="timeline"><span class="bar"></span>
+        <div class="tl"><i>1</i><small>Week 1</small><h3>Listen</h3><p>Interviews across your leadership, customers and data.</p></div>
+        <div class="tl"><i>2</i><small>Weeks 2–3</small><h3>Diagnose</h3><p>We find the real problem, which is rarely the first one.</p></div>
+        <div class="tl"><i>3</i><small>Week 4</small><h3>Decide</h3><p>A clear recommendation, the trade-offs and a plan.</p></div>
+        <div class="tl"><i>4</i><small>Ongoing</small><h3>Deliver</h3><p>We stay alongside your team until results show.</p></div>
+      </div>
+    </section>
+
+    <section class="cases pad" id="work">
+      <div class="cases__head"><div><p class="sm">Selected work</p><h2>Decisions that moved the numbers.</h2></div><p style="color:var(--soft);max-width:22rem;font-size:.9rem">Illustrative engagements for a fictional firm.</p></div>
+      <div class="cgrid">
+        <article class="case rv"><div><p class="sm" style="color:var(--soft)">Regional retailer</p><h3 style="margin-top:.6rem">Repriced 4,000 products without losing a customer.</h3></div><div><b>+11%</b><small>gross margin in two quarters</small></div></article>
+        <article class="case rv"><div><p class="sm" style="color:var(--soft)">Logistics group</p><h3 style="margin-top:.6rem">Rebuilt the operating model across six depots.</h3></div><div><b>−18%</b><small>cost per delivery</small></div></article>
+        <article class="case rv"><div><p class="sm" style="color:var(--soft)">Family-owned manufacturer</p><h3 style="margin-top:.6rem">Prepared a second-generation founder handover.</h3></div><div><b>2×</b><small>revenue in five years</small></div></article>
+      </div>
+    </section>
+
+    <section class="partner">
+      <img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3JkTYSIMBFwy3FWXWC6OIINtfRW/63139203-77f5-4876-a807-8b3c5ae187d1.webp" alt="Managing partner Eleanor Ashford in the office" loading="lazy" />
+      <div class="rv">
+        <p class="sm">From our managing partner</p>
+        <blockquote>Most companies don't need more ideas. They need the courage to choose one, and the discipline to see it through.</blockquote>
+        <p>— Eleanor Ashford, Managing Partner</p>
+      </div>
+    </section>
+
+    <section class="office"><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3JkTYSIMBFwy3FWXWC6OIINtfRW/a766c7ca-dc77-4dc9-a4b5-d89d4e37c607.webp" alt="Consultants working together in a bright meeting room" loading="lazy" /></section>
+
+    <section class="insights pad" id="insights">
+      <p class="sm">Insights</p>
+      <h2>Thinking out loud.</h2>
+      <ul class="ilist">
+        <li><a href="#insights"><small>Strategy · 6 min</small><h3>Why your five-year plan should fit on one page</h3><span aria-hidden="true">→</span></a></li>
+        <li><a href="#insights"><small>Pricing · 8 min</small><h3>The quiet price increase: how to raise prices without a backlash</h3><span aria-hidden="true">→</span></a></li>
+        <li><a href="#insights"><small>Leadership · 5 min</small><h3>Three questions every board should ask before an acquisition</h3><span aria-hidden="true">→</span></a></li>
+      </ul>
+    </section>
+
+    <section class="contact pad" id="contact">
+      <div><p class="sm">Contact</p><h2>Tell us about the decision in front of you.</h2><p>A partner replies personally within one business day. Every conversation is confidential.</p></div>
+      <form class="form" novalidate>
+        <label>Name<input required autocomplete="name" /></label>
+        <label>Company<input autocomplete="organization" /></label>
+        <label class="full">Work email<input type="email" required autocomplete="email" /></label>
+        <label class="full">Your challenge<select><option>Growth or market entry</option><option>Pricing</option><option>Operations and costs</option><option>Leadership or succession</option><option>Something else</option></select></label>
+        <label class="full">A few words<textarea rows="3"></textarea></label>
+        <button class="btn" type="submit">Send message →</button>
+        <p class="msg" role="status" tabindex="-1">Design concept: nothing was sent. On a live website this message would reach a partner's inbox immediately.</p>
+      </form>
+    </section>
+  </main>
+  <footer class="ftr"><span>Ashford &amp; Lane is a fictional consultancy designed by ER Studio as a website concept.</span><span>London · New York · Madrid</span></footer>
+
+  <script>
+    (function () {
+      var io = 'IntersectionObserver' in window ? new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); } }); }, { rootMargin: '0px 0px -10% 0px' }) : null;
+      document.querySelectorAll('.rv, .timeline').forEach(function (el) { io ? io.observe(el) : el.classList.add('is-in'); });
+      var items = document.querySelectorAll('.acc > li');
+      items.forEach(function (li) { li.querySelector('button').addEventListener('click', function () { var open = !li.classList.contains('is-open'); items.forEach(function (o) { o.classList.remove('is-open'); o.querySelector('button').setAttribute('aria-expanded', 'false'); }); if (open) { li.classList.add('is-open'); this.setAttribute('aria-expanded', 'true'); } }); });
+      document.querySelector('.form').addEventListener('submit', function (e) { e.preventDefault(); if (!this.reportValidity()) return; var m = this.querySelector('.msg'); m.classList.add('is-on'); m.focus(); });
+    })();
+  </script>
+  <script src="../concept-bar.js"></script>
+</body>
+</html>

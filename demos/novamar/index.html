@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Novamar | Private yacht charter in Miami, the Bahamas &amp; Caribbean · Design concept by ER Studio</title>
+  <meta name="description" content="Design concept by ER Studio: a premium yacht charter website for a fictional Miami company." />
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Figtree:wght@400;500;600&display=swap" />
+  <style>
+    :root { --navy: #04182A; --deep: #072538; --ocean: #0E4A68; --foam: #EEF4F5; --sand: #E9DFCF; --brass: #C8A86B; --mist: rgba(238, 244, 245, .7); --line: rgba(238, 244, 245, .16); --wide: "Syncopate", sans-serif; --sans: "Figtree", system-ui, sans-serif; --ease: cubic-bezier(.2, .7, .1, 1); }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--navy); color: var(--foam); font-family: var(--sans); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button, input, select, textarea { font: inherit; color: inherit; }
+    button { cursor: pointer; border: 0; background: none; padding: 0; }
+    h1, h2, h3, p, ul { margin: 0; } ul { padding: 0; list-style: none; }
+    :focus-visible { outline: 2px solid var(--brass); outline-offset: 3px; }
+    .wide { font-family: var(--wide); font-weight: 700; text-transform: uppercase; letter-spacing: .02em; line-height: 1.02; }
+    .tag { font-size: .72rem; font-weight: 600; letter-spacing: .28em; text-transform: uppercase; color: var(--brass); }
+    .pad { padding-left: clamp(1.2rem, 5vw, 5rem); padding-right: clamp(1.2rem, 5vw, 5rem); }
+    .btn { display: inline-flex; align-items: center; gap: .8rem; padding: 1rem 1.5rem; border-radius: 999px; background: var(--foam); color: var(--navy); font-weight: 600; font-size: .9rem; transition: background .3s, transform .4s var(--ease); }
+    .btn:hover { background: var(--brass); }
+    .btn--ghost { background: transparent; color: var(--foam); box-shadow: inset 0 0 0 1px rgba(238, 244, 245, .5); }
+    .btn--ghost:hover { background: var(--foam); color: var(--navy); }
+
+    .hdr { position: fixed; inset: 0 0 auto; z-index: 40; display: flex; align-items: center; gap: 2rem; padding: 1.3rem clamp(1.2rem, 5vw, 5rem); transition: background .5s, padding .5s; }
+    .hdr.is-solid { background: rgba(4, 24, 42, .86); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); padding-top: .8rem; padding-bottom: .8rem; }
+    .logo { font-family: var(--wide); font-weight: 700; font-size: 1rem; letter-spacing: .42em; }
+    .hdr nav { margin-left: auto; display: flex; gap: 2rem; font-size: .86rem; font-weight: 500; }
+    .hdr nav a { opacity: .8; } .hdr nav a:hover { opacity: 1; }
+    .hdr .btn { padding: .7rem 1.1rem; font-size: .82rem; }
+
+    .hero { position: relative; height: 100svh; min-height: 620px; overflow: hidden; display: grid; align-items: end; }
+    .hero img { position: absolute; inset: -4%; width: 108%; height: 108%; object-fit: cover; animation: drift 24s ease-in-out infinite alternate; }
+    @keyframes drift { from { transform: translate(0, 0) scale(1.02); } to { transform: translate(-3%, -2%) scale(1.06); } }
+    .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(2, 20, 34, .55), rgba(2, 20, 34, 0) 30%, rgba(2, 20, 34, 0) 50%, rgba(2, 20, 34, .85)); }
+    .hero__copy { position: relative; z-index: 2; padding-bottom: clamp(3rem, 9vh, 6rem); display: grid; gap: 1.4rem; }
+    .hero h1 { font-size: clamp(2.6rem, 8.4vw, 9rem); animation: rise 1.4s .1s var(--ease) both; }
+    .hero h1 span { display: block; color: transparent; -webkit-text-stroke: 1.5px var(--foam); }
+    @keyframes rise { from { opacity: 0; transform: translateY(50px); } }
+    .hero__row { display: flex; justify-content: space-between; align-items: flex-end; gap: 2rem; flex-wrap: wrap; animation: rise 1.4s .4s var(--ease) both; }
+    .hero__row p { max-width: 32rem; color: var(--mist); font-size: 1.08rem; }
+    .hero__row div { display: flex; gap: .8rem; flex-wrap: wrap; }
+
+    .marquee { overflow: hidden; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 1.2rem 0; }
+    .marquee div { display: flex; gap: 3rem; width: max-content; animation: mq 40s linear infinite; }
+    .marquee span { font-family: var(--wide); font-size: .9rem; letter-spacing: .3em; color: var(--mist); white-space: nowrap; }
+    .marquee span::after { content: "✦"; margin-left: 3rem; color: var(--brass); }
+    @keyframes mq { to { transform: translateX(-50%); } }
+
+    .fleet { padding-top: clamp(5rem, 10vw, 8rem); padding-bottom: clamp(5rem, 10vw, 8rem); }
+    .fleet__head { display: flex; justify-content: space-between; align-items: end; gap: 2rem; flex-wrap: wrap; margin-bottom: 2.4rem; }
+    .fleet__head h2 { font-size: clamp(2rem, 5vw, 4.6rem); margin-top: 1rem; }
+    .fleet__tabs { display: flex; gap: .4rem; padding: .3rem; border-radius: 999px; box-shadow: inset 0 0 0 1px var(--line); }
+    .fleet__tabs button { padding: .7rem 1.2rem; border-radius: 999px; font-family: var(--wide); font-size: .72rem; letter-spacing: .2em; color: var(--mist); transition: all .3s; }
+    .fleet__tabs button[aria-selected="true"] { background: var(--foam); color: var(--navy); }
+    .yacht { display: none; grid-template-columns: 1.5fr 1fr; gap: clamp(1.5rem, 4vw, 4rem); align-items: stretch; }
+    .yacht.is-on { display: grid; }
+    .yacht__img { position: relative; overflow: hidden; border-radius: 20px; min-height: 60vh; }
+    .yacht__img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; animation: wipe 1.3s var(--ease); }
+    @keyframes wipe { from { clip-path: inset(0 100% 0 0); transform: scale(1.12); } }
+    .yacht__info { display: grid; align-content: space-between; gap: 2rem; animation: rise 1s .15s var(--ease) both; }
+    .yacht__info h3 { font-family: var(--wide); font-weight: 700; font-size: clamp(1.8rem, 3.4vw, 3rem); letter-spacing: .08em; }
+    .yacht__info p { color: var(--mist); margin-top: 1rem; }
+    .specs { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--line); }
+    .specs div { padding: 1rem 0; border-bottom: 1px solid var(--line); }
+    .specs div:nth-child(odd) { padding-right: 1rem; border-right: 1px solid var(--line); }
+    .specs div:nth-child(even) { padding-left: 1.2rem; }
+    .specs b { display: block; font-family: var(--wide); font-size: 1.4rem; }
+    .specs span { font-size: .72rem; letter-spacing: .2em; text-transform: uppercase; color: var(--mist); }
+    .yacht__price { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+    .yacht__price strong { font-family: var(--wide); font-size: 1.3rem; }
+    .yacht__price small { display: block; font-size: .72rem; letter-spacing: .2em; text-transform: uppercase; color: var(--mist); }
+    details { border-top: 1px solid var(--line); padding-top: 1rem; }
+    summary { cursor: pointer; font-weight: 600; font-size: .9rem; list-style: none; display: flex; justify-content: space-between; }
+    summary::after { content: "+"; color: var(--brass); }
+    details[open] summary::after { content: "–"; }
+    details ul { margin-top: .8rem; display: grid; gap: .3rem; color: var(--mist); font-size: .92rem; }
+
+    .gal { padding: clamp(4rem, 8vw, 6rem) 0; background: var(--deep); }
+    .gal__head { display: flex; justify-content: space-between; align-items: end; gap: 2rem; margin-bottom: 2rem; }
+    .gal__head h2 { font-size: clamp(1.8rem, 4vw, 3.4rem); margin-top: 1rem; }
+    .gal__nav { display: flex; gap: .5rem; }
+    .gal__nav button { width: 3.2rem; height: 3.2rem; border-radius: 50%; box-shadow: inset 0 0 0 1px var(--line); display: grid; place-items: center; transition: background .3s; }
+    .gal__nav button:hover { background: var(--foam); color: var(--navy); }
+    .gal__track { display: flex; gap: 1rem; overflow-x: auto; scroll-snap-type: x mandatory; padding: 0 clamp(1.2rem, 5vw, 5rem) 1rem; scrollbar-width: none; }
+    .gal__track::-webkit-scrollbar { display: none; }
+    .gal__track figure { flex: 0 0 clamp(280px, 42vw, 680px); margin: 0; scroll-snap-align: start; display: grid; gap: .8rem; }
+    .gal__track figure:nth-child(even) { flex-basis: clamp(240px, 28vw, 440px); }
+    .gal__track .ph { overflow: hidden; border-radius: 16px; height: clamp(320px, 56vh, 600px); }
+    .gal__track img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.4s var(--ease); }
+    .gal__track figure:hover img { transform: scale(1.05); }
+    .gal__track figcaption { font-size: .86rem; color: var(--mist); }
+
+    .dest { padding-top: clamp(5rem, 10vw, 8rem); padding-bottom: clamp(5rem, 10vw, 8rem); }
+    .dest h2 { font-size: clamp(2rem, 5vw, 4.6rem); margin: 1rem 0 2.6rem; }
+    .dest__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .dcard { position: relative; overflow: hidden; border-radius: 18px; aspect-ratio: 3 / 4; display: grid; align-items: end; text-align: left; }
+    .dcard img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 1.4s var(--ease); }
+    .dcard::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(2, 20, 34, .85), rgba(2, 20, 34, 0) 60%); }
+    .dcard:hover img { transform: scale(1.06); }
+    .dcard div { position: relative; z-index: 2; padding: 1.6rem; display: grid; gap: .4rem; }
+    .dcard h3 { font-family: var(--wide); font-size: 1.15rem; letter-spacing: .12em; }
+    .dcard p { color: var(--mist); font-size: .9rem; }
+    .dcard span { font-size: .78rem; font-weight: 600; color: var(--brass); }
+
+    .exp { display: grid; grid-template-columns: 1fr 1fr; background: var(--sand); color: var(--navy); }
+    .exp__img { position: relative; min-height: 70vh; }
+    .exp__img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .exp__copy { padding: clamp(4rem, 8vw, 7rem) clamp(1.2rem, 5vw, 5rem); display: grid; align-content: center; gap: 1.4rem; }
+    .exp__copy .tag { color: #8A6A31; }
+    .exp__copy h2 { font-size: clamp(1.8rem, 3.6vw, 3.2rem); }
+    .exp__list li { display: grid; grid-template-columns: 3rem 1fr; gap: .4rem 1rem; padding: 1.1rem 0; border-top: 1px solid rgba(4, 24, 42, .14); }
+    .exp__list b { font-family: var(--wide); font-size: .9rem; color: #8A6A31; }
+    .exp__list h3 { font-size: 1.05rem; font-weight: 600; }
+    .exp__list p { grid-column: 2; font-size: .92rem; color: #4A5560; }
+
+    .plan { padding-top: clamp(5rem, 10vw, 8rem); padding-bottom: clamp(5rem, 10vw, 8rem); display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(2rem, 6vw, 6rem); }
+    .plan h2 { font-size: clamp(2rem, 4.6vw, 4.2rem); margin-top: 1rem; }
+    .plan > div > p { color: var(--mist); margin-top: 1.2rem; max-width: 26rem; }
+    .wizard { background: var(--deep); border: 1px solid var(--line); border-radius: 22px; padding: clamp(1.4rem, 3vw, 2.4rem); display: grid; gap: 1.6rem; }
+    .wz-top { display: flex; justify-content: space-between; font-size: .8rem; color: var(--mist); }
+    .wz-bar { height: 3px; background: var(--line); border-radius: 3px; overflow: hidden; }
+    .wz-bar i { display: block; height: 100%; width: 25%; background: var(--brass); transition: width .6s var(--ease); }
+    .step { display: none; gap: 1rem; }
+    .step.is-on { display: grid; animation: rise .6s var(--ease); }
+    .step h3 { font-family: var(--wide); font-size: 1.1rem; letter-spacing: .06em; }
+    .choice { display: grid; grid-template-columns: repeat(3, 1fr); gap: .6rem; }
+    .choice label { cursor: pointer; position: relative; }
+    .choice input { position: absolute; opacity: 0; }
+    .choice span { display: grid; gap: .2rem; padding: 1rem; border-radius: 14px; box-shadow: inset 0 0 0 1px var(--line); transition: all .3s; height: 100%; }
+    .choice span b { font-family: var(--wide); font-size: .8rem; letter-spacing: .14em; }
+    .choice span small { color: var(--mist); font-size: .78rem; }
+    .choice input:checked + span { background: var(--foam); color: var(--navy); box-shadow: none; }
+    .choice input:checked + span small { color: #44525E; }
+    .choice input:focus-visible + span { outline: 2px solid var(--brass); outline-offset: 2px; }
+    .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; }
+    .fld { display: grid; gap: .35rem; }
+    .fld small { font-size: .7rem; letter-spacing: .2em; text-transform: uppercase; color: var(--mist); }
+    .fld input, .fld select, .fld textarea { background: rgba(238, 244, 245, .06); border: 1px solid var(--line); border-radius: 12px; padding: .85rem 1rem; outline: none; color-scheme: dark; }
+    .fld input:focus, .fld select:focus, .fld textarea:focus { border-color: var(--brass); }
+    .fld select option { background: var(--deep); }
+    .wz-nav { display: flex; justify-content: space-between; gap: 1rem; }
+    .done { text-align: left; }
+    .done p { color: var(--mist); }
+    .summary { display: grid; gap: .4rem; padding: 1rem 1.2rem; border-radius: 14px; background: rgba(238, 244, 245, .06); font-size: .92rem; }
+
+    .ftr { border-top: 1px solid var(--line); padding: 3rem clamp(1.2rem, 5vw, 5rem) 5rem; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; color: var(--mist); font-size: .85rem; }
+
+    .lb { position: fixed; inset: 0; z-index: 90; background: rgba(2, 14, 24, .95); display: none; place-items: center; padding: 3rem 1rem; }
+    .lb.is-on { display: grid; }
+    .lb img { max-width: 92vw; max-height: 84vh; object-fit: contain; border-radius: 12px; }
+    .lb button { position: absolute; top: 1.2rem; right: 1.2rem; width: 3rem; height: 3rem; border-radius: 50%; box-shadow: inset 0 0 0 1px var(--line); }
+
+    @media (max-width: 960px) {
+      .hdr nav { display: none; } .hdr .btn { margin-left: auto; }
+      .yacht, .exp, .plan { grid-template-columns: 1fr; }
+      .yacht__img { min-height: 48vh; }
+      .dest__grid { grid-template-columns: 1fr; }
+      .dcard { aspect-ratio: 16 / 11; }
+    }
+    @media (max-width: 600px) {
+      .choice { grid-template-columns: 1fr; }
+      .row2 { grid-template-columns: 1fr; }
+      .fleet__tabs { width: 100%; justify-content: space-between; }
+      .fleet__tabs button { padding: .7rem .8rem; font-size: .62rem; }
+      .gal__nav { display: none; }
+    }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } }
+  </style>
+</head>
+<body>
+  <header class="hdr">
+    <a class="logo" href="./">NOVAMAR</a>
+    <nav aria-label="Main"><a href="#fleet">Fleet</a><a href="#destinations">Destinations</a><a href="#experiences">Experiences</a></nav>
+    <a class="btn" href="#plan">Plan a charter</a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3JkTYSIMBFwy3FWXWC6OIINtfRW/6c129194-d51b-4693-8335-67bb099d6eb1.webp" alt="A white superyacht cruising across turquoise water" />
+      <div class="hero__copy pad">
+        <p class="tag">Private yacht charter · Miami · Bahamas · Caribbean</p>
+        <h1 class="wide">The ocean,<span>privately.</span></h1>
+        <div class="hero__row">
+          <p>Crewed motor yachts and catamarans for days, weekends and weeks at sea. Your route, your pace, your people.</p>
+          <div><a class="btn" href="#fleet">Explore the fleet ↓</a><a class="btn btn--ghost" href="#plan">Plan a charter</a></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="marquee" aria-hidden="true"><div><span>Miami</span><span>Key West</span><span>Bimini</span><span>The Exumas</span><span>British Virgin Islands</span><span>St. Barths</span><span>Turks &amp; Caicos</span><span>Miami</span><span>Key West</span><span>Bimini</span><span>The Exumas</span><span>British Virgin Islands</span><span>St. Barths</span><span>Turks &amp; Caicos</span></div></div>
+
+    <section class="fleet pad" id="fleet">
+      <div class="fleet__head">
+        <div><p class="tag">The fleet</p><h2 class="wide">Three yachts.<br />One standard.</h2></div>
+        <div class="fleet__tabs" role="tablist" aria-label="Yachts">
+          <button role="tab" aria-selected="true" aria-controls="y1" id="yt1">Astraea</button>
+          <button role="tab" aria-selected="false" aria-controls="y2" id="yt2" tabindex="-1">Nocturne</button>
+          <button role="tab" aria-selected="false" aria-controls="y3" id="yt3" tabindex="-1">Halcyon</button>
+        </div>
+      </div>
+
+      <article class="yacht is-on" id="y1" role="tabpanel" aria-labelledby="yt1">
+        <div class="yacht__img"><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3JkTYSIMBFwy3FWXWC6OIINtfRW/6c129194-d51b-4693-8335-67bb099d6eb1.webp" alt="Astraea, a 45 metre superyacht, seen from above" loading="lazy" /></div>
+        <div class="yacht__info">
+          <div><p class="tag">Superyacht · 2021</p><h3 style="margin-top:.6rem">ASTRAEA</h3><p>Five decks, a beach club at the stern and a crew of nine who know every sandbar between Miami and the Exumas.</p></div>
+          <div class="specs"><div><b>45 m</b><span>Length</span></div><div><b>12</b><span>Guests</span></div><div><b>6</b><span>Cabins</span></div><div><b>17 kn</b><span>Cruise speed</span></div></div>
+          <details><summary>Full specification</summary><ul><li>Beam 8.9 m · Draft 2.4 m</li><li>Jacuzzi on sundeck, gym, cinema</li><li>Two jet skis, Seabob, paddleboards, snorkel gear</li><li>Zero-speed stabilisers</li></ul></details>
+          <div class="yacht__price"><p><small>From</small><strong>$38,000 / day</strong></p><button class="btn js-yacht" data-y="astraea" type="button">Enquire</button></div>
+        </div>
+      </article>
+      <article class="yacht" id="y2" role="tabpanel" aria-labelledby="yt2">
+        <div class="yacht__img"><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3JkTYSIMBFwy3FWXWC6OIINtfRW/ef59be39-4809-4ae0-9f9d-0799f4f733ca.webp" alt="Nocturne, a dark-hulled motor yacht anchored at a sandbar" loading="lazy" /></div>
+        <div class="yacht__info">
+          <div><p class="tag">Motor yacht · 2019</p><h3 style="margin-top:.6rem">NOCTURNE</h3><p>Fast, sleek and built for island hopping, with a tender garage full of toys and a flybridge made for sunsets.</p></div>
+          <div class="specs"><div><b>30 m</b><span>Length</span></div><div><b>10</b><span>Guests</span></div><div><b>5</b><span>Cabins</span></div><div><b>24 kn</b><span>Cruise speed</span></div></div>
+          <details><summary>Full specification</summary><ul><li>Beam 6.8 m · Draft 1.9 m</li><li>Flybridge with bar and grill</li><li>Tender, jet ski, inflatable water slide</li><li>Crew of six</li></ul></details>
+          <div class="yacht__price"><p><small>From</small><strong>$18,500 / day</strong></p><button class="btn js-yacht" data-y="nocturne" type="button">Enquire</button></div>
+        </div>
+      </article>
+      <article class="yacht" id="y3" role="tabpanel" aria-labelledby="yt3">
+        <div class="yacht__img"><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3JkTYSIMBFwy3FWXWC6OIINtfRW/e86c7d17-6658-444c-aa66-dbe5b8ac8457.webp" alt="Halcyon, a sailing catamaran anchored in a calm bay" loading="lazy" /></div>
+        <div class="yacht__info">
+          <div><p class="tag">Sailing catamaran · 2023</p><h3 style="margin-top:.6rem">HALCYON</h3><p>Quiet under sail, stable at anchor and wonderfully social, with a trampoline deck over the water.</p></div>
+          <div class="specs"><div><b>24 m</b><span>Length</span></div><div><b>8</b><span>Guests</span></div><div><b>4</b><span>Cabins</span></div><div><b>10 kn</b><span>Under sail</span></div></div>
+          <details><summary>Full specification</summary><ul><li>Beam 11 m · Draft 1.5 m</li><li>Solar-assisted hybrid propulsion</li><li>Dive compressor, kayaks, foil board</li><li>Crew of four, including chef</li></ul></details>
+          <div class="yacht__price"><p><small>From</small><strong>$9,800 / day</strong></p><button class="btn js-yacht" data-y="halcyon" type="button">Enquire</button></div>
+        </div>
+      </article>
+    </section>
+
+    <section class="gal" aria-label="Gallery">
+      <div class="gal__head pad"><div><p class="tag">Life on board</p><h2 class="wide">Hours that<br />feel like days.</h2></div><div class="gal__nav"><button type="button" class="gp" aria-label="Previous">←</button><button type="button" class="gn" aria-label="Next">→</button></div></div>
+      <div class="gal__track">
+        <figure><button class="ph" type="button" aria-label="Open image: Sundeck at sunset"><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3JkTYSIMBFwy3FWXWC6OIINtfRW/fca99c6f-d44c-4094-9c31-2a4be48a53ed.webp" alt="Sundeck at sunset with the Miami skyline" loading="lazy" /></button><figcaption>Sundeck, Biscayne Bay at golden hour</figcaption></figure>
+        <figure><button class="ph" type="button" aria-label="Open image: Main salon"><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3JkTYSIMBFwy3FWXWC6OIINtfRW/c85a44c1-1654-4b29-9e1f-f8dd9484bcd0.webp" alt="Main salon in cream leather and walnut" loading="lazy" /></button><figcaption>The main salon aboard Astraea</figcaption></figure>
+        <figure><button class="ph" type="button" aria-label="Open image: Dinner on deck"><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3JkTYSIMBFwy3FWXWC6OIINtfRW/1d54f58f-f699-4835-acae-bfb6ba4ff7f9.webp" alt="Candlelit dinner on the aft deck at night" loading="lazy" /></button><figcaption>Dinner on the aft deck</figcaption></figure>
+        <figure><button class="ph" type="button" aria-label="Open image: Sandbar"><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3JkTYSIMBFwy3FWXWC6OIINtfRW/ef59be39-4809-4ae0-9f9d-0799f4f733ca.webp" alt="Motor yacht at a Bahamas sandbar" loading="lazy" /></button><figcaption>Anchored off a Bahamas sandbar</figcaption></figure>
+        <figure><button class="ph" type="button" aria-label="Open image: Catamaran"><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3JkTYSIMBFwy3FWXWC6OIINtfRW/e86c7d17-6658-444c-aa66-dbe5b8ac8457.webp" alt="Catamaran in a calm bay" loading="lazy" /></button><figcaption>Halcyon in the British Virgin Islands</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="dest pad" id="destinations">
+      <p class="tag">Destinations</p>
+      <h2 class="wide">Where shall<br />we anchor?</h2>
+      <div class="dest__grid">
+        <button class="dcard js-dest" data-d="Miami &amp; the Keys" type="button"><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3JkTYSIMBFwy3FWXWC6OIINtfRW/fca99c6f-d44c-4094-9c31-2a4be48a53ed.webp" alt="" loading="lazy" /><div><span>Year-round</span><h3>MIAMI &amp; THE KEYS</h3><p>Day charters, sandbars and Key West weekends.</p></div></button>
+        <button class="dcard js-dest" data-d="The Bahamas" type="button"><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3JkTYSIMBFwy3FWXWC6OIINtfRW/ef59be39-4809-4ae0-9f9d-0799f4f733ca.webp" alt="" loading="lazy" /><div><span>November – July</span><h3>THE BAHAMAS</h3><p>Bimini, the Exumas and swimming pigs, 50 nm from Miami.</p></div></button>
+        <button class="dcard js-dest" data-d="British Virgin Islands" type="button"><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3JkTYSIMBFwy3FWXWC6OIINtfRW/e86c7d17-6658-444c-aa66-dbe5b8ac8457.webp" alt="" loading="lazy" /><div><span>December – May</span><h3>VIRGIN ISLANDS</h3><p>Sheltered sailing, quiet coves and beach bars by dinghy.</p></div></button>
+      </div>
+    </section>
+
+    <section class="exp" id="experiences">
+      <div class="exp__img"><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3JkTYSIMBFwy3FWXWC6OIINtfRW/1d54f58f-f699-4835-acae-bfb6ba4ff7f9.webp" alt="Candlelit dinner table on a yacht deck at night" loading="lazy" /></div>
+      <div class="exp__copy">
+        <p class="tag">Experiences</p>
+        <h2 class="wide">Everything arranged.<br />Nothing rushed.</h2>
+        <ul class="exp__list">
+          <li><b>01</b><h3>Private chef</h3><p>Menus planned with you before you board, from sushi to stone crab.</p></li>
+          <li><b>02</b><h3>Water toys</h3><p>Jet skis, Seabobs, foils and paddleboards, with crew to teach you.</p></li>
+          <li><b>03</b><h3>Diving &amp; snorkelling</h3><p>Reefs, wrecks and blue holes with a certified guide on board.</p></li>
+          <li><b>04</b><h3>Celebrations</h3><p>Birthdays, proposals and anniversaries planned down to the champagne.</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="plan pad" id="plan">
+      <div>
+        <p class="tag">Plan a charter</p>
+        <h2 class="wide">Your route<br />in four steps.</h2>
+        <p>Tell us the essentials and a charter specialist will send availability and a tailored proposal.</p>
+      </div>
+      <form class="wizard" novalidate>
+        <div class="wz-top"><span id="wzl">Step 1 of 4 · Yacht</span><span>~1 minute</span></div>
+        <div class="wz-bar"><i></i></div>
+        <fieldset class="step is-on" style="border:0;padding:0;margin:0">
+          <legend class="sr" style="position:absolute;opacity:0">Choose a yacht</legend>
+          <h3>Choose a yacht</h3>
+          <div class="choice">
+            <label><input type="radio" name="yacht" value="Astraea" checked /><span><b>ASTRAEA</b><small>45 m · 12 guests</small></span></label>
+            <label><input type="radio" name="yacht" value="Nocturne" /><span><b>NOCTURNE</b><small>30 m · 10 guests</small></span></label>
+            <label><input type="radio" name="yacht" value="Halcyon" /><span><b>HALCYON</b><small>24 m · 8 guests</small></span></label>
+          </div>
+        </fieldset>
+        <fieldset class="step" style="border:0;padding:0;margin:0">
+          <h3>Where &amp; when</h3>
+          <label class="fld"><small>Destination</small><select name="dest"><option>Miami &amp; the Keys</option><option>The Bahamas</option><option>British Virgin Islands</option><option>Not sure yet</option></select></label>
+          <div class="row2"><label class="fld"><small>Start</small><input type="date" name="start" /></label><label class="fld"><small>Duration</small><select name="dur"><option>Day charter</option><option>Weekend</option><option>One week</option><option>Two weeks +</option></select></label></div>
+        </fieldset>
+        <fieldset class="step" style="border:0;padding:0;margin:0">
+          <h3>Who's coming</h3>
+          <div class="row2"><label class="fld"><small>Guests</small><select name="guests"><option>2</option><option>4</option><option selected>6</option><option>8</option><option>10</option><option>12</option></select></label><label class="fld"><small>Occasion</small><select name="occ"><option>Holiday</option><option>Celebration</option><option>Corporate</option></select></label></div>
+          <label class="fld"><small>Anything we should know?</small><textarea name="notes" rows="3" placeholder="Dietary needs, kids on board, must-see places…"></textarea></label>
+        </fieldset>
+        <fieldset class="step" style="border:0;padding:0;margin:0">
+          <h3>Your details</h3>
+          <div class="row2"><label class="fld"><small>Name</small><input name="name" autocomplete="name" required /></label><label class="fld"><small>Email</small><input name="email" type="email" autocomplete="email" required /></label></div>
+          <div class="summary" id="sum"></div>
+        </fieldset>
+        <div class="step done" role="status" tabindex="-1">
+          <h3>Thank you</h3>
+          <p>This is a design concept by ER Studio, so nothing was sent. On a live website, your request would reach a charter specialist instantly, with all of these details.</p>
+        </div>
+        <div class="wz-nav"><button class="btn btn--ghost" type="button" id="wzb" style="visibility:hidden">← Back</button><button class="btn" type="button" id="wzn">Continue →</button></div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="ftr"><span class="logo">NOVAMAR</span><span>Novamar is a fictional yacht charter company designed by ER Studio as a website concept.</span></footer>
+  <div class="lb" role="dialog" aria-modal="true" aria-label="Image"><button type="button" aria-label="Close">✕</button><img src="" alt="" /></div>
+
+  <script>
+    (function () {
+      var hdr = document.querySelector('.hdr');
+      function sc() { hdr.classList.toggle('is-solid', scrollY > 60); } addEventListener('scroll', sc, { passive: true }); sc();
+
+      var tabs = [].slice.call(document.querySelectorAll('.fleet__tabs [role="tab"]'));
+      function sel(t) { tabs.forEach(function (x) { var on = x === t; x.setAttribute('aria-selected', on); x.tabIndex = on ? 0 : -1; document.getElementById(x.getAttribute('aria-controls')).classList.toggle('is-on', on); }); }
+      tabs.forEach(function (t, i) { t.addEventListener('click', function () { sel(t); }); t.addEventListener('keydown', function (e) { var d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0; if (!d) return; e.preventDefault(); var n = tabs[(i + d + 3) % 3]; n.focus(); sel(n); }); });
+
+      var track = document.querySelector('.gal__track');
+      document.querySelector('.gp').addEventListener('click', function () { track.scrollBy({ left: -track.clientWidth * .6, behavior: 'smooth' }); });
+      document.querySelector('.gn').addEventListener('click', function () { track.scrollBy({ left: track.clientWidth * .6, behavior: 'smooth' }); });
+      var lb = document.querySelector('.lb'), lbi = lb.querySelector('img'), lastF;
+      track.addEventListener('click', function (e) { var b = e.target.closest('button'); if (!b) return; lastF = b; var im = b.querySelector('img'); lbi.src = im.src; lbi.alt = im.alt; lb.classList.add('is-on'); lb.querySelector('button').focus(); });
+      function closeLb() { lb.classList.remove('is-on'); lastF && lastF.focus(); }
+      lb.addEventListener('click', function (e) { if (e.target !== lbi) closeLb(); });
+      addEventListener('keydown', function (e) { if (e.key === 'Escape' && lb.classList.contains('is-on')) closeLb(); });
+
+      var form = document.querySelector('.wizard'), steps = [].slice.call(form.querySelectorAll('.step')), s = 0;
+      var labels = ['Yacht', 'Where & when', 'Guests', 'Your details'];
+      var bar = form.querySelector('.wz-bar i'), lbl = document.getElementById('wzl'), nb = document.getElementById('wzn'), bb = document.getElementById('wzb');
+      var d = new Date(); d.setDate(d.getDate() + 21); form.start.value = d.toISOString().slice(0, 10); form.start.min = new Date().toISOString().slice(0, 10);
+      function show(n) {
+        s = n; steps.forEach(function (st, i) { st.classList.toggle('is-on', i === n); });
+        bar.style.width = Math.min(100, (n + 1) * 25) + '%';
+        lbl.textContent = n < 4 ? 'Step ' + (n + 1) + ' of 4 · ' + labels[n] : 'Request ready';
+        bb.style.visibility = n > 0 && n < 4 ? 'visible' : 'hidden';
+        nb.style.display = n < 4 ? '' : 'none';
+        nb.textContent = n === 3 ? 'Send request' : 'Continue →';
+        if (n === 3) document.getElementById('sum').innerHTML = '<b>' + form.querySelector('[name=yacht]:checked').value + '</b><span>' + form.dest.value + ' · ' + form.dur.value + ' · from ' + form.start.value + '</span><span>' + form.guests.value + ' guests · ' + form.occ.value + '</span>';
+        if (n === 4) steps[4].focus();
+      }
+      nb.addEventListener('click', function () {
+        if (s === 3) { if (!form.name.reportValidity() || !form.email.reportValidity()) return; }
+        show(s + 1);
+      });
+      bb.addEventListener('click', function () { show(Math.max(0, s - 1)); });
+      document.querySelectorAll('.js-yacht').forEach(function (b) { b.addEventListener('click', function () { form.querySelector('[name=yacht][value="' + b.getAttribute('data-y').replace(/^./, function (c) { return c.toUpperCase(); }) + '"]').checked = true; show(0); document.getElementById('plan').scrollIntoView({ behavior: 'smooth' }); }); });
+      document.querySelectorAll('.js-dest').forEach(function (b) { b.addEventListener('click', function () { form.dest.value = b.getAttribute('data-d'); show(1); document.getElementById('plan').scrollIntoView({ behavior: 'smooth' }); }); });
+    })();
+  </script>
+  <script src="../concept-bar.js"></script>
+</body>
+</html>

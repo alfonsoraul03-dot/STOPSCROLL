@@ -1,28 +1,32 @@
 # ER Studio
 
-Web de la agencia ER Studio: páginas web para cualquier negocio, de sencillas a cinematográficas.
+Web de la agencia ER Studio: webs a medida, de sencillas a cinematográficas, para cualquier negocio.
 
-Incluye tres webs de ejemplo navegables en `demos/` (restaurante Brasa, clínica Northshore Dental y constructora Ironline Builders).
+Web estática (HTML, CSS y JavaScript), sin proceso de compilación. Se publica gratis con GitHub Pages.
 
-Es una web estática (HTML, CSS y JavaScript), sin dependencias ni proceso de compilación:
+## Estructura
 
-- `index.html`: el contenido de la página.
-- `styles.css`: colores, tipografías y diseño.
-- `main.js`: cambio de idioma inglés/español, la película que avanza con el scroll, los ejemplos en vivo y los botones de "boceto gratis", que abren un email a growthwithraul@gmail.com.
+- `index.html`: portada cinematográfica (escenas con scroll, ejemplos en vivo, antes/después, vista escritorio/tablet/móvil, servicios y precios).
+- `work/`: portfolio con filtros por sector y vista galería/índice.
+- `contact/`: formulario de proyecto. Al enviar abre el email del visitante con todo rellenado hacia growthwithraul@gmail.com (no hay servidor conectado).
+- `assets/`: estilos y scripts de la agencia (`er.css`, `home.css`, `pages.css`, `er.js`, `home.js`, `pages.js`). Animaciones con GSAP desde cdnjs.
+- `demos/`: 10 webs de ejemplo con marcas ficticias, cada una con su propia identidad:
+  - `halden/` inmobiliaria de lujo (con fichas de propiedad `property.html?p=...`)
+  - `solenne/` hotel boutique con panel de reserva
+  - `novamar/` alquiler de yates en Miami con solicitud en 4 pasos
+  - `brasa/` restaurante (en español) con carta y reservas
+  - `marl/` tienda online con carrito y checkout de demostración
+  - `kinetic/` gimnasio con horario y reservas de clases
+  - `noesis/` empresa de IA con demo simulada
+  - `ashford/` consultora estratégica
+  - `northshore/` clínica dental · `ironline/` constructora
 
-## Publicarla gratis con GitHub Pages
+Todas las demos muestran una etiqueta "Concepto de diseño · marca ficticia" y sus formularios no envían datos.
 
-1. En este repositorio, entra en **Settings → Pages**.
-2. En **Source**, elige **Deploy from a branch**, rama **main** y carpeta **/ (root)**. Guarda.
-3. En un par de minutos estará en `https://alfonsoraul03-dot.github.io/STOPSCROLL/`.
+## Publicar con GitHub Pages
 
-## Conectar tu dominio (por ejemplo erstudio.com o similar)
+Settings → Pages → Deploy from a branch → `main` / root. URL: `https://alfonsoraul03-dot.github.io/STOPSCROLL/`
 
-1. Compra el dominio en tu registrador.
-2. En **Settings → Pages → Custom domain**, escribe el dominio y guarda.
-3. En el panel DNS del registrador, crea los registros que indica GitHub (cuatro registros `A` para el dominio raíz y un `CNAME` `www` hacia `alfonsoraul03-dot.github.io`).
-4. Cuando el certificado esté listo, activa **Enforce HTTPS**.
+## Dominio propio
 
-## Cambiar textos o precios
-
-Edita `index.html` directamente en GitHub (icono del lápiz) y guarda: la web se actualiza sola en uno o dos minutos.
+Settings → Pages → Custom domain, y en tu registrador crea los registros `A` de GitHub y un `CNAME` `www` hacia `alfonsoraul03-dot.github.io`.

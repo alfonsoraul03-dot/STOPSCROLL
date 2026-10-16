@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>KINETIC Athletic Club | Move like you mean it · Design concept by ER Studio</title>
+  <meta name="description" content="Design concept by ER Studio: a boutique fitness club website for a fictional brand." />
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@500;600&display=swap" />
+  <style>
+    :root { --black: #0B0B0B; --carbon: #151515; --steel: #1F1F1F; --volt: #D4FF3A; --white: #F4F4F0; --grey: #8C8C88; --line: rgba(244, 244, 240, .12); --ease: cubic-bezier(.2, .7, .1, 1); }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    main { overflow-x: hidden; }
+    body { margin: 0; background: var(--black); color: var(--white); font-family: "Barlow", system-ui, sans-serif; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button, input { font: inherit; color: inherit; }
+    button { cursor: pointer; border: 0; background: none; padding: 0; }
+    h1, h2, h3, p, ul { margin: 0; } ul { padding: 0; list-style: none; }
+    :focus-visible { outline: 2px solid var(--volt); outline-offset: 3px; }
+    .anton { font-family: "Anton", Impact, sans-serif; font-weight: 400; text-transform: uppercase; line-height: .9; letter-spacing: .005em; }
+    .cond { font-family: "Barlow Condensed", sans-serif; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; }
+    .pad { padding-left: clamp(1.2rem, 4vw, 3.5rem); padding-right: clamp(1.2rem, 4vw, 3.5rem); }
+    .btn { display: inline-flex; align-items: center; gap: .7rem; padding: 1rem 1.5rem; background: var(--volt); color: var(--black); font-family: "Barlow Condensed", sans-serif; font-weight: 600; font-size: 1.05rem; letter-spacing: .1em; text-transform: uppercase; clip-path: polygon(0 0, 100% 0, 100% 70%, 92% 100%, 0 100%); transition: transform .3s var(--ease), background .3s; }
+    .btn:hover { transform: translateY(-2px); background: var(--white); }
+    .btn--ghost { background: transparent; color: var(--white); box-shadow: inset 0 0 0 1.5px var(--white); clip-path: none; }
+    .btn--ghost:hover { background: var(--white); color: var(--black); }
+
+    .hdr { position: fixed; inset: 0 0 auto; z-index: 40; display: flex; align-items: center; gap: 2rem; padding: 1.1rem clamp(1.2rem, 4vw, 3.5rem); transition: background .4s; }
+    .hdr.is-solid { background: rgba(11, 11, 11, .9); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+    .logo { font-family: "Anton", sans-serif; font-size: 1.7rem; letter-spacing: .04em; display: flex; align-items: center; gap: .5rem; }
+    .logo i { width: 12px; height: 26px; background: var(--volt); transform: skewX(-18deg); }
+    .hdr nav { margin-left: auto; display: flex; gap: 2rem; }
+    .hdr nav a { font-family: "Barlow Condensed", sans-serif; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; font-size: .95rem; color: var(--grey); transition: color .3s; }
+    .hdr nav a:hover { color: var(--volt); }
+    .hdr .btn { padding: .7rem 1.1rem; font-size: .9rem; }
+
+    .hero { position: relative; height: 100svh; min-height: 600px; overflow: hidden; display: grid; align-items: end; }
+    .hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: grayscale(.25) contrast(1.1); animation: punch 1.6s var(--ease) both; }
+    @keyframes punch { from { transform: scale(1.2); filter: grayscale(1) contrast(1.4) brightness(.6); } }
+    .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(11, 11, 11, .9) 0%, rgba(11, 11, 11, .35) 60%, rgba(11, 11, 11, .2)), linear-gradient(0deg, rgba(11, 11, 11, .8), transparent 40%); }
+    .hero__copy { position: relative; z-index: 2; padding-bottom: clamp(3rem, 8vh, 5rem); display: grid; gap: 1.6rem; }
+    .hero h1 { font-size: clamp(4rem, 13vw, 13rem); }
+    .hero h1 span { display: block; overflow: hidden; }
+    .hero h1 span > b { display: inline-block; font-weight: 400; animation: slam .9s var(--ease) both; }
+    .hero h1 span:nth-child(2) > b { animation-delay: .1s; } .hero h1 span:nth-child(3) > b { animation-delay: .2s; color: var(--volt); }
+    @keyframes slam { from { transform: translateY(100%) skewY(8deg); } }
+    .hero__row { display: flex; justify-content: space-between; align-items: flex-end; gap: 2rem; flex-wrap: wrap; }
+    .hero__row p { max-width: 28rem; color: #CFCFC9; font-size: 1.1rem; }
+    .hero__row div { display: flex; gap: .8rem; flex-wrap: wrap; }
+
+    .ticker { background: var(--volt); color: var(--black); overflow: hidden; padding: .9rem 0; transform: rotate(-1.2deg); margin: -1.4rem -2% 0; width: 104%; position: relative; z-index: 3; }
+    .ticker div { display: flex; gap: 2.4rem; width: max-content; animation: tick 22s linear infinite; }
+    .ticker span { font-family: "Anton", sans-serif; font-size: 1.6rem; text-transform: uppercase; white-space: nowrap; }
+    .ticker span::after { content: "✕"; margin-left: 2.4rem; font-size: 1rem; vertical-align: middle; }
+    @keyframes tick { to { transform: translateX(-50%); } }
+
+    .classes { padding-top: clamp(6rem, 12vw, 9rem); padding-bottom: clamp(5rem, 10vw, 8rem); }
+    .sec-head { display: flex; justify-content: space-between; align-items: end; gap: 2rem; flex-wrap: wrap; margin-bottom: 2.6rem; }
+    .sec-head h2 { font-size: clamp(3rem, 7vw, 6.6rem); }
+    .sec-head p { color: var(--grey); max-width: 26rem; }
+    .cgrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+    .ccard { background: var(--black); padding: 2rem 1.6rem; display: grid; gap: 1.2rem; align-content: space-between; min-height: 22rem; position: relative; overflow: hidden; transition: background .4s; }
+    .ccard::before { content: ""; position: absolute; inset: auto 0 0 0; height: 0; background: var(--volt); transition: height .5s var(--ease); z-index: 0; }
+    .ccard:hover::before { height: 100%; }
+    .ccard > * { position: relative; z-index: 1; transition: color .3s; }
+    .ccard:hover > * { color: var(--black); }
+    .ccard b { font-family: "Anton", sans-serif; font-size: 1rem; color: var(--volt); font-weight: 400; }
+    .ccard h3 { font-family: "Anton", sans-serif; font-weight: 400; font-size: 2.4rem; text-transform: uppercase; line-height: .95; }
+    .ccard p { color: var(--grey); font-size: .95rem; }
+    .meter { display: flex; gap: 4px; align-items: center; }
+    .meter i { width: 16px; height: 6px; background: var(--steel); }
+    .meter i.on { background: var(--volt); }
+    .ccard:hover .meter i.on { background: var(--black); }
+    .ccard:hover .meter i { background: rgba(0, 0, 0, .2); }
+    .meter span { margin-left: .5rem; font-family: "Barlow Condensed", sans-serif; font-size: .85rem; letter-spacing: .12em; text-transform: uppercase; }
+
+    .wide { position: relative; height: 70vh; overflow: hidden; }
+    .wide img { width: 100%; height: 100%; object-fit: cover; }
+    .wide p { position: absolute; left: clamp(1.2rem, 4vw, 3.5rem); bottom: 2rem; font-size: clamp(2.6rem, 7vw, 6.4rem); max-width: 14ch; text-shadow: 0 10px 40px rgba(0, 0, 0, .5); }
+
+    .sched { padding-top: clamp(5rem, 10vw, 8rem); padding-bottom: clamp(5rem, 10vw, 8rem); background: var(--carbon); }
+    .days { display: flex; gap: .4rem; overflow-x: auto; scrollbar-width: none; margin-bottom: 1rem; }
+    .days button { flex: 0 0 auto; min-width: 5.2rem; padding: .8rem 1rem; background: var(--steel); display: grid; text-align: center; transition: background .3s, color .3s; }
+    .days button small { font-family: "Barlow Condensed", sans-serif; font-size: .8rem; letter-spacing: .14em; color: var(--grey); }
+    .days button b { font-family: "Anton", sans-serif; font-weight: 400; font-size: 1.5rem; }
+    .days button[aria-selected="true"] { background: var(--volt); color: var(--black); }
+    .days button[aria-selected="true"] small { color: var(--black); }
+    .chips { display: flex; gap: .4rem; flex-wrap: wrap; margin-bottom: 1.6rem; }
+    .chips button { padding: .5rem .9rem; border: 1px solid var(--line); font-family: "Barlow Condensed", sans-serif; letter-spacing: .12em; text-transform: uppercase; font-size: .9rem; color: var(--grey); transition: all .3s; }
+    .chips button[aria-pressed="true"] { border-color: var(--white); color: var(--white); }
+    .slots { display: grid; }
+    .slot { display: grid; grid-template-columns: 6rem 1.4fr 1fr 1fr auto; gap: 1rem; align-items: center; padding: 1.1rem 0; border-top: 1px solid var(--line); animation: in .5s var(--ease) both; }
+    @keyframes in { from { opacity: 0; transform: translateX(-12px); } }
+    .slot time { font-family: "Anton", sans-serif; font-size: 1.6rem; }
+    .slot h3 { font-family: "Barlow Condensed", sans-serif; font-weight: 600; font-size: 1.4rem; letter-spacing: .04em; text-transform: uppercase; }
+    .slot span { color: var(--grey); font-size: .95rem; }
+    .slot .spots.low { color: #FF8A4C; }
+    .slot button { padding: .6rem 1.1rem; border: 1.5px solid var(--white); font-family: "Barlow Condensed", sans-serif; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; transition: all .3s; min-width: 7.5rem; }
+    .slot button:hover { background: var(--white); color: var(--black); }
+    .slot button.is-booked { background: var(--volt); border-color: var(--volt); color: var(--black); }
+    .slot button:disabled { opacity: .35; cursor: not-allowed; }
+    .note { margin-top: 1.4rem; color: var(--grey); font-size: .88rem; }
+
+    .members { padding-top: clamp(5rem, 10vw, 8rem); padding-bottom: clamp(5rem, 10vw, 8rem); }
+    .toggle { display: inline-flex; padding: .3rem; background: var(--steel); }
+    .toggle button { padding: .6rem 1.1rem; font-family: "Barlow Condensed", sans-serif; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--grey); }
+    .toggle button[aria-pressed="true"] { background: var(--white); color: var(--black); }
+    .toggle em { font-style: normal; color: var(--volt); margin-left: .3rem; }
+    .toggle button[aria-pressed="true"] em { color: #4A7A00; }
+    .tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .tier { border: 1px solid var(--line); padding: 2rem; display: grid; gap: 1.2rem; align-content: start; }
+    .tier--hot { background: var(--volt); color: var(--black); border-color: var(--volt); }
+    .tier h3 { font-family: "Anton", sans-serif; font-weight: 400; font-size: 2rem; text-transform: uppercase; }
+    .price { font-family: "Anton", sans-serif; font-size: 4rem; line-height: 1; }
+    .price small { font-family: "Barlow", sans-serif; font-size: 1rem; color: var(--grey); }
+    .tier--hot .price small { color: rgba(0, 0, 0, .6); }
+    .tier ul { display: grid; gap: .5rem; padding-top: 1.2rem; border-top: 1px solid var(--line); }
+    .tier--hot ul { border-color: rgba(0, 0, 0, .15); }
+    .tier li::before { content: "→ "; color: var(--volt); }
+    .tier--hot li::before { color: var(--black); }
+    .tier .btn { justify-self: start; }
+    .tier--hot .btn { background: var(--black); color: var(--volt); }
+
+    .coaches { padding-top: clamp(5rem, 10vw, 8rem); padding-bottom: clamp(5rem, 10vw, 8rem); background: var(--carbon); }
+    .cogrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .coach { position: relative; overflow: hidden; aspect-ratio: 3 / 4; background: var(--steel); }
+    .coach img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.1); transition: filter .6s, transform 1.2s var(--ease); }
+    .coach:hover img, .coach:focus-within img { filter: grayscale(0); transform: scale(1.04); }
+    .coach div { position: absolute; inset: auto 0 0 0; padding: 1.4rem; background: linear-gradient(0deg, rgba(11, 11, 11, .95), rgba(11, 11, 11, 0)); display: grid; gap: .3rem; }
+    .coach h3 { font-family: "Anton", sans-serif; font-weight: 400; font-size: 2rem; text-transform: uppercase; line-height: 1; }
+    .coach .cond { color: var(--volt); font-size: .85rem; }
+    .coach p { color: #CFCFC9; font-size: .92rem; max-height: 0; overflow: hidden; transition: max-height .6s var(--ease); }
+    .coach:hover p, .coach:focus-within p { max-height: 8rem; }
+
+    .cta { position: relative; padding: clamp(6rem, 12vw, 10rem) clamp(1.2rem, 4vw, 3.5rem); text-align: center; overflow: hidden; }
+    .cta h2 { font-size: clamp(3.4rem, 11vw, 11rem); }
+    .cta h2 span { color: var(--volt); }
+    .cta p { color: var(--grey); margin: 1.4rem auto 2rem; max-width: 30rem; }
+    .cta form { display: flex; gap: .6rem; justify-content: center; flex-wrap: wrap; }
+    .cta input { min-width: min(22rem, 100%); padding: 1rem 1.2rem; background: var(--steel); border: 1px solid var(--line); outline: none; }
+    .cta input:focus { border-color: var(--volt); }
+    .cta .msg { display: none; margin-top: 1.2rem; color: var(--volt); }
+    .cta .msg.is-on { display: block; }
+    .ftr { padding: 2.4rem clamp(1.2rem, 4vw, 3.5rem) 5rem; border-top: 1px solid var(--line); color: var(--grey); font-size: .88rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+
+    @media (max-width: 960px) {
+      .hdr nav { display: none; } .hdr .btn { margin-left: auto; }
+      .cgrid { grid-template-columns: 1fr 1fr; }
+      .tiers, .cogrid { grid-template-columns: 1fr; }
+      .coach { aspect-ratio: 4 / 5; }
+      .coach p { max-height: none; }
+      .coach img { filter: none; }
+      .slot { grid-template-columns: 4.5rem 1fr auto; }
+      .slot .coachname, .slot .spots { grid-column: 2; font-size: .85rem; margin-top: -.8rem; }
+      .slot .spots { display: none; }
+      .slot button { grid-row: 1; grid-column: 3; min-width: 0; }
+    }
+    @media (max-width: 560px) { .cgrid { grid-template-columns: 1fr; } .ccard { min-height: 0; } }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } }
+  </style>
+</head>
+<body>
+  <header class="hdr">
+    <a class="logo" href="./"><i></i>KINETIC</a>
+    <nav aria-label="Main"><a href="#classes">Classes</a><a href="#schedule">Schedule</a><a href="#membership">Membership</a><a href="#coaches">Coaches</a></nav>
+    <a class="btn" href="#free">First class free</a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3JkTYSIMBFwy3FWXWC6OIINtfRW/2d5b6276-87ea-4a89-93e3-9da7631ac5e9.webp" alt="Athlete training with battle ropes in a dark gym" />
+      <div class="hero__copy pad">
+        <p class="cond" style="color:var(--volt)">Athletic club · Strength · Conditioning · Boxing</p>
+        <h1 class="anton"><span><b>Move</b></span><span><b>like you</b></span><span><b>mean it.</b></span></h1>
+        <div class="hero__row">
+          <p>Small-group training coached by people who care how you move. 45 minutes. No mirrors to hide behind.</p>
+          <div><a class="btn" href="#schedule">Book a class</a><a class="btn btn--ghost" href="#membership">Memberships</a></div>
+        </div>
+      </div>
+    </section>
+    <div class="ticker" aria-hidden="true"><div><span>Strength</span><span>Conditioning</span><span>Boxing</span><span>Mobility</span><span>Recovery</span><span>Strength</span><span>Conditioning</span><span>Boxing</span><span>Mobility</span><span>Recovery</span></div></div>
+
+    <section class="classes pad" id="classes">
+      <div class="sec-head"><h2 class="anton">Four ways<br />to work.</h2><p>Every class is capped at 14 people, so a coach sees every rep.</p></div>
+      <div class="cgrid">
+        <article class="ccard"><b>01</b><div><h3>Strength</h3><p style="margin-top:.6rem">Barbells, kettlebells and progressive programming that actually makes you stronger.</p></div><div class="meter" aria-label="Intensity 4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><span>Intensity</span></div></article>
+        <article class="ccard"><b>02</b><div><h3>Engine</h3><p style="margin-top:.6rem">Rowers, sleds and intervals that build lungs and leave you buzzing.</p></div><div class="meter" aria-label="Intensity 5 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><span>Intensity</span></div></article>
+        <article class="ccard"><b>03</b><div><h3>Boxing</h3><p style="margin-top:.6rem">Technique first, then pads and bags. Your stress has never had a better exit.</p></div><div class="meter" aria-label="Intensity 4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><span>Intensity</span></div></article>
+        <article class="ccard"><b>04</b><div><h3>Mobility</h3><p style="margin-top:.6rem">Joints that move well, a back that stops complaining, and a calmer head.</p></div><div class="meter" aria-label="Intensity 2 of 5"><i class="on"></i><i class="on"></i><i></i><i></i><i></i><span>Intensity</span></div></article>
+      </div>
+    </section>
+
+    <section class="wide"><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3JkTYSIMBFwy3FWXWC6OIINtfRW/49133a85-838b-429f-a960-f97aa170ca48.webp" alt="Group class doing kettlebell swings together" loading="lazy" /><p class="anton">Stronger together.</p></section>
+
+    <section class="sched pad" id="schedule">
+      <div class="sec-head"><h2 class="anton">This week.</h2><p>Pick a day, filter by class and save your spot.</p></div>
+      <div class="days" role="tablist" aria-label="Day"></div>
+      <div class="chips" role="group" aria-label="Filter classes"><button type="button" aria-pressed="true" data-t="all">All</button><button type="button" aria-pressed="false" data-t="Strength">Strength</button><button type="button" aria-pressed="false" data-t="Engine">Engine</button><button type="button" aria-pressed="false" data-t="Boxing">Boxing</button><button type="button" aria-pressed="false" data-t="Mobility">Mobility</button></div>
+      <div class="slots" aria-live="polite"></div>
+      <p class="note">Design concept: bookings are simulated in your browser. A live site would connect to booking software such as Mindbody or Glofox.</p>
+    </section>
+
+    <section class="members pad" id="membership">
+      <div class="sec-head"><h2 class="anton">Pick your<br />commitment.</h2><div class="toggle" role="group" aria-label="Billing"><button type="button" aria-pressed="true" data-b="m">Monthly</button><button type="button" aria-pressed="false" data-b="y">Yearly <em>−20%</em></button></div></div>
+      <div class="tiers">
+        <article class="tier"><h3>Starter</h3><p class="price" data-m="89" data-y="71">$89<small> / month</small></p><ul><li>8 classes a month</li><li>Open gym, off-peak</li><li>Free intro session</li></ul><a class="btn btn--ghost" href="#free">Choose Starter</a></article>
+        <article class="tier tier--hot"><h3>Unlimited</h3><p class="price" data-m="159" data-y="127">$159<small> / month</small></p><ul><li>Unlimited classes</li><li>Open gym, all hours</li><li>Monthly progress check</li><li>Recovery room access</li></ul><a class="btn" href="#free">Choose Unlimited</a></article>
+        <article class="tier"><h3>Coached</h3><p class="price" data-m="299" data-y="239">$299<small> / month</small></p><ul><li>Everything in Unlimited</li><li>4 personal sessions</li><li>Nutrition coaching</li></ul><a class="btn btn--ghost" href="#free">Choose Coached</a></article>
+      </div>
+    </section>
+
+    <section class="coaches pad" id="coaches">
+      <div class="sec-head"><h2 class="anton">Your coaches.</h2><p>Hover or tap to meet them.</p></div>
+      <div class="cogrid">
+        <article class="coach" tabindex="0"><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3JkTYSIMBFwy3FWXWC6OIINtfRW/25e026cb-68fd-42dd-ad28-001289c1056c.webp" alt="Coach Maya Ortiz" loading="lazy" /><div><span class="cond">Head of strength</span><h3>Maya Ortiz</h3><p>Former collegiate weightlifter. Believes everyone can deadlift their bodyweight, and usually proves it.</p></div></article>
+        <article class="coach" tabindex="0"><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3JkTYSIMBFwy3FWXWC6OIINtfRW/b91913c6-eac2-422e-a547-fd96a1454ddb.webp" alt="Coach Dan Reyes" loading="lazy" /><div><span class="cond">Boxing &amp; conditioning</span><h3>Dan Reyes</h3><p>Twenty years in boxing gyms. Teaches technique like a craftsman and keeps the energy high.</p></div></article>
+        <article class="coach" tabindex="0"><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3JkTYSIMBFwy3FWXWC6OIINtfRW/c82a01ce-7ed9-40ac-beaf-847b459eb702.webp" alt="Coach Lena Park" loading="lazy" /><div><span class="cond">Mobility &amp; recovery</span><h3>Lena Park</h3><p>Physio-trained mobility coach who will fix the shoulder you have been ignoring.</p></div></article>
+      </div>
+    </section>
+
+    <section class="cta" id="free">
+      <h2 class="anton">First class<br /><span>on us.</span></h2>
+      <p>Leave your email and we will send you a guest pass for any class this week.</p>
+      <form novalidate><input type="email" required placeholder="you@email.com" aria-label="Email" autocomplete="email" /><button class="btn" type="submit">Get my pass</button></form>
+      <p class="msg" role="status">Design concept: no email was sent. On a live site, your guest pass would arrive in seconds.</p>
+    </section>
+  </main>
+  <footer class="ftr"><span>KINETIC is a fictional fitness club designed by ER Studio as a website concept.</span><span>Mon–Fri 6am–10pm · Sat–Sun 8am–6pm</span></footer>
+
+  <script>
+    (function () {
+      var hdr = document.querySelector('.hdr');
+      function sc() { hdr.classList.toggle('is-solid', scrollY > 60); } addEventListener('scroll', sc, { passive: true }); sc();
+      var dn = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
+      var types = [['Strength', 'Maya Ortiz'], ['Engine', 'Dan Reyes'], ['Boxing', 'Dan Reyes'], ['Mobility', 'Lena Park']];
+      var times = ['06:00', '07:15', '09:30', '12:15', '17:30', '18:45', '20:00'];
+      var days = document.querySelector('.days'), slots = document.querySelector('.slots'), filter = 'all', cur = 0, booked = {};
+      var schedule = [];
+      for (var d = 0; d < 7; d++) {
+        var date = new Date(); date.setDate(date.getDate() + d);
+        var list = times.map(function (t, i) { var k = types[(i + d) % 4]; var spots = (d * 3 + i * 5) % 13; return { t: t, type: k[0], coach: k[1], spots: spots }; });
+        schedule.push({ date: date, list: list });
+        (function (d, date) {
+          var b = document.createElement('button'); b.type = 'button'; b.setAttribute('role', 'tab'); b.setAttribute('aria-selected', d === 0);
+          b.innerHTML = '<small>' + (d === 0 ? 'TODAY' : dn[date.getDay()]) + '</small><b>' + date.getDate() + '</b>';
+          b.onclick = function () { cur = d; days.querySelectorAll('button').forEach(function (x, j) { x.setAttribute('aria-selected', j === d); }); draw(); };
+          days.appendChild(b);
+        })(d, date);
+      }
+      function draw() {
+        var list = schedule[cur].list.filter(function (s) { return filter === 'all' || s.type === filter; });
+        slots.innerHTML = list.map(function (s, i) {
+          var key = cur + '-' + s.t, isB = booked[key], full = s.spots === 0;
+          return '<div class="slot" style="animation-delay:' + i * .04 + 's"><time>' + s.t + '</time><h3>' + s.type + '</h3><span class="coachname">' + s.coach + '</span><span class="spots' + (s.spots < 4 ? ' low' : '') + '">' + (full ? 'Waitlist only' : s.spots + ' spots left') + '</span><button type="button" data-k="' + key + '" class="' + (isB ? 'is-booked' : '') + '"' + (full && !isB ? ' disabled' : '') + '>' + (isB ? 'Booked ✓' : full ? 'Full' : 'Book') + '</button></div>';
+        }).join('') || '<p class="note">No ' + filter.toLowerCase() + ' classes on this day.</p>';
+      }
+      slots.addEventListener('click', function (e) { var b = e.target.closest('button[data-k]'); if (!b) return; var k = b.getAttribute('data-k'); booked[k] = !booked[k]; draw(); });
+      document.querySelectorAll('.chips button').forEach(function (c) { c.addEventListener('click', function () { filter = c.getAttribute('data-t'); document.querySelectorAll('.chips button').forEach(function (x) { x.setAttribute('aria-pressed', x === c); }); draw(); }); });
+      draw();
+      document.querySelectorAll('.toggle button').forEach(function (t) { t.addEventListener('click', function () { var b = t.getAttribute('data-b'); document.querySelectorAll('.toggle button').forEach(function (x) { x.setAttribute('aria-pressed', x === t); }); document.querySelectorAll('.price').forEach(function (p) { p.innerHTML = '$' + p.getAttribute('data-' + b) + '<small> / month' + (b === 'y' ? ', billed yearly' : '') + '</small>'; }); }); });
+      document.querySelector('.cta form').addEventListener('submit', function (e) { e.preventDefault(); if (!this.reportValidity()) return; document.querySelector('.cta .msg').classList.add('is-on'); });
+    })();
+  </script>
+  <script src="../concept-bar.js"></script>
+</body>
+</html>

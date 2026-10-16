@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hotel Solenne | Positano, Amalfi Coast · Design concept by ER Studio</title>
+  <meta name="description" content="Design concept by ER Studio: a boutique hotel website for a fictional hotel on the Amalfi Coast." />
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Mulish:wght@400;500;600&display=swap" />
+  <style>
+    :root { --cream: #F7F0E6; --sand: #EDE1CF; --terra: #B4593B; --sea: #2F5C6E; --ink: #2B2219; --mute: #85766A; --line: rgba(43, 34, 25, .14); --serif: "Bodoni Moda", Didot, serif; --sans: "Mulish", system-ui, sans-serif; --ease: cubic-bezier(.2, .7, .1, 1); }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--cream); color: var(--ink); font-family: var(--sans); line-height: 1.65; -webkit-font-smoothing: antialiased; }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button, input, select, textarea { font: inherit; color: inherit; }
+    button { cursor: pointer; border: 0; background: none; padding: 0; }
+    h1, h2, h3, p, ul { margin: 0; } ul { padding: 0; list-style: none; }
+    :focus-visible { outline: 2px solid var(--terra); outline-offset: 3px; }
+    .eyebrow { font-size: .72rem; font-weight: 600; letter-spacing: .3em; text-transform: uppercase; color: var(--terra); }
+    .serif { font-family: var(--serif); font-weight: 400; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: .6rem; padding: 1rem 1.6rem; background: var(--ink); color: var(--cream); font-size: .76rem; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; transition: background .4s; }
+    .btn:hover { background: var(--terra); }
+    .btn--line { background: transparent; color: inherit; box-shadow: inset 0 0 0 1px currentColor; }
+    .btn--line:hover { background: var(--ink); color: var(--cream); box-shadow: none; }
+
+    .hdr { position: fixed; inset: 0 0 auto; z-index: 40; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 1.2rem clamp(1.2rem, 4vw, 3.5rem); color: #fff; transition: background .5s, color .5s, padding .5s; }
+    .hdr.is-solid { background: rgba(247, 240, 230, .95); color: var(--ink); padding-top: .7rem; padding-bottom: .7rem; box-shadow: 0 1px 0 var(--line); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+    .hdr nav { display: flex; gap: 2rem; font-size: .74rem; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; }
+    .hdr nav:last-child { justify-content: flex-end; align-items: center; }
+    .logo { font-family: var(--serif); font-size: 1.9rem; letter-spacing: .34em; text-transform: uppercase; padding-left: .34em; }
+    .hdr .btn { padding: .75rem 1.1rem; background: var(--cream); color: var(--ink); }
+    .hdr.is-solid .btn { background: var(--ink); color: var(--cream); }
+
+    .hero { position: relative; height: 100svh; min-height: 620px; overflow: hidden; color: #fff; }
+    .hero > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; animation: zoom 14s var(--ease) both; }
+    @keyframes zoom { from { transform: scale(1.15); } }
+    .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(40, 24, 10, .35), rgba(40, 24, 10, 0) 28%, rgba(40, 24, 10, .05) 55%, rgba(40, 24, 10, .6)); }
+    .hero__copy { position: absolute; z-index: 2; inset: auto 0 9.5rem; text-align: center; display: grid; justify-items: center; gap: 1rem; padding: 0 1.2rem; }
+    .hero__copy .eyebrow { color: #fff; }
+    .hero h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(3rem, 8vw, 8rem); line-height: .98; letter-spacing: -0.02em; animation: up 1.4s .2s var(--ease) both; }
+    .hero h1 em { font-style: italic; }
+    @keyframes up { from { opacity: 0; transform: translateY(40px); } }
+
+    .booker { position: absolute; z-index: 3; left: 50%; bottom: 2.2rem; transform: translateX(-50%); width: min(980px, calc(100% - 2.4rem)); display: grid; grid-template-columns: 1fr 1fr 1fr auto; background: var(--cream); color: var(--ink); box-shadow: 0 30px 60px rgba(0, 0, 0, .25); animation: up 1.2s .6s var(--ease) both; }
+    .booker label { display: grid; gap: .1rem; padding: .9rem 1.4rem; border-right: 1px solid var(--line); cursor: pointer; }
+    .booker small { font-size: .64rem; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; color: var(--mute); }
+    .booker input, .booker select { border: 0; background: transparent; font-family: var(--serif); font-size: 1.15rem; padding: 0; outline: none; width: 100%; }
+    .booker .btn { height: 100%; padding: 0 2rem; }
+
+    .intro { display: grid; grid-template-columns: 1fr 1.3fr; gap: clamp(2rem, 6vw, 6rem); align-items: center; padding: clamp(6rem, 12vw, 10rem) clamp(1.2rem, 5vw, 5rem); }
+    .intro img { aspect-ratio: 4 / 5; object-fit: cover; }
+    .intro h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(2.2rem, 4.4vw, 4.2rem); line-height: 1.08; margin: 1rem 0 1.4rem; }
+    .intro h2 em { color: var(--terra); }
+    .intro p { color: #5E5045; max-width: 34rem; font-size: 1.05rem; }
+    .intro__sig { margin-top: 2rem; font-family: var(--serif); font-style: italic; font-size: 1.4rem; color: var(--sea); }
+
+    .rooms { background: var(--sand); padding: clamp(5rem, 10vw, 8rem) clamp(1.2rem, 5vw, 5rem); }
+    .rooms__head { display: flex; justify-content: space-between; align-items: end; gap: 2rem; flex-wrap: wrap; margin-bottom: 3rem; }
+    .rooms__head h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(2.6rem, 5vw, 4.8rem); line-height: 1; }
+    .rooms__ui { display: grid; grid-template-columns: .8fr 1.4fr; gap: clamp(1.5rem, 4vw, 4rem); align-items: stretch; }
+    .rooms__list { display: grid; align-content: start; }
+    .rooms__list button { text-align: left; padding: 1.4rem 0; border-top: 1px solid var(--line); display: grid; gap: .2rem; transition: padding .5s var(--ease); }
+    .rooms__list button:last-child { border-bottom: 1px solid var(--line); }
+    .rooms__list button b { font-family: var(--serif); font-weight: 400; font-size: clamp(1.6rem, 2.6vw, 2.3rem); line-height: 1.1; color: var(--mute); transition: color .3s; }
+    .rooms__list button span { font-size: .85rem; color: var(--mute); }
+    .rooms__list button[aria-selected="true"] { padding-left: 1.2rem; }
+    .rooms__list button[aria-selected="true"] b { color: var(--ink); }
+    .rooms__list button[aria-selected="true"] b::before { content: "— "; color: var(--terra); }
+    .room { display: none; grid-template-rows: auto auto; gap: 1.4rem; }
+    .room.is-on { display: grid; animation: fade .9s var(--ease); }
+    @keyframes fade { from { opacity: 0; transform: translateY(18px); } }
+    .room__img { position: relative; overflow: hidden; aspect-ratio: 16 / 11; }
+    .room__img img { width: 100%; height: 100%; object-fit: cover; animation: reveal 1.2s var(--ease); }
+    @keyframes reveal { from { clip-path: inset(0 0 0 100%); transform: scale(1.1); } }
+    .room__meta { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1.2rem; }
+    .room__specs { display: flex; gap: 1.8rem; flex-wrap: wrap; font-size: .9rem; }
+    .room__specs span { display: grid; }
+    .room__specs small { font-size: .64rem; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--mute); }
+    .room__price { font-family: var(--serif); font-size: 1.6rem; }
+    .room__price small { font-family: var(--sans); font-size: .8rem; color: var(--mute); }
+
+    .exp { padding: clamp(6rem, 12vw, 10rem) clamp(1.2rem, 5vw, 5rem); }
+    .exp h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(2.6rem, 5vw, 4.8rem); line-height: 1; max-width: 14ch; margin-top: 1rem; }
+    .exp__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; margin-top: 3.4rem; }
+    .exp__card { display: grid; gap: .9rem; }
+    .exp__card:nth-child(even) { margin-top: 4rem; }
+    .exp__card div { overflow: hidden; aspect-ratio: 3 / 4; }
+    .exp__card img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.4s var(--ease); }
+    .exp__card:hover img { transform: scale(1.06); }
+    .exp__card h3 { font-family: var(--serif); font-weight: 400; font-size: 1.5rem; }
+    .exp__card p { font-size: .92rem; color: var(--mute); }
+
+    .dining { position: relative; min-height: 90vh; display: grid; align-items: end; color: #fff; overflow: hidden; }
+    .dining img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .dining::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(30, 18, 8, .75), rgba(30, 18, 8, 0) 60%); }
+    .dining div { position: relative; z-index: 2; padding: clamp(2rem, 6vw, 5rem); display: grid; gap: 1rem; max-width: 46rem; }
+    .dining .eyebrow { color: #F3C9A9; }
+    .dining h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(2.6rem, 5.4vw, 5rem); line-height: 1; }
+    .dining p { color: rgba(255, 255, 255, .85); }
+
+    .visit { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; padding: clamp(5rem, 10vw, 8rem) clamp(1.2rem, 5vw, 5rem); border-bottom: 1px solid var(--line); }
+    .visit h3 { font-family: var(--serif); font-weight: 400; font-size: 1.6rem; margin-bottom: .6rem; }
+    .visit p { color: #5E5045; }
+    .ftr { padding: 3rem clamp(1.2rem, 5vw, 5rem) 5rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; font-size: .85rem; color: var(--mute); }
+    .ftr .logo { color: var(--ink); font-size: 1.4rem; }
+
+    /* booking drawer */
+    .drawer { position: fixed; inset: 0; z-index: 90; display: flex; justify-content: flex-end; visibility: hidden; }
+    .drawer.is-on { visibility: visible; }
+    .drawer__bg { position: absolute; inset: 0; background: rgba(43, 34, 25, .5); opacity: 0; transition: opacity .5s; }
+    .drawer.is-on .drawer__bg { opacity: 1; }
+    .drawer__panel { position: relative; width: min(520px, 100%); height: 100%; overflow-y: auto; background: var(--cream); padding: 2rem clamp(1.2rem, 4vw, 2.4rem) 3rem; transform: translateX(100%); transition: transform .7s var(--ease); display: grid; align-content: start; gap: 1.6rem; }
+    .drawer.is-on .drawer__panel { transform: none; }
+    .drawer__top { display: flex; justify-content: space-between; align-items: center; }
+    .drawer__top h2 { font-family: var(--serif); font-weight: 400; font-size: 2rem; }
+    .drawer__close { width: 2.8rem; height: 2.8rem; box-shadow: inset 0 0 0 1px var(--line); }
+    .dates { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; }
+    .field { display: grid; gap: .3rem; }
+    .field small { font-size: .64rem; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--mute); }
+    .field input, .field select { border: 1px solid var(--line); background: #fff; padding: .8rem .9rem; outline: none; }
+    .field input:focus, .field select:focus { border-color: var(--ink); }
+    .opts { display: grid; gap: .7rem; }
+    .opt { display: grid; grid-template-columns: 84px 1fr auto; gap: 1rem; align-items: center; padding: .6rem; border: 1px solid var(--line); background: #fff; cursor: pointer; transition: border-color .3s; }
+    .opt:has(input:checked) { border-color: var(--ink); box-shadow: inset 0 0 0 1px var(--ink); }
+    .opt { position: relative; } .opt input { position: absolute; opacity: 0; }
+    .opt img { width: 84px; height: 64px; object-fit: cover; }
+    .opt b { font-family: var(--serif); font-weight: 400; font-size: 1.15rem; display: block; }
+    .opt span { font-size: .8rem; color: var(--mute); }
+    .opt em { font-style: normal; font-family: var(--serif); font-size: 1.1rem; white-space: nowrap; }
+    .sum { border-top: 1px solid var(--line); padding-top: 1.2rem; display: grid; gap: .5rem; font-size: .95rem; }
+    .sum div { display: flex; justify-content: space-between; }
+    .sum .total { font-family: var(--serif); font-size: 1.5rem; padding-top: .6rem; border-top: 1px solid var(--line); margin-top: .4rem; }
+    .note { font-size: .82rem; color: var(--mute); }
+    .msg { display: none; padding: 1rem 1.2rem; background: var(--sand); border-left: 2px solid var(--terra); font-size: .92rem; }
+    .msg.is-on { display: block; }
+
+    .rv { opacity: 0; transform: translateY(30px); transition: opacity 1s var(--ease), transform 1.2s var(--ease); }
+    .rv.is-in { opacity: 1; transform: none; }
+
+    @media (max-width: 960px) {
+      .hdr { grid-template-columns: auto 1fr; }
+      .hdr nav:first-child { display: none; }
+      .hdr nav:last-child a:not(.btn) { display: none; }
+      .intro, .rooms__ui { grid-template-columns: 1fr; }
+      .rooms__list { grid-auto-flow: column; grid-auto-columns: max-content; overflow-x: auto; gap: 1.4rem; }
+      .rooms__list button, .rooms__list button:last-child { border: 0; padding: .4rem 0; }
+      .rooms__list button[aria-selected="true"] { padding-left: 0; }
+      .rooms__list button span { display: none; }
+      .exp__grid { grid-template-columns: 1fr 1fr; }
+      .visit { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 700px) {
+      .booker { position: relative; left: auto; bottom: auto; transform: none; width: auto; grid-template-columns: 1fr 1fr; margin: -5rem 1rem 0; animation: none; }
+      .booker label:nth-child(3) { grid-column: 1 / -1; border-top: 1px solid var(--line); }
+      .booker .btn { grid-column: 1 / -1; padding: 1.1rem; }
+      .hero__copy { bottom: 7rem; }
+      .exp__card:nth-child(even) { margin-top: 0; }
+      .logo { font-size: 1.4rem; }
+    }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; } .rv { opacity: 1; transform: none; } }
+  </style>
+</head>
+<body>
+  <header class="hdr">
+    <nav aria-label="Primary"><a href="#rooms">Rooms</a><a href="#experiences">Experiences</a></nav>
+    <a class="logo" href="./">Solenne</a>
+    <nav aria-label="Secondary"><a href="#dining">Dining</a><button class="btn js-book" type="button">Book a stay</button></nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3JkTYSIMBFwy3FWXWC6OIINtfRW/91a6d758-85fa-4ab5-95ec-c80f28e670c0.webp" alt="Hotel terrace with arches and bougainvillea above the sea in Positano" />
+      <div class="hero__copy">
+        <p class="eyebrow">Hotel · Positano · Amalfi Coast</p>
+        <h1>Mornings <em>slower</em><br />than the sea.</h1>
+      </div>
+      <form class="booker js-booker" aria-label="Check availability">
+        <label><small>Arrival</small><input type="date" name="in" required /></label>
+        <label><small>Departure</small><input type="date" name="out" required /></label>
+        <label><small>Guests</small><select name="guests"><option>1 adult</option><option selected>2 adults</option><option>2 adults, 1 child</option><option>3 adults</option></select></label>
+        <button class="btn" type="submit">Check availability</button>
+      </form>
+    </section>
+
+    <section class="intro">
+      <img class="rv" src="https://d2ol7oe51mr4n9.cloudfront.net/user_3JkTYSIMBFwy3FWXWC6OIINtfRW/1569cbb0-ebf5-4887-b065-2cb79c8c563e.webp" alt="Breakfast on a hotel balcony overlooking the sea" loading="lazy" />
+      <div class="rv">
+        <p class="eyebrow">Welcome</p>
+        <h2>Twenty-two rooms, one view, and <em>nowhere</em> you need to be.</h2>
+        <p>Solenne sits halfway between the village and the sky, in a 1920s villa restored stone by stone. Breakfast arrives on your balcony, lemons ripen on the terrace, and the sea changes colour every hour.</p>
+        <p class="intro__sig">— Giulia &amp; Marco, your hosts</p>
+      </div>
+    </section>
+
+    <section class="rooms" id="rooms">
+      <div class="rooms__head">
+        <div><p class="eyebrow">Rooms &amp; suites</p><h2 style="margin-top:1rem">Choose your view.</h2></div>
+        <button class="btn btn--line js-book" type="button">See availability</button>
+      </div>
+      <div class="rooms__ui">
+        <div class="rooms__list" role="tablist" aria-label="Rooms">
+          <button role="tab" aria-selected="true" aria-controls="r1" id="t1"><b>Garden Room</b><span>Citrus garden · 32 m²</span></button>
+          <button role="tab" aria-selected="false" aria-controls="r2" id="t2" tabindex="-1"><b>Suite Marina</b><span>Sea view · 48 m²</span></button>
+          <button role="tab" aria-selected="false" aria-controls="r3" id="t3" tabindex="-1"><b>Grotto Suite</b><span>Private plunge pool · 70 m²</span></button>
+        </div>
+        <div>
+          <article class="room is-on" id="r1" role="tabpanel" aria-labelledby="t1">
+            <div class="room__img"><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3JkTYSIMBFwy3FWXWC6OIINtfRW/ffe5f638-ee5b-4ee4-9975-287f98624b5a.webp" alt="Garden Room with a private patio among citrus trees" loading="lazy" /></div>
+            <div class="room__meta"><div class="room__specs"><span><small>Size</small>32 m²</span><span><small>Bed</small>King</span><span><small>View</small>Lemon garden</span></div><p class="room__price">€480 <small>/ night</small></p><button class="btn js-book" data-room="garden" type="button">Book this room</button></div>
+          </article>
+          <article class="room" id="r2" role="tabpanel" aria-labelledby="t2">
+            <div class="room__img"><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3JkTYSIMBFwy3FWXWC6OIINtfRW/9e94d61d-788d-447c-baa3-233dbe096690.webp" alt="Suite Marina with an arched window over the sea" loading="lazy" /></div>
+            <div class="room__meta"><div class="room__specs"><span><small>Size</small>48 m²</span><span><small>Bed</small>King</span><span><small>View</small>Full sea view</span></div><p class="room__price">€720 <small>/ night</small></p><button class="btn js-book" data-room="marina" type="button">Book this room</button></div>
+          </article>
+          <article class="room" id="r3" role="tabpanel" aria-labelledby="t3">
+            <div class="room__img"><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3JkTYSIMBFwy3FWXWC6OIINtfRW/707e5001-a336-408a-8481-d5462c5ff2b0.webp" alt="Grotto Suite with a candlelit stone plunge pool" loading="lazy" /></div>
+            <div class="room__meta"><div class="room__specs"><span><small>Size</small>70 m²</span><span><small>Bed</small>Super king</span><span><small>Feature</small>Rock plunge pool</span></div><p class="room__price">€1,150 <small>/ night</small></p><button class="btn js-book" data-room="grotto" type="button">Book this room</button></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="exp" id="experiences">
+      <p class="eyebrow">Experiences</p>
+      <h2>The coast, at your own pace.</h2>
+      <div class="exp__grid">
+        <article class="exp__card rv"><div><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3JkTYSIMBFwy3FWXWC6OIINtfRW/2d2a602c-c740-4ec7-a10a-39ce2c847a83.webp" alt="Cliffside pool with white umbrellas" loading="lazy" /></div><h3>The cliff pool</h3><p>Sun loungers, lemon granita and the best view in Positano, from 8 am to sunset.</p></article>
+        <article class="exp__card rv"><div><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3JkTYSIMBFwy3FWXWC6OIINtfRW/707e5001-a336-408a-8481-d5462c5ff2b0.webp" alt="Candlelit stone spa" loading="lazy" /></div><h3>Spa in the rock</h3><p>Treatments with local citrus and sea salt in a vaulted grotto beneath the villa.</p></article>
+        <article class="exp__card rv"><div><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3JkTYSIMBFwy3FWXWC6OIINtfRW/1c0ca732-5206-4b4f-9ff0-5a34530a8ee1.webp" alt="Wooden boat on the Amalfi coast" loading="lazy" /></div><h3>Boat to Capri</h3><p>A private gozzo with skipper, swimming stops and lunch at a hidden cove.</p></article>
+        <article class="exp__card rv"><div><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3JkTYSIMBFwy3FWXWC6OIINtfRW/1569cbb0-ebf5-4887-b065-2cb79c8c563e.webp" alt="Breakfast on a balcony" loading="lazy" /></div><h3>Breakfast, anywhere</h3><p>On your balcony, by the pool or on the terrace, served until noon.</p></article>
+      </div>
+    </section>
+
+    <section class="dining" id="dining">
+      <img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3JkTYSIMBFwy3FWXWC6OIINtfRW/e0b2178a-3f8a-4ea6-8158-55e4c81015d4.webp" alt="Candlelit terrace restaurant above the sea at dusk" loading="lazy" />
+      <div>
+        <p class="eyebrow">La Terrazza</p>
+        <h2>Dinner where the lemon trees end.</h2>
+        <p>A short menu of what the fishermen and farmers bring each morning, cooked simply and served on the terrace as the village lights come on.</p>
+        <a class="btn" href="#visit" style="justify-self:start;margin-top:.6rem;background:var(--cream);color:var(--ink)">Reserve a table</a>
+      </div>
+    </section>
+
+    <section class="visit" id="visit">
+      <div><h3>Getting here</h3><p>75 minutes from Naples airport by private transfer, which we are happy to arrange.</p></div>
+      <div><h3>Season</h3><p>Open from April to October. Winter weeks available for private buy-outs.</p></div>
+      <div><h3>Contact</h3><p>stay@hotelsolenne.example<br />+00 000 000 000</p></div>
+    </section>
+  </main>
+
+  <footer class="ftr"><span class="logo">Solenne</span><span>Hotel Solenne is a fictional hotel designed by ER Studio as a website concept.</span></footer>
+
+  <div class="drawer" aria-hidden="true">
+    <div class="drawer__bg"></div>
+    <div class="drawer__panel" role="dialog" aria-modal="true" aria-labelledby="dt">
+      <div class="drawer__top"><h2 id="dt">Your stay</h2><button class="drawer__close" type="button" aria-label="Close">✕</button></div>
+      <div class="dates">
+        <label class="field"><small>Arrival</small><input type="date" id="din" /></label>
+        <label class="field"><small>Departure</small><input type="date" id="dout" /></label>
+      </div>
+      <label class="field"><small>Guests</small><select id="dguests"><option>1 adult</option><option selected>2 adults</option><option>2 adults, 1 child</option><option>3 adults</option></select></label>
+      <div class="opts" role="radiogroup" aria-label="Room">
+        <label class="opt"><input type="radio" name="room" value="garden" data-rate="480" checked /><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3JkTYSIMBFwy3FWXWC6OIINtfRW/ffe5f638-ee5b-4ee4-9975-287f98624b5a.webp" alt="" /><span><b>Garden Room</b><span>32 m² · Citrus garden</span></span><em>€480</em></label>
+        <label class="opt"><input type="radio" name="room" value="marina" data-rate="720" /><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3JkTYSIMBFwy3FWXWC6OIINtfRW/9e94d61d-788d-447c-baa3-233dbe096690.webp" alt="" /><span><b>Suite Marina</b><span>48 m² · Sea view</span></span><em>€720</em></label>
+        <label class="opt"><input type="radio" name="room" value="grotto" data-rate="1150" /><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3JkTYSIMBFwy3FWXWC6OIINtfRW/707e5001-a336-408a-8481-d5462c5ff2b0.webp" alt="" /><span><b>Grotto Suite</b><span>70 m² · Plunge pool</span></span><em>€1,150</em></label>
+      </div>
+      <div class="sum" aria-live="polite">
+        <div><span id="snights">3 nights × €480</span><span id="ssub">€1,440</span></div>
+        <div><span>City tax (est.)</span><span id="stax">€30</span></div>
+        <div class="total"><span>Total</span><span id="stotal">€1,470</span></div>
+      </div>
+      <button class="btn" type="button" id="dreq">Request reservation</button>
+      <p class="note">Design concept: prices and availability are examples. In a live site this step connects to the hotel's booking engine.</p>
+      <p class="msg" id="dmsg" role="status" tabindex="-1">Thank you. This is a design concept, so no reservation was made and no data was sent.</p>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var hdr = document.querySelector('.hdr');
+      function sc() { hdr.classList.toggle('is-solid', scrollY > 60); }
+      addEventListener('scroll', sc, { passive: true }); sc();
+
+      var io = 'IntersectionObserver' in window ? new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); } }); }, { rootMargin: '0px 0px -8% 0px' }) : null;
+      document.querySelectorAll('.rv').forEach(function (el) { io ? io.observe(el) : el.classList.add('is-in'); });
+
+      var tabs = [].slice.call(document.querySelectorAll('[role="tab"]'));
+      tabs.forEach(function (t, i) {
+        t.addEventListener('click', function () {
+          tabs.forEach(function (x) { var on = x === t; x.setAttribute('aria-selected', on); x.tabIndex = on ? 0 : -1; document.getElementById(x.getAttribute('aria-controls')).classList.toggle('is-on', on); });
+        });
+        t.addEventListener('keydown', function (e) { var d = e.key === 'ArrowDown' || e.key === 'ArrowRight' ? 1 : e.key === 'ArrowUp' || e.key === 'ArrowLeft' ? -1 : 0; if (!d) return; e.preventDefault(); var n = tabs[(i + d + tabs.length) % tabs.length]; n.focus(); n.click(); });
+      });
+
+      var iso = function (d) { return d.toISOString().slice(0, 10); };
+      var base = new Date(); base.setDate(base.getDate() + 30);
+      var out = new Date(base); out.setDate(out.getDate() + 3);
+      var bIn = document.querySelector('.js-booker [name="in"]'), bOut = document.querySelector('.js-booker [name="out"]');
+      var dIn = document.getElementById('din'), dOut = document.getElementById('dout'), dG = document.getElementById('dguests');
+      [bIn, dIn].forEach(function (el) { el.value = iso(base); el.min = iso(new Date()); });
+      [bOut, dOut].forEach(function (el) { el.value = iso(out); el.min = iso(new Date()); });
+
+      var drawer = document.querySelector('.drawer'), last;
+      var fmt = function (n) { return '€' + n.toLocaleString('en-US'); };
+      function calc() {
+        var a = new Date(dIn.value), b = new Date(dOut.value);
+        var n = Math.max(1, Math.round((b - a) / 864e5) || 1);
+        if (b <= a) { var nb = new Date(a); nb.setDate(nb.getDate() + 1); dOut.value = iso(nb); n = 1; }
+        var r = document.querySelector('[name="room"]:checked'), rate = +r.getAttribute('data-rate');
+        var guests = dG.selectedIndex === 0 ? 1 : dG.selectedIndex === 3 ? 3 : 2;
+        var tax = n * guests * 5;
+        document.getElementById('snights').textContent = n + (n === 1 ? ' night' : ' nights') + ' × ' + fmt(rate);
+        document.getElementById('ssub').textContent = fmt(n * rate);
+        document.getElementById('stax').textContent = fmt(tax);
+        document.getElementById('stotal').textContent = fmt(n * rate + tax);
+      }
+      [dIn, dOut, dG].forEach(function (el) { el.addEventListener('change', calc); });
+      document.querySelectorAll('[name="room"]').forEach(function (el) { el.addEventListener('change', calc); });
+      function open(room) {
+        last = document.activeElement;
+        if (room) { var r = document.querySelector('[name="room"][value="' + room + '"]'); if (r) r.checked = true; }
+        document.getElementById('dmsg').classList.remove('is-on');
+        calc(); drawer.classList.add('is-on'); drawer.setAttribute('aria-hidden', 'false'); document.body.style.overflow = 'hidden';
+        setTimeout(function () { drawer.querySelector('.drawer__close').focus(); }, 50);
+      }
+      function close() { drawer.classList.remove('is-on'); drawer.setAttribute('aria-hidden', 'true'); document.body.style.overflow = ''; last && last.focus(); }
+      document.querySelectorAll('.js-book').forEach(function (b) { b.addEventListener('click', function () { open(b.getAttribute('data-room')); }); });
+      document.querySelector('.js-booker').addEventListener('submit', function (e) { e.preventDefault(); dIn.value = bIn.value; dOut.value = bOut.value; dG.selectedIndex = this.guests.selectedIndex; open(); });
+      drawer.querySelector('.drawer__close').addEventListener('click', close);
+      drawer.querySelector('.drawer__bg').addEventListener('click', close);
+      addEventListener('keydown', function (e) { if (e.key === 'Escape' && drawer.classList.contains('is-on')) close(); });
+      document.getElementById('dreq').addEventListener('click', function () { var m = document.getElementById('dmsg'); m.classList.add('is-on'); m.focus(); });
+    })();
+  </script>
+  <script src="../concept-bar.js"></script>
+</body>
+</html>

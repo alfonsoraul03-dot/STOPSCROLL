@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Halden &amp; Vale | International Estates · Design concept by ER Studio</title>
+  <meta name="description" content="Design concept by ER Studio: an international luxury real estate website for a fictional brand." />
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Italiana&family=Jost:wght@300;400;500&display=swap" />
+  <link rel="stylesheet" href="halden.css" />
+</head>
+<body>
+  <header class="hdr">
+    <a class="logo" href="./">Halden <em>&amp;</em> Vale</a>
+    <nav aria-label="Main"><a href="#residences">Residences</a><a href="#destinations">Destinations</a><a href="#office">Private office</a></nav>
+    <a class="line-btn" href="#enquire"><span>Enquire</span></a>
+  </header>
+
+  <main>
+    <section class="hero" aria-label="Featured residences">
+      <div class="slide is-on"><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3JkTYSIMBFwy3FWXWC6OIINtfRW/132e6fe0-46b2-4035-8532-2b4669c6e7c2.webp" alt="Villa Calaterra above the sea in Mallorca" /></div>
+      <div class="slide"><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3JkTYSIMBFwy3FWXWC6OIINtfRW/90b648bb-9f04-4c48-906c-7f0e0fb057c1.webp" alt="Casa Marea in Malibu at blue hour" loading="lazy" /></div>
+      <div class="slide"><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3JkTYSIMBFwy3FWXWC6OIINtfRW/b2ed34f2-ca7c-4836-9946-19bea94a2b4e.webp" alt="The Hudson Penthouse living room" loading="lazy" /></div>
+      <div class="slide"><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3JkTYSIMBFwy3FWXWC6OIINtfRW/3af639c9-2911-43ae-bfc4-823b8f0d7bda.webp" alt="Villa Ombrosa on Lake Como" loading="lazy" /></div>
+      <div class="slide"><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3JkTYSIMBFwy3FWXWC6OIINtfRW/fdd3bb6d-a176-4f81-9167-f802dd77d8c3.webp" alt="Ridge Lodge in the Aspen snow" loading="lazy" /></div>
+      <div class="hero__copy">
+        <p class="eyebrow">International Estates · Private collection</p>
+        <h1>Homes that hold<br />the horizon.</h1>
+        <p>A private collection of exceptional residences across Europe and the Americas, represented with discretion.</p>
+      </div>
+      <div class="hero__ctl">
+        <div class="hero__now"><b>Villa Calaterra</b><span>Mallorca, Spain · €14,800,000</span></div>
+        <a class="line-btn line-btn--light hero__view" href="property.html?p=villa-calaterra">View residence</a>
+        <span class="hero__num" aria-live="polite">01 / 05</span>
+        <div class="hero__arrows"><button class="hero__prev" type="button" aria-label="Previous residence">←</button><button class="hero__next" type="button" aria-label="Next residence">→</button></div>
+      </div>
+      <span class="hero__progress" aria-hidden="true"></span>
+    </section>
+
+    <section class="statement">
+      <div class="statement__meta rv"><p class="eyebrow">Since 1998 · Five offices</p></div>
+      <div class="rv">
+        <h2>We represent fewer homes, <em>so each one</em> receives the attention of a gallery exhibition: architecture photographed at its best hour, buyers introduced in person, every detail handled quietly.</h2>
+        <div class="stats"><div><b>140+</b><span>Residences sold</span></div><div><b>32</b><span>Countries of buyers</span></div><div><b>5</b><span>Private offices</span></div></div>
+      </div>
+    </section>
+
+    <section class="listings" id="residences">
+      <div class="listings__head">
+        <h2>Current residences</h2>
+        <div class="filters" role="group" aria-label="Filter by region">
+          <button type="button" aria-pressed="true" data-f="all">All</button>
+          <button type="button" aria-pressed="false" data-f="europe">Europe</button>
+          <button type="button" aria-pressed="false" data-f="americas">Americas</button>
+        </div>
+      </div>
+      <div class="grid">
+        <a class="card rv" data-region="europe" href="property.html?p=villa-calaterra"><span class="card__img"><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3JkTYSIMBFwy3FWXWC6OIINtfRW/132e6fe0-46b2-4035-8532-2b4669c6e7c2.webp" alt="Villa Calaterra" loading="lazy" /><span class="card__tag">New</span><span class="card__view">View</span></span><span class="card__row"><h3>Villa Calaterra</h3><span class="card__price">€14,800,000</span></span><span class="card__meta">Mallorca, Spain · 6 bedrooms · 1,240 m²</span></a>
+        <a class="card rv" data-region="americas" href="property.html?p=casa-marea"><span class="card__img"><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3JkTYSIMBFwy3FWXWC6OIINtfRW/90b648bb-9f04-4c48-906c-7f0e0fb057c1.webp" alt="Casa Marea" loading="lazy" /><span class="card__view">View</span></span><span class="card__row"><h3>Casa Marea</h3><span class="card__price">$22,500,000</span></span><span class="card__meta">Malibu, California · 5 bedrooms · 890 m²</span></a>
+        <a class="card rv" data-region="americas" href="property.html?p=hudson-penthouse"><span class="card__img"><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3JkTYSIMBFwy3FWXWC6OIINtfRW/b2ed34f2-ca7c-4836-9946-19bea94a2b4e.webp" alt="The Hudson Penthouse" loading="lazy" /><span class="card__view">View</span></span><span class="card__row"><h3>The Hudson Penthouse</h3><span class="card__price">$18,900,000</span></span><span class="card__meta">New York · 4 bedrooms · 610 m²</span></a>
+        <a class="card rv" data-region="europe" href="property.html?p=villa-ombrosa"><span class="card__img"><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3JkTYSIMBFwy3FWXWC6OIINtfRW/3af639c9-2911-43ae-bfc4-823b8f0d7bda.webp" alt="Villa Ombrosa" loading="lazy" /><span class="card__tag">Historic</span><span class="card__view">View</span></span><span class="card__row"><h3>Villa Ombrosa</h3><span class="card__price">€12,400,000</span></span><span class="card__meta">Lake Como, Italy · 8 bedrooms · 1,560 m²</span></a>
+        <a class="card rv" data-region="americas" href="property.html?p=ridge-lodge"><span class="card__img"><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3JkTYSIMBFwy3FWXWC6OIINtfRW/fdd3bb6d-a176-4f81-9167-f802dd77d8c3.webp" alt="Ridge Lodge" loading="lazy" /><span class="card__view">View</span></span><span class="card__row"><h3>Ridge Lodge</h3><span class="card__price">$31,000,000</span></span><span class="card__meta">Aspen, Colorado · 7 bedrooms · 1,120 m²</span></a>
+      </div>
+    </section>
+
+    <section class="dest" id="destinations">
+      <p class="eyebrow">Destinations</p>
+      <ul class="dest__list">
+        <li><a href="property.html?p=villa-calaterra" data-img="https://d2ol7oe51mr4n9.cloudfront.net/user_3JkTYSIMBFwy3FWXWC6OIINtfRW/132e6fe0-46b2-4035-8532-2b4669c6e7c2.webp"><span>Balearic Islands</span><span>Spain · 1 residence</span></a></li>
+        <li><a href="property.html?p=villa-ombrosa" data-img="https://d2ol7oe51mr4n9.cloudfront.net/user_3JkTYSIMBFwy3FWXWC6OIINtfRW/3af639c9-2911-43ae-bfc4-823b8f0d7bda.webp"><span>Lake Como</span><span>Italy · 1 residence</span></a></li>
+        <li><a href="property.html?p=casa-marea" data-img="https://d2ol7oe51mr4n9.cloudfront.net/user_3JkTYSIMBFwy3FWXWC6OIINtfRW/90b648bb-9f04-4c48-906c-7f0e0fb057c1.webp"><span>Malibu</span><span>California · 1 residence</span></a></li>
+        <li><a href="property.html?p=hudson-penthouse" data-img="https://d2ol7oe51mr4n9.cloudfront.net/user_3JkTYSIMBFwy3FWXWC6OIINtfRW/b2ed34f2-ca7c-4836-9946-19bea94a2b4e.webp"><span>Manhattan</span><span>New York · 1 residence</span></a></li>
+        <li><a href="property.html?p=ridge-lodge" data-img="https://d2ol7oe51mr4n9.cloudfront.net/user_3JkTYSIMBFwy3FWXWC6OIINtfRW/fdd3bb6d-a176-4f81-9167-f802dd77d8c3.webp"><span>Aspen</span><span>Colorado · 1 residence</span></a></li>
+      </ul>
+      <div class="dest__float" aria-hidden="true"><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3JkTYSIMBFwy3FWXWC6OIINtfRW/132e6fe0-46b2-4035-8532-2b4669c6e7c2.webp" alt="" /></div>
+    </section>
+
+    <section class="office" id="office">
+      <div class="office__img"><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3JkTYSIMBFwy3FWXWC6OIINtfRW/137e360e-7342-430d-b7a1-365075fc9b76.webp" alt="Sunlit villa living room with arched opening to the sea" loading="lazy" /></div>
+      <div class="office__copy rv">
+        <p class="eyebrow">Private office</p>
+        <h2>Discretion is not a service. It is the standard.</h2>
+        <p>Many of our residences are never publicly listed. Our private office introduces qualified buyers to off-market homes and manages every step, from first viewing to keys.</p>
+        <ul class="office__list">
+          <li><span>i</span>Off-market introductions</li>
+          <li><span>ii</span>Private viewings by appointment</li>
+          <li><span>iii</span>Legal, tax and relocation partners</li>
+        </ul>
+        <a class="line-btn" href="#enquire" style="justify-self:start">Speak to an advisor</a>
+      </div>
+    </section>
+
+    <section class="enquire" id="enquire">
+      <div class="rv">
+        <p class="eyebrow">Enquire</p>
+        <h2 style="margin-top:1rem">Begin a private conversation.</h2>
+        <p>Tell us what you are looking for. An advisor responds personally within one business day.</p>
+      </div>
+      <form class="form rv" data-concept novalidate>
+        <div class="field"><label for="n">Full name</label><input id="n" name="name" autocomplete="name" required /></div>
+        <div class="field"><label for="e">Email</label><input id="e" name="email" type="email" autocomplete="email" required /></div>
+        <div class="field field--full"><label>I am interested in</label>
+          <div class="chips"><label><input type="radio" name="t" value="buy" checked /><span>Buying</span></label><label><input type="radio" name="t" value="sell" /><span>Selling</span></label><label><input type="radio" name="t" value="off" /><span>Off-market access</span></label></div>
+        </div>
+        <div class="field"><label for="r">Region</label><select id="r" name="region"><option>Europe</option><option>Americas</option><option>Anywhere exceptional</option></select></div>
+        <div class="field"><label for="b">Budget</label><select id="b" name="budget"><option>€5M – €10M</option><option>€10M – €20M</option><option>€20M +</option></select></div>
+        <div class="field field--full"><label for="m">Message</label><textarea id="m" name="message" placeholder="The kind of home, the view, the timing…"></textarea></div>
+        <div class="form__foot"><button class="line-btn" type="submit">Send enquiry</button><p class="form__note">Design concept: this form is a demonstration and is not connected to an inbox.</p></div>
+        <p class="form__msg" tabindex="-1" role="status">Thank you. In a live website, this enquiry would go straight to an advisor's inbox or CRM. This concept form does not send any data.</p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="ftr">
+    <div><span class="logo">Halden <em>&amp;</em> Vale</span><p>Exceptional residences, represented with discretion. A fictional brand designed by ER Studio.</p></div>
+    <div><h4>Offices</h4><ul><li>London</li><li>Palma</li><li>Milan</li><li>New York</li><li>Los Angeles</li></ul></div>
+    <div><h4>Explore</h4><ul><li><a href="#residences">Residences</a></li><li><a href="#destinations">Destinations</a></li><li><a href="#office">Private office</a></li></ul></div>
+    <div><h4>Contact</h4><ul><li>private@halden-vale.example</li><li>+00 000 000 000</li></ul></div>
+  </footer>
+
+  <script src="halden.js"></script>
+  <script src="../concept-bar.js"></script>
+</body>
+</html>

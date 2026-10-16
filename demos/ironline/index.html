@@ -20,8 +20,6 @@
     .cond { font-stretch: 75%; font-weight: 800; text-transform: uppercase; letter-spacing: -0.01em; line-height: 0.9; }
     .tag { font-family: "Archivo Narrow", sans-serif; font-size: 0.8rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--safety); }
 
-    .demo-bar { position: fixed; z-index: 100; left: 50%; bottom: 1rem; transform: translateX(-50%); display: flex; gap: 0.8rem; align-items: center; padding: 0.55rem 0.65rem 0.55rem 1rem; border-radius: 999px; background: rgba(255,255,255,0.95); color: #0E1525; font: 500 0.82rem/1 system-ui, sans-serif; box-shadow: 0 10px 30px rgba(0,0,0,0.35); white-space: nowrap; }
-    .demo-bar a { background: #0E1525; color: #fff; text-decoration: none; padding: 0.5rem 0.85rem; border-radius: 999px; }
 
     header { position: absolute; inset: 0 0 auto 0; z-index: 10; display: flex; align-items: center; gap: 2rem; padding: 1.3rem clamp(1.2rem, 5vw, 4rem); }
     .logo { text-decoration: none; font-size: 1.6rem; display: flex; align-items: center; gap: 0.6rem; }
@@ -78,7 +76,6 @@
   </style>
 </head>
 <body>
-  <div class="demo-bar">Demo website · ER Studio <a href="../../">Back</a></div>
 
   <header>
     <a class="logo cond" href="#"><i></i>Ironline</a>
@@ -139,5 +136,6 @@
   </section>
 
   <footer>Ironline Builders is a fictional company created by ER Studio as a website design example.</footer>
+  <script src="../concept-bar.js"></script>
 </body>
 </html>

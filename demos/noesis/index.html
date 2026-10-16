@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Noesis | Document intelligence for operations teams · Design concept by ER Studio</title>
+  <meta name="description" content="Design concept by ER Studio: a website for a fictional AI document intelligence company." />
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" />
+  <style>
+    :root { --paper: #EEEBE3; --card: #F7F5F0; --ink: #13201A; --forest: #1F4D3A; --leaf: #2F7A57; --moss: #8FB59B; --wheat: #E7D7B4; --rust: #B5482A; --soft: #5D6A62; --line: rgba(19, 32, 26, .12); --serif: "Newsreader", Georgia, serif; --sans: "IBM Plex Sans", system-ui, sans-serif; --mono: "IBM Plex Mono", ui-monospace, monospace; --ease: cubic-bezier(.2, .7, .1, 1); }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    button, input, select { font: inherit; color: inherit; }
+    button { cursor: pointer; border: 0; background: none; padding: 0; }
+    h1, h2, h3, p, ul { margin: 0; } ul { padding: 0; list-style: none; }
+    :focus-visible { outline: 2px solid var(--leaf); outline-offset: 3px; }
+    .pad { padding-left: clamp(1.2rem, 4vw, 3.5rem); padding-right: clamp(1.2rem, 4vw, 3.5rem); }
+    .mono { font-family: var(--mono); font-size: .78rem; letter-spacing: .04em; }
+    .kick { font-family: var(--mono); font-size: .76rem; letter-spacing: .08em; text-transform: uppercase; color: var(--leaf); display: inline-flex; align-items: center; gap: .6rem; }
+    .kick::before { content: ""; width: 18px; height: 1px; background: currentColor; }
+    .serif { font-family: var(--serif); font-weight: 400; letter-spacing: -0.02em; }
+    .btn { display: inline-flex; align-items: center; gap: .6rem; padding: .9rem 1.3rem; border-radius: 8px; background: var(--ink); color: var(--paper); font-weight: 500; font-size: .95rem; transition: background .3s; }
+    .btn:hover { background: var(--forest); }
+    .btn--line { background: transparent; color: var(--ink); box-shadow: inset 0 0 0 1px var(--line); }
+    .btn--line:hover { background: var(--card); }
+
+    .hdr { position: sticky; top: 0; z-index: 30; display: flex; align-items: center; gap: 2rem; padding: .9rem clamp(1.2rem, 4vw, 3.5rem); background: rgba(238, 235, 227, .85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+    .logo { display: flex; align-items: center; gap: .6rem; font-family: var(--serif); font-size: 1.5rem; }
+    .logo svg { width: 26px; height: 26px; }
+    .hdr nav { display: flex; gap: 1.8rem; margin-left: auto; font-size: .92rem; color: var(--soft); }
+    .hdr nav a:hover { color: var(--ink); }
+    .hdr .btn { padding: .6rem 1rem; font-size: .88rem; }
+
+    .hero { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center; min-height: calc(100svh - 62px); padding-top: 3rem; padding-bottom: 3rem; }
+    .hero h1 { font-size: clamp(3rem, 6.6vw, 6.6rem); line-height: .98; margin: 1.4rem 0; }
+    .hero h1 em { color: var(--leaf); }
+    .hero p { color: var(--soft); max-width: 31rem; font-size: 1.12rem; }
+    .hero__cta { display: flex; gap: .8rem; flex-wrap: wrap; margin-top: 2rem; }
+    .hero__trust { margin-top: 2.6rem; display: flex; gap: 1.6rem; flex-wrap: wrap; color: var(--soft); }
+    .viz { position: relative; aspect-ratio: 1; border-radius: 24px; overflow: hidden; background: radial-gradient(circle at 60% 40%, #F7F5F0, #E3DED2); box-shadow: inset 0 0 0 1px var(--line); }
+    .viz canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+    .viz__label { position: absolute; left: 1.2rem; bottom: 1.2rem; right: 1.2rem; display: flex; justify-content: space-between; gap: 1rem; color: var(--soft); }
+
+    .demo { padding-top: clamp(5rem, 10vw, 8rem); padding-bottom: clamp(5rem, 10vw, 8rem); background: var(--ink); color: var(--paper); }
+    .demo .kick { color: var(--moss); }
+    .demo__head { display: flex; justify-content: space-between; align-items: end; gap: 2rem; flex-wrap: wrap; margin-bottom: 2.4rem; }
+    .demo__head h2 { font-size: clamp(2.4rem, 5vw, 4.4rem); line-height: 1; margin-top: 1rem; }
+    .samples { display: flex; gap: .4rem; flex-wrap: wrap; }
+    .samples button { padding: .6rem 1rem; border-radius: 8px; box-shadow: inset 0 0 0 1px rgba(238, 235, 227, .2); font-size: .9rem; color: rgba(238, 235, 227, .75); }
+    .samples button[aria-pressed="true"] { background: var(--paper); color: var(--ink); box-shadow: none; }
+    .demo__ui { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+    .doc { position: relative; background: var(--card); color: var(--ink); border-radius: 14px; padding: 2rem; min-height: 30rem; overflow: hidden; font-size: .9rem; }
+    .doc h3 { font-family: var(--serif); font-weight: 500; font-size: 1.6rem; margin-bottom: .2rem; }
+    .doc .mono { color: var(--soft); }
+    .doc table { width: 100%; border-collapse: collapse; margin-top: 1.4rem; font-size: .85rem; }
+    .doc td, .doc th { text-align: left; padding: .5rem 0; border-bottom: 1px solid var(--line); }
+    .doc th { font-weight: 500; color: var(--soft); font-size: .76rem; text-transform: uppercase; letter-spacing: .06em; }
+    .doc td:last-child, .doc th:last-child { text-align: right; }
+    .doc .hl { border-radius: 3px; transition: background .4s, box-shadow .4s; }
+    .doc .hl.is-hit { background: rgba(143, 181, 155, .35); box-shadow: 0 0 0 2px rgba(47, 122, 87, .5); }
+    .doc__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.4rem; }
+    .doc__grid small { display: block; color: var(--soft); font-size: .74rem; text-transform: uppercase; letter-spacing: .06em; }
+    .scan { position: absolute; left: 0; right: 0; top: -10%; height: 70px; background: linear-gradient(180deg, transparent, rgba(47, 122, 87, .18), transparent); border-bottom: 2px solid var(--leaf); opacity: 0; pointer-events: none; }
+    .scan.is-on { animation: scan 1.6s var(--ease) forwards; }
+    @keyframes scan { 0% { top: -10%; opacity: 1; } 90% { opacity: 1; } 100% { top: 100%; opacity: 0; } }
+    .out { background: #0D1712; border-radius: 14px; padding: 1.6rem; display: grid; grid-template-rows: auto 1fr auto; gap: 1rem; box-shadow: inset 0 0 0 1px rgba(238, 235, 227, .1); }
+    .out__top { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+    .out__top .mono { color: var(--moss); }
+    .fields { display: grid; gap: .5rem; align-content: start; }
+    .f { display: grid; grid-template-columns: 9rem 1fr 3.4rem; gap: .8rem; align-items: center; padding: .7rem .8rem; border-radius: 8px; background: rgba(238, 235, 227, .04); font-family: var(--mono); font-size: .82rem; animation: pop .5s var(--ease) both; }
+    @keyframes pop { from { opacity: 0; transform: translateY(8px); } }
+    .f span:first-child { color: rgba(238, 235, 227, .55); }
+    .f b { font-weight: 500; color: var(--paper); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .conf { height: 4px; border-radius: 4px; background: rgba(238, 235, 227, .12); overflow: hidden; position: relative; }
+    .conf i { position: absolute; inset: 0 auto 0 0; background: var(--moss); }
+    .out__empty { color: rgba(238, 235, 227, .45); font-family: var(--mono); font-size: .85rem; align-self: center; text-align: center; }
+    .out__foot { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; }
+    .out__foot .mono { color: rgba(238, 235, 227, .5); }
+    .run { background: var(--moss); color: var(--ink); }
+    .run:hover { background: var(--paper); }
+    .disclaim { margin-top: 1.2rem; color: rgba(238, 235, 227, .5); font-size: .85rem; }
+
+    .how { padding-top: clamp(5rem, 10vw, 8rem); padding-bottom: clamp(5rem, 10vw, 8rem); }
+    .how h2 { font-size: clamp(2.4rem, 5vw, 4.4rem); line-height: 1; margin: 1rem 0 3rem; max-width: 16ch; }
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; counter-reset: s; }
+    .step { background: var(--card); border-radius: 18px; padding: 1.8rem; display: grid; gap: 1rem; box-shadow: inset 0 0 0 1px var(--line); }
+    .step svg { width: 100%; height: 120px; }
+    .step svg .draw { stroke-dasharray: 400; stroke-dashoffset: 400; transition: stroke-dashoffset 2s var(--ease); }
+    .step.is-in svg .draw { stroke-dashoffset: 0; }
+    .step h3 { font-family: var(--serif); font-weight: 500; font-size: 1.6rem; }
+    .step p { color: var(--soft); }
+
+    .uses { padding-bottom: clamp(5rem, 10vw, 8rem); }
+    .uses__box { display: grid; grid-template-columns: .8fr 1.2fr; gap: 2rem; background: var(--wheat); border-radius: 24px; padding: clamp(1.6rem, 4vw, 3.4rem); }
+    .uses__tabs { display: grid; gap: .4rem; align-content: start; }
+    .uses__tabs button { text-align: left; padding: 1rem 1.2rem; border-radius: 12px; font-family: var(--serif); font-size: 1.6rem; color: rgba(19, 32, 26, .5); transition: all .3s; }
+    .uses__tabs button[aria-selected="true"] { background: var(--card); color: var(--ink); }
+    .use { display: none; gap: 1.2rem; align-content: start; }
+    .use.is-on { display: grid; animation: pop .6s var(--ease); }
+    .use h3 { font-family: var(--serif); font-weight: 400; font-size: clamp(1.8rem, 3vw, 2.6rem); line-height: 1.1; }
+    .use ul { display: grid; gap: .6rem; }
+    .use li { display: flex; gap: .8rem; }
+    .use li::before { content: "→"; color: var(--leaf); }
+    .metric { display: flex; gap: 2.4rem; flex-wrap: wrap; padding-top: 1.2rem; border-top: 1px solid rgba(19, 32, 26, .15); }
+    .metric b { display: block; font-family: var(--serif); font-weight: 400; font-size: 2.6rem; line-height: 1; }
+    .metric span { font-size: .85rem; color: var(--soft); }
+
+    .sec { padding-bottom: clamp(5rem, 10vw, 8rem); display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+    .sec div { border-top: 1px solid var(--ink); padding-top: 1rem; display: grid; gap: .4rem; }
+    .sec b { font-family: var(--serif); font-weight: 500; font-size: 1.3rem; }
+    .sec p { color: var(--soft); font-size: .92rem; }
+
+    .cta { margin: 0 clamp(1.2rem, 4vw, 3.5rem) clamp(4rem, 8vw, 6rem); border-radius: 28px; background: var(--forest); color: var(--paper); padding: clamp(2.4rem, 6vw, 5rem); display: grid; grid-template-columns: 1.2fr 1fr; gap: 2rem; align-items: center; }
+    .cta h2 { font-size: clamp(2.4rem, 5vw, 4.4rem); line-height: 1; }
+    .cta form { display: grid; gap: .6rem; }
+    .cta input, .cta select { padding: .9rem 1rem; border-radius: 8px; border: 1px solid rgba(238, 235, 227, .25); background: rgba(238, 235, 227, .08); color: var(--paper); outline: none; color-scheme: dark; }
+    .cta select option { background: var(--forest); }
+    .cta .btn { background: var(--paper); color: var(--ink); justify-content: center; }
+    .cta .msg { display: none; font-size: .9rem; color: var(--wheat); }
+    .cta .msg.is-on { display: block; }
+    .ftr { padding: 2rem clamp(1.2rem, 4vw, 3.5rem) 5rem; border-top: 1px solid var(--line); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; color: var(--soft); font-size: .88rem; }
+
+    @media (max-width: 960px) {
+      .hdr nav { display: none; } .hdr .btn { margin-left: auto; }
+      .hero, .demo__ui, .uses__box, .cta { grid-template-columns: 1fr; }
+      .viz { aspect-ratio: 4 / 3; }
+      .steps { grid-template-columns: 1fr; }
+      .sec { grid-template-columns: 1fr 1fr; }
+      .uses__tabs { grid-auto-flow: column; overflow-x: auto; }
+      .uses__tabs button { font-size: 1.2rem; white-space: nowrap; }
+      .f { grid-template-columns: 7rem 1fr 2.6rem; }
+    }
+    @media (max-width: 520px) { .sec { grid-template-columns: 1fr; } .doc { padding: 1.4rem; } }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; } }
+  </style>
+</head>
+<body>
+  <header class="hdr">
+    <a class="logo" href="./"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="14" fill="none" stroke="#1F4D3A" stroke-width="2"/><circle cx="16" cy="16" r="6" fill="#2F7A57"/><circle cx="25" cy="9" r="2.5" fill="#B5482A"/></svg>Noesis</a>
+    <nav aria-label="Main"><a href="#demo">Product</a><a href="#how">How it works</a><a href="#uses">Use cases</a><a href="#security">Security</a></nav>
+    <a class="btn" href="#contact">Request a demo</a>
+  </header>
+
+  <main>
+    <section class="hero pad">
+      <div>
+        <p class="kick">Document intelligence</p>
+        <h1 class="serif">Your documents,<br /><em>understood.</em></h1>
+        <p>Noesis reads invoices, contracts and delivery notes the way your best analyst would, then sends clean, verified data to the systems you already use.</p>
+        <div class="hero__cta"><a class="btn" href="#demo">Try the live demo ↓</a><a class="btn btn--line" href="#contact">Talk to us</a></div>
+        <div class="hero__trust mono"><span>SOC 2 Type II*</span><span>GDPR-ready*</span><span>99.2% field accuracy*</span></div>
+      </div>
+      <div class="viz" aria-hidden="true"><canvas></canvas><div class="viz__label mono"><span>model.reasoning → 1,284 tokens</span><span>move your cursor</span></div></div>
+    </section>
+
+    <section class="demo pad" id="demo">
+      <div class="demo__head">
+        <div><p class="kick">Interactive demo</p><h2 class="serif">See it read a document.</h2></div>
+        <div class="samples" role="group" aria-label="Sample document"><button type="button" aria-pressed="true" data-s="invoice">Invoice</button><button type="button" aria-pressed="false" data-s="contract">Contract</button><button type="button" aria-pressed="false" data-s="delivery">Delivery note</button></div>
+      </div>
+      <div class="demo__ui">
+        <div class="doc" id="doc"></div>
+        <div class="out">
+          <div class="out__top"><span class="mono" id="file">invoice_0412.pdf</span><span class="mono" id="status">ready</span></div>
+          <div class="fields" id="fields" aria-live="polite"><p class="out__empty">Press “Extract” to process the sample document.</p></div>
+          <div class="out__foot"><span class="mono" id="timer">—</span><button class="btn run" type="button" id="run">Extract fields →</button></div>
+        </div>
+      </div>
+      <p class="disclaim">Simulated demonstration using fictional sample documents. No files are uploaded and no AI model runs in this concept.</p>
+    </section>
+
+    <section class="how pad" id="how">
+      <p class="kick">How it works</p>
+      <h2 class="serif">From paper chaos to clean data in three steps.</h2>
+      <div class="steps">
+        <article class="step"><svg viewBox="0 0 300 120" fill="none" stroke-linecap="round"><rect x="40" y="14" width="70" height="92" rx="6" stroke="#13201A" stroke-width="2" class="draw"/><path d="M54 40h42M54 56h42M54 72h28" stroke="#8FB59B" stroke-width="2" class="draw"/><path d="M130 60h120" stroke="#2F7A57" stroke-width="2" class="draw" stroke-dasharray="4 6"/><circle cx="260" cy="60" r="10" stroke="#B5482A" stroke-width="2" class="draw"/></svg><h3>1. Connect</h3><p>Forward emails, connect a shared drive or use our API. Noesis picks up every new document automatically.</p></article>
+        <article class="step"><svg viewBox="0 0 300 120" fill="none" stroke-linecap="round"><circle cx="150" cy="60" r="40" stroke="#13201A" stroke-width="2" class="draw"/><circle cx="150" cy="60" r="16" stroke="#2F7A57" stroke-width="2" class="draw"/><path d="M60 30l50 18M60 90l50-18M240 30l-50 18M240 90l-50-18" stroke="#8FB59B" stroke-width="2" class="draw"/></svg><h3>2. Understand</h3><p>Our models read layout, language and context, and check every value against your rules and past documents.</p></article>
+        <article class="step"><svg viewBox="0 0 300 120" fill="none" stroke-linecap="round"><path d="M40 90l50-40 40 25 50-45 40 20 40-30" stroke="#2F7A57" stroke-width="2.5" class="draw"/><path d="M40 106h220" stroke="#13201A" stroke-width="2" class="draw"/></svg><h3>3. Deliver</h3><p>Verified data flows into your ERP, accounting or spreadsheets. Anything unusual is flagged for a human.</p></article>
+      </div>
+    </section>
+
+    <section class="uses pad" id="uses">
+      <div class="uses__box">
+        <div class="uses__tabs" role="tablist" aria-label="Use cases">
+          <button role="tab" aria-selected="true" aria-controls="u1" id="ut1">Finance</button>
+          <button role="tab" aria-selected="false" aria-controls="u2" id="ut2" tabindex="-1">Logistics</button>
+          <button role="tab" aria-selected="false" aria-controls="u3" id="ut3" tabindex="-1">Legal</button>
+        </div>
+        <div>
+          <div class="use is-on" id="u1" role="tabpanel" aria-labelledby="ut1"><p class="kick">Accounts payable</p><h3>Close the month without the paper mountain.</h3><ul><li>Invoices matched to purchase orders automatically</li><li>Duplicate and anomaly detection before payment</li><li>Exports to QuickBooks, Xero, NetSuite and SAP</li></ul><div class="metric"><div><b>82%</b><span>less manual entry*</span></div><div><b>3 days</b><span>faster close*</span></div></div></div>
+          <div class="use" id="u2" role="tabpanel" aria-labelledby="ut2"><p class="kick">Operations</p><h3>Every delivery note, checked on arrival.</h3><ul><li>Quantities compared against orders in real time</li><li>Damaged or missing items flagged instantly</li><li>Works with scans, photos and handwriting</li></ul><div class="metric"><div><b>6×</b><span>faster receiving*</span></div><div><b>−40%</b><span>disputes*</span></div></div></div>
+          <div class="use" id="u3" role="tabpanel" aria-labelledby="ut3"><p class="kick">Contracts</p><h3>Know what you signed, clause by clause.</h3><ul><li>Renewal dates, notice periods and penalties extracted</li><li>Risky clauses highlighted for review</li><li>Searchable library of every agreement</li></ul><div class="metric"><div><b>12 min</b><span>per contract review*</span></div><div><b>0</b><span>missed renewals*</span></div></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec pad" id="security">
+      <div><b>Encrypted</b><p>AES-256 at rest, TLS 1.3 in transit.</p></div>
+      <div><b>Your data stays yours</b><p>Never used to train shared models.</p></div>
+      <div><b>Human in the loop</b><p>Low-confidence fields go to review.</p></div>
+      <div><b>Audit trail</b><p>Every change logged and exportable.</p></div>
+    </section>
+
+    <section class="cta" id="contact">
+      <div><p class="kick" style="color:var(--wheat)">Get started</p><h2 class="serif" style="margin-top:1rem">See Noesis on your own documents.</h2></div>
+      <form novalidate>
+        <input type="text" placeholder="Name" required aria-label="Name" autocomplete="name" />
+        <input type="email" placeholder="Work email" required aria-label="Work email" autocomplete="email" />
+        <select aria-label="Monthly documents"><option>Under 1,000 documents / month</option><option>1,000 – 10,000</option><option>10,000 +</option></select>
+        <button class="btn" type="submit">Request a demo</button>
+        <p class="msg" role="status">Design concept: nothing was sent. On a live site this would book a call in your sales calendar.</p>
+      </form>
+    </section>
+  </main>
+  <footer class="ftr"><span>Noesis is a fictional AI company designed by ER Studio as a website concept. * Illustrative figures.</span><span class="mono">v2.4 · status: all systems normal</span></footer>
+
+  <script>
+    (function () {
+      var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      /* network visualisation */
+      var cv = document.querySelector('.viz canvas'), ctx = cv.getContext('2d'), W, H, dpr = Math.min(2, devicePixelRatio || 1), pts = [], mouse = { x: -999, y: -999 };
+      function size() { var r = cv.getBoundingClientRect(); W = r.width; H = r.height; cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0); }
+      size(); addEventListener('resize', size);
+      for (var i = 0; i < 70; i++) pts.push({ x: Math.random(), y: Math.random(), vx: (Math.random() - .5) * .0009, vy: (Math.random() - .5) * .0009, r: Math.random() * 2 + 1.2, c: i % 9 === 0 ? '#B5482A' : i % 3 === 0 ? '#2F7A57' : '#13201A' });
+      cv.parentElement.addEventListener('pointermove', function (e) { var r = cv.getBoundingClientRect(); mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top; });
+      cv.parentElement.addEventListener('pointerleave', function () { mouse.x = mouse.y = -999; });
+      var t = 0;
+      function frame() {
+        t += 1; ctx.clearRect(0, 0, W, H);
+        pts.forEach(function (p) {
+          if (!reduce) { p.x += p.vx; p.y += p.vy; if (p.x < 0 || p.x > 1) p.vx *= -1; if (p.y < 0 || p.y > 1) p.vy *= -1; }
+          var px = p.x * W, py = p.y * H, dx = px - mouse.x, dy = py - mouse.y, d = Math.sqrt(dx * dx + dy * dy);
+          if (d < 120) { p.sx = px + dx / d * (120 - d) * .25; p.sy = py + dy / d * (120 - d) * .25; } else { p.sx = px; p.sy = py; }
+        });
+        for (var a = 0; a < pts.length; a++) for (var b = a + 1; b < pts.length; b++) {
+          var A = pts[a], B = pts[b], dx = A.sx - B.sx, dy = A.sy - B.sy, d = dx * dx + dy * dy;
+          if (d < 9000) { ctx.strokeStyle = 'rgba(31,77,58,' + (1 - d / 9000) * .35 + ')'; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(A.sx, A.sy); ctx.lineTo(B.sx, B.sy); ctx.stroke(); }
+        }
+        pts.forEach(function (p) { ctx.fillStyle = p.c; ctx.beginPath(); ctx.arc(p.sx, p.sy, p.r, 0, 7); ctx.fill(); });
+        var cx = W * .5 + Math.sin(t / 90) * 20, cy = H * .5 + Math.cos(t / 110) * 20;
+        ctx.strokeStyle = 'rgba(47,122,87,.5)'; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.arc(cx, cy, 60 + Math.sin(t / 40) * 6, 0, 7); ctx.stroke();
+        ctx.strokeStyle = 'rgba(181,72,42,.35)'; ctx.beginPath(); ctx.arc(cx, cy, 96 + Math.cos(t / 50) * 8, 0, 7); ctx.stroke();
+        if (!reduce) requestAnimationFrame(frame);
+      }
+      frame();
+
+      /* document demo */
+      var S = {
+        invoice: { file: 'invoice_0412.pdf', html: '<h3>Invoice</h3><p class="mono">Harbor Supply Co. · 18 Dock Street</p><div class="doc__grid"><div><small>Invoice no.</small><span class="hl" data-k="0">INV-0412</span></div><div><small>Date</small><span class="hl" data-k="1">03 Mar 2026</span></div><div><small>Bill to</small><span class="hl" data-k="2">Lumen Retail Ltd.</span></div><div><small>PO number</small><span class="hl" data-k="3">PO-77319</span></div></div><table><tr><th>Item</th><th>Qty</th><th>Amount</th></tr><tr><td>Oak shelving units</td><td>12</td><td>$4,320.00</td></tr><tr><td>Installation</td><td>1</td><td>$680.00</td></tr><tr><td>Freight</td><td>1</td><td>$145.00</td></tr><tr><td><b>Total due</b></td><td></td><td><b class="hl" data-k="4">$5,145.00</b></td></tr></table><p class="mono" style="margin-top:1rem">Payment terms: <span class="hl" data-k="5">Net 30</span></p>',
+          fields: [['invoice_number', 'INV-0412', 99], ['issue_date', '2026-03-03', 98], ['customer', 'Lumen Retail Ltd.', 97], ['po_number', 'PO-77319', 99], ['total_amount', '5145.00 USD', 99], ['payment_terms', 'NET_30', 94]] },
+        contract: { file: 'msa_northwind.pdf', html: '<h3>Master Services Agreement</h3><p class="mono">Between Northwind Studio LLC and Lumen Retail Ltd.</p><div class="doc__grid"><div><small>Effective date</small><span class="hl" data-k="0">1 April 2026</span></div><div><small>Term</small><span class="hl" data-k="1">24 months</span></div></div><p style="margin-top:1.2rem">7.2 Either party may terminate this Agreement by giving <span class="hl" data-k="2">ninety (90) days</span> written notice prior to renewal.</p><p style="margin-top:.8rem">9.1 This Agreement shall <span class="hl" data-k="3">renew automatically</span> for successive twelve-month periods.</p><p style="margin-top:.8rem">11.4 Liability is limited to <span class="hl" data-k="4">fees paid in the prior 12 months</span>.</p><p style="margin-top:.8rem">14.0 Governing law: <span class="hl" data-k="5">State of New York</span>.</p>',
+          fields: [['effective_date', '2026-04-01', 99], ['initial_term', '24 months', 98], ['notice_period', '90 days', 96], ['auto_renewal', 'true · flag for review', 92], ['liability_cap', '12 months of fees', 90], ['governing_law', 'New York, US', 99]] },
+        delivery: { file: 'scan_delivery_88.jpg', html: '<h3>Delivery Note</h3><p class="mono">FastFreight · Route 14 · scanned photo</p><div class="doc__grid"><div><small>Note no.</small><span class="hl" data-k="0">DN-88213</span></div><div><small>Received</small><span class="hl" data-k="1">12/03/26 · 09:42</span></div></div><table><tr><th>Item</th><th>Ordered</th><th>Delivered</th></tr><tr><td>Ceramic vases</td><td>40</td><td class="hl" data-k="2">38</td></tr><tr><td>Linen throws</td><td>25</td><td>25</td></tr><tr><td>Candles (box)</td><td>60</td><td>60</td></tr></table><p style="margin-top:1rem;font-style:italic">Driver note: <span class="hl" data-k="3">"2 vases broken in transit"</span></p><p class="mono" style="margin-top:.8rem">Signed: <span class="hl" data-k="4">M. Chen</span></p>',
+          fields: [['note_number', 'DN-88213', 99], ['received_at', '2026-03-12T09:42', 95], ['quantity_mismatch', 'Ceramic vases −2', 97], ['damage_reported', 'true · 2 units', 93], ['signed_by', 'M. Chen', 88], ['action', 'Open claim with carrier', 91]] }
+      };
+      var cur = 'invoice', running = false;
+      var doc = document.getElementById('doc'), fields = document.getElementById('fields'), status = document.getElementById('status'), timer = document.getElementById('timer'), file = document.getElementById('file'), run = document.getElementById('run');
+      function load(k) { cur = k; doc.innerHTML = S[k].html + '<div class="scan"></div>'; file.textContent = S[k].file; status.textContent = 'ready'; timer.textContent = '—'; fields.innerHTML = '<p class="out__empty">Press “Extract” to process the sample document.</p>'; run.textContent = 'Extract fields →'; }
+      document.querySelectorAll('.samples button').forEach(function (b) { b.addEventListener('click', function () { if (running) return; document.querySelectorAll('.samples button').forEach(function (x) { x.setAttribute('aria-pressed', x === b); }); load(b.getAttribute('data-s')); }); });
+      run.addEventListener('click', function () {
+        if (running) return; running = true; load(cur);
+        fields.innerHTML = ''; status.textContent = 'reading…';
+        doc.querySelector('.scan').classList.add('is-on');
+        var t0 = performance.now();
+        S[cur].fields.forEach(function (f, i) {
+          setTimeout(function () {
+            var hl = doc.querySelector('.hl[data-k="' + i + '"]'); if (hl) hl.classList.add('is-hit');
+            fields.insertAdjacentHTML('beforeend', '<div class="f"><span>' + f[0] + '</span><b>' + f[1] + '</b><span class="conf" title="' + f[2] + '% confidence"><i style="width:' + f[2] + '%"></i></span></div>');
+            status.textContent = 'extracting ' + (i + 1) + '/' + S[cur].fields.length;
+            if (i === S[cur].fields.length - 1) { status.textContent = 'verified ✓'; timer.textContent = S[cur].fields.length + ' fields · ' + ((performance.now() - t0) / 2400).toFixed(1) + 's (simulated)'; run.textContent = 'Run again ↻'; running = false; }
+          }, reduce ? 0 : 500 + i * 320);
+        });
+      });
+      load('invoice');
+
+      /* steps reveal */
+      var io = 'IntersectionObserver' in window ? new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); } }); }, { threshold: .3 }) : null;
+      document.querySelectorAll('.step').forEach(function (s) { io ? io.observe(s) : s.classList.add('is-in'); });
+
+      /* tabs */
+      var tabs = [].slice.call(document.querySelectorAll('.uses__tabs [role="tab"]'));
+      function sel(t) { tabs.forEach(function (x) { var on = x === t; x.setAttribute('aria-selected', on); x.tabIndex = on ? 0 : -1; document.getElementById(x.getAttribute('aria-controls')).classList.toggle('is-on', on); }); }
+      tabs.forEach(function (t, i) { t.addEventListener('click', function () { sel(t); }); t.addEventListener('keydown', function (e) { var d = /Right|Down/.test(e.key) ? 1 : /Left|Up/.test(e.key) ? -1 : 0; if (!d) return; e.preventDefault(); var n = tabs[(i + d + 3) % 3]; n.focus(); sel(n); }); });
+      document.querySelector('.cta form').addEventListener('submit', function (e) { e.preventDefault(); if (!this.reportValidity()) return; this.querySelector('.msg').classList.add('is-on'); });
+    })();
+  </script>
+  <script src="../concept-bar.js"></script>
+</body>
+</html>
